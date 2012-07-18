@@ -1,0 +1,11 @@
+﻿<%--Default skin--%>
+<%--Label--%>
+<asp:Label runat="server"  Font-Size="10" Font-Names="Tohoma"/>
+<%--Button--%>
+<asp:Button runat="server" Font-Size="10" Font-Names="Tohoma" />
+<%--TextBox--%>
+<asp:TextBox runat="server" Font-Size="10" Font-Names="Tohoma" />
+<%--Dropdownlist--%>
+<asp:DropDownList runat="server" Font-Size="10" Font-Names="Tohoma" />
+<%--RaidoButtonList--%>
+<asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tohoma" />

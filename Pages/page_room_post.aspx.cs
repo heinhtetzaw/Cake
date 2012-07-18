@@ -9,6 +9,10 @@ public partial class Pages_page_room_post : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (IsPostBack) return;
+    }
+    protected void btn_search_Click(object sender, EventArgs e)
+    {
+        
     }
 }

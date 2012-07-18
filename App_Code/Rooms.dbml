@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="cake_wave" Class="RoomsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\cake_wave.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="cake_waveConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.room" Member="rooms">
-    <Type Name="room">
+  <Table Name="dbo.flat_room" Member="flat_rooms">
+    <Type Name="flat_room">
       <Column Name="room_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="available_type" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
       <Column Name="postal_code" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
@@ -15,6 +15,28 @@
       <Column Name="post_on" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="view_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="title" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.flat_room_mrt" Member="flat_room_mrts">
+    <Type Name="flat_room_mrt">
+      <Column Name="room_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mrt_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.flat_mrt" Member="flat_mrts">
+    <Type Name="flat_mrt">
+      <Column Name="mrt_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mrt_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="line_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.flat_line" Member="flat_lines">
+    <Type Name="flat_line">
+      <Column Name="line_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="line_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

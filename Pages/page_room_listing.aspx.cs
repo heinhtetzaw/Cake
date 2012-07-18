@@ -11,7 +11,7 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
     {
         if (IsPostBack) return;
         RoomsDataContext _roomsDataContext = new RoomsDataContext();
-        List<room> rooms=  (from c in _roomsDataContext.rooms   select c).ToList();
+        List<flat_room> rooms=  (from c in _roomsDataContext.flat_rooms   select c).ToList();
         gridview_rooms_list.DataSource = rooms;
         gridview_rooms_list.DataBind();
     }

@@ -29,9 +29,18 @@ public partial class RoomsDataContext : System.Data.Linq.DataContext
 	
   #region Extensibility Method Definitions
   partial void OnCreated();
-  partial void Insertroom(room instance);
-  partial void Updateroom(room instance);
-  partial void Deleteroom(room instance);
+  partial void Insertflat_room(flat_room instance);
+  partial void Updateflat_room(flat_room instance);
+  partial void Deleteflat_room(flat_room instance);
+  partial void Insertflat_room_mrt(flat_room_mrt instance);
+  partial void Updateflat_room_mrt(flat_room_mrt instance);
+  partial void Deleteflat_room_mrt(flat_room_mrt instance);
+  partial void Insertflat_mrt(flat_mrt instance);
+  partial void Updateflat_mrt(flat_mrt instance);
+  partial void Deleteflat_mrt(flat_mrt instance);
+  partial void Insertflat_line(flat_line instance);
+  partial void Updateflat_line(flat_line instance);
+  partial void Deleteflat_line(flat_line instance);
   #endregion
 	
 	public RoomsDataContext() : 
@@ -64,17 +73,41 @@ public partial class RoomsDataContext : System.Data.Linq.DataContext
 		OnCreated();
 	}
 	
-	public System.Data.Linq.Table<room> rooms
+	public System.Data.Linq.Table<flat_room> flat_rooms
 	{
 		get
 		{
-			return this.GetTable<room>();
+			return this.GetTable<flat_room>();
+		}
+	}
+	
+	public System.Data.Linq.Table<flat_room_mrt> flat_room_mrts
+	{
+		get
+		{
+			return this.GetTable<flat_room_mrt>();
+		}
+	}
+	
+	public System.Data.Linq.Table<flat_mrt> flat_mrts
+	{
+		get
+		{
+			return this.GetTable<flat_mrt>();
+		}
+	}
+	
+	public System.Data.Linq.Table<flat_line> flat_lines
+	{
+		get
+		{
+			return this.GetTable<flat_line>();
 		}
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.room")]
-public partial class room : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.flat_room")]
+public partial class flat_room : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -104,6 +137,8 @@ public partial class room : INotifyPropertyChanging, INotifyPropertyChanged
 	private System.Nullable<int> _view_count;
 	
 	private string _title;
+	
+	private string _username;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -135,9 +170,11 @@ public partial class room : INotifyPropertyChanging, INotifyPropertyChanged
     partial void Onview_countChanged();
     partial void OntitleChanging(string value);
     partial void OntitleChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
     #endregion
 	
-	public room()
+	public flat_room()
 	{
 		OnCreated();
 	}
@@ -398,6 +435,356 @@ public partial class room : INotifyPropertyChanging, INotifyPropertyChanged
 				this._title = value;
 				this.SendPropertyChanged("title");
 				this.OntitleChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(100)")]
+	public string username
+	{
+		get
+		{
+			return this._username;
+		}
+		set
+		{
+			if ((this._username != value))
+			{
+				this.OnusernameChanging(value);
+				this.SendPropertyChanging();
+				this._username = value;
+				this.SendPropertyChanged("username");
+				this.OnusernameChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.flat_room_mrt")]
+public partial class flat_room_mrt : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private string _room_id;
+	
+	private string _mrt_id;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onroom_idChanging(string value);
+    partial void Onroom_idChanged();
+    partial void Onmrt_idChanging(string value);
+    partial void Onmrt_idChanged();
+    #endregion
+	
+	public flat_room_mrt()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_room_id", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	public string room_id
+	{
+		get
+		{
+			return this._room_id;
+		}
+		set
+		{
+			if ((this._room_id != value))
+			{
+				this.Onroom_idChanging(value);
+				this.SendPropertyChanging();
+				this._room_id = value;
+				this.SendPropertyChanged("room_id");
+				this.Onroom_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt_id", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	public string mrt_id
+	{
+		get
+		{
+			return this._mrt_id;
+		}
+		set
+		{
+			if ((this._mrt_id != value))
+			{
+				this.Onmrt_idChanging(value);
+				this.SendPropertyChanging();
+				this._mrt_id = value;
+				this.SendPropertyChanged("mrt_id");
+				this.Onmrt_idChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.flat_mrt")]
+public partial class flat_mrt : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private string _mrt_id;
+	
+	private string _mrt_name;
+	
+	private string _line_id;
+	
+	private string _description;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onmrt_idChanging(string value);
+    partial void Onmrt_idChanged();
+    partial void Onmrt_nameChanging(string value);
+    partial void Onmrt_nameChanged();
+    partial void Online_idChanging(string value);
+    partial void Online_idChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    #endregion
+	
+	public flat_mrt()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt_id", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	public string mrt_id
+	{
+		get
+		{
+			return this._mrt_id;
+		}
+		set
+		{
+			if ((this._mrt_id != value))
+			{
+				this.Onmrt_idChanging(value);
+				this.SendPropertyChanging();
+				this._mrt_id = value;
+				this.SendPropertyChanged("mrt_id");
+				this.Onmrt_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string mrt_name
+	{
+		get
+		{
+			return this._mrt_name;
+		}
+		set
+		{
+			if ((this._mrt_name != value))
+			{
+				this.Onmrt_nameChanging(value);
+				this.SendPropertyChanging();
+				this._mrt_name = value;
+				this.SendPropertyChanged("mrt_name");
+				this.Onmrt_nameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_line_id", DbType="VarChar(50)")]
+	public string line_id
+	{
+		get
+		{
+			return this._line_id;
+		}
+		set
+		{
+			if ((this._line_id != value))
+			{
+				this.Online_idChanging(value);
+				this.SendPropertyChanging();
+				this._line_id = value;
+				this.SendPropertyChanged("line_id");
+				this.Online_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(1000)")]
+	public string description
+	{
+		get
+		{
+			return this._description;
+		}
+		set
+		{
+			if ((this._description != value))
+			{
+				this.OndescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._description = value;
+				this.SendPropertyChanged("description");
+				this.OndescriptionChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.flat_line")]
+public partial class flat_line : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private string _line_id;
+	
+	private string _line_name;
+	
+	private string _description;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Online_idChanging(string value);
+    partial void Online_idChanged();
+    partial void Online_nameChanging(string value);
+    partial void Online_nameChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    #endregion
+	
+	public flat_line()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_line_id", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	public string line_id
+	{
+		get
+		{
+			return this._line_id;
+		}
+		set
+		{
+			if ((this._line_id != value))
+			{
+				this.Online_idChanging(value);
+				this.SendPropertyChanging();
+				this._line_id = value;
+				this.SendPropertyChanged("line_id");
+				this.Online_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_line_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string line_name
+	{
+		get
+		{
+			return this._line_name;
+		}
+		set
+		{
+			if ((this._line_name != value))
+			{
+				this.Online_nameChanging(value);
+				this.SendPropertyChanging();
+				this._line_name = value;
+				this.SendPropertyChanged("line_name");
+				this.Online_nameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(200)")]
+	public string description
+	{
+		get
+		{
+			return this._description;
+		}
+		set
+		{
+			if ((this._description != value))
+			{
+				this.OndescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._description = value;
+				this.SendPropertyChanged("description");
+				this.OndescriptionChanged();
 			}
 		}
 	}

@@ -26,7 +26,8 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="tb_mobile" MaxLength="8" Width="70px"></asp:TextBox>
-                        <asp:LinkButton runat="server" ID="lbtn_get_info" Text="Lazy to retype? Get your last post here." />
+                        <asp:LinkButton runat="server" ID="lbtn_get_info" 
+                            Text="Lazy to retype? Get your last post here." onclick="lbtn_get_info_Click" />
                         <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" runat="server"
                             FilterType="Numbers" TargetControlID="tb_mobile" ValidChars="Numbers">
                         </ajaxToolkit:FilteredTextBoxExtender>

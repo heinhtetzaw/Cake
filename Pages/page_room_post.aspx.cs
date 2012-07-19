@@ -11,7 +11,8 @@ public partial class Pages_page_room_post : System.Web.UI.Page
     {
         if (IsPostBack) return;
     }
-    protected void btn_search_Click(object sender, EventArgs e)
+ 
+    protected void lbtn_get_info_Click(object sender, EventArgs e)
     {
         
     }

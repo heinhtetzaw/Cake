@@ -18,6 +18,25 @@
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
+        <asp:UpdateProgress runat="server" ID="update_progress_master">
+        <ProgressTemplate>
+            <asp:Panel runat="server" ID="panel1" CssClass="panel_progress_overlay" >
+                <asp:Panel runat="server" ID="panel" CssClass="panel_progress">
+                    <table style="width: 100%; height: 100%;">
+                        <tr align="center">
+                            <td valign="middle" align="right" style="width: 30%">
+                                <img src="../Images/loadingAnimation.gif" alt="Loading"
+                                    width="32px" height="32px" />
+                            </td>
+                            <td valign="middle" align="left" style="width: 70%">
+                                <asp:Label runat="server" ID="lbl_updating" Text="Processing, Please wait...." />
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </asp:Panel>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
     </div>
     </form>
 </body>

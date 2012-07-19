@@ -37,4 +37,28 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
         gridview_rooms_list.DataSource =Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue,ddl_roomate.SelectedValue) ;
         gridview_rooms_list.DataBind();
     }
+
+    protected void gridview_rooms_list_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "go_detail")
+        {
+            string room_id=e.CommandArgument.ToString();
+            if (Flat_Helper.Update_View_Count(room_id))
+            {
+                filtered_flat_room _room = Flat_Helper.Get_Flat_Room(room_id);
+                lbl_title.Text = _room.title;
+                lbl_available_on.Text = _room.available.Value.ToString("dd/MM/yyyy");
+                lbl_price.Text = _room.price.ToString() + " S$";
+                lbl_postal_code.Text = _room.postal_code;
+                lbl_description.Text = _room.description;
+                lbl_nearest_mrt.Text = String.Format("{0}, {1}, {2}", _room.mrt1_name, _room.mrt2_name, _room.mrt3_name);
+                panel_record.Visible = true;
+            }
+        }
+    }
+    protected void btn_close_Click(object sender, EventArgs e)
+    {
+        panel_record.Visible = false;
+    }
+
 }

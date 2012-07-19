@@ -16,7 +16,7 @@
                     </td>
                     <td>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="watermark_email" runat="server" TargetControlID="tb_email"
-                            WatermarkText="Please enter.">
+                            WatermarkText="Please enter" WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
                     </td>
                 </tr>
@@ -31,7 +31,7 @@
                             FilterType="Numbers" TargetControlID="tb_mobile" ValidChars="Numbers">
                         </ajaxToolkit:FilteredTextBoxExtender>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="watermark_mobile" runat="server" TargetControlID="tb_mobile"
-                            WatermarkText="8 digits">
+                            WatermarkText="8 digits"  WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
                     </td>
                     <td>
@@ -43,8 +43,8 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="tb_price" Width="60px"/>
-                        <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" TargetControlID="tb_price" WatermarkText="350">
-                        </ajaxToolkit:TextBoxWatermarkExtender>
+                        <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" TargetControlID="tb_price" WatermarkText="350" WatermarkCssClass="watermarked">
+                        </ajaxToolkit:TextBoxWatermarkExtender  >
                         <asp:Label runat="server" ID="Label1" Text="S$"></asp:Label>
                     </td>
                     <td>
@@ -74,7 +74,7 @@
                             runat="server" TargetControlID="tb_available" TodaysDateFormat="dd/MM/yyyyy">
                         </ajaxToolkit:CalendarExtender>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="watermark_available" runat="server" TargetControlID="tb_available"
-                            WatermarkText="dd/MM/yyyy">
+                            WatermarkText="dd/MM/yyyy"  WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
                     </td>
                     <td>
@@ -100,7 +100,7 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="tb_postal_code" Width="80px"></asp:TextBox><ajaxToolkit:TextBoxWatermarkExtender
-                            ID="watermark_postal_code" runat="server" TargetControlID="tb_postal_code" WatermarkText="310205">
+                            ID="watermark_postal_code" runat="server" TargetControlID="tb_postal_code" WatermarkText="6 digits"  WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
                     </td>
                     <td>
@@ -123,7 +123,7 @@
                     <td>
                         <asp:TextBox runat="server" ID="tb_description" Height="150px" Width="400px" TextMode="MultiLine"></asp:TextBox>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server"
-                            TargetControlID="tb_description" WatermarkText="Please tell more about your adv.">
+                            TargetControlID="tb_description" WatermarkText="Please tell more about your adv."  WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
                     </td>
                     <td>
@@ -136,7 +136,7 @@
                     <td>
                         <asp:TextBox runat="server" ID="tb_title" Width="400px" />
                         <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server"
-                            TargetControlID="tb_title" WatermarkText="Available for Male Roommate @ Toa Payoh, 330 S$">
+                            TargetControlID="tb_title" WatermarkText="Available for Male Roommate @ Toa Payoh, 330 S$"  WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
                     </td>
                     <td>

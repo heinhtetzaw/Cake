@@ -1,11 +1,60 @@
 ﻿
+/*Main Body Frame*/
+.main_body_back_frame
+{
+    background-color: White;
+    margin: auto;
+}
+
+/*Div*/
+.HighLightBox
+{
+    background-color: #88DD88;
+    width: 990px;
+}
+.WorkingBox
+{
+    background-color: #FFFFFF;
+    width: 990px;
+}
+.HeadBox
+{
+    width: 1000px;
+    background-color: White;
+    height: 50px;
+    text-align: left;
+}
+.MenuBox
+{
+    background-color:#4387FE;
+    width: 100%;
+    height: 80px;
+    text-align: left;
+    color:White;
+}
+.main_body_frame
+{
+    width: 1000px;
+    background-color: #F5F5F5;
+    border: 1px solid #BEBEBE;
+    min-height: 600px;
+    text-align: left;
+}
+/*Table*/
+
+.Header
+{
+    background-color: #009530;
+    color: White;
+}
 /*Textbox Watermark*/
-.watermarked {
-	width:150px;
-	padding:2px 0 0 2px;
-	border:1px solid #BEBEBE;
-	background-color:#F0F8FF;
-	color:gray;
+.watermarked
+{
+    width: 150px;
+    padding: 2px 0 0 2px;
+    border: 1px solid #BEBEBE;
+    background-color: #F0F8FF;
+    color: gray;
 }
 /*Update Progress Panel*/
 .panel_progress
@@ -29,4 +78,4 @@
     background-image: url(background_transparent.png);
     width: 100%;
     height: 100%;
-}	
+}

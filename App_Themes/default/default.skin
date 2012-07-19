@@ -1,13 +1,19 @@
 ﻿<%--Default skin--%>
 <%--Label--%>
-<asp:Label runat="server"  Font-Size="10" Font-Names="Tohoma"/>
+<asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma"/>
 <%--Button--%>
-<asp:Button runat="server" Font-Size="10" Font-Names="Tohoma" />
+<asp:Button runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--TextBox--%>
-<asp:TextBox runat="server" Font-Size="10" Font-Names="Tohoma" />
+<asp:TextBox runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--Dropdownlist--%>
-<asp:DropDownList runat="server" Font-Size="10" Font-Names="Tohoma" />
+<asp:DropDownList runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--RaidoButtonList--%>
-<asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tohoma" />
+<asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--Linkbutton--%>
-<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tohoma" />
+<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tahoma" />
+<asp:LinkButton runat="server" Font-Size="13" Font-Names="Tahoma" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"/>
+<%--Gridview--%>
+<asp:GridView runat="server"  >
+    <HeaderStyle Font-Size="10" Font-Names="Tahoma" cssClass="Header"/>
+    <RowStyle Font-Size="10" Font-Names="Tahoma"/>
+</asp:GridView>

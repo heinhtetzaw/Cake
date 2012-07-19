@@ -12,7 +12,7 @@
                         <asp:Label runat="server" ID="lbl_lookingfor" Text="Email: "></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_email" Width="130px"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tb_email" Width="170px"></asp:TextBox>
                     </td>
                     <td>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="watermark_email" runat="server" TargetControlID="tb_email"
@@ -71,8 +71,9 @@
                         <asp:Label runat="server" ID="Label4" Text="Available Date:"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_available" /><ajaxToolkit:CalendarExtender ID="CalendarExtender1"
-                            runat="server" TargetControlID="tb_available" TodaysDateFormat="dd/MM/yyyyy">
+                        <asp:TextBox runat="server" ID="tb_available" Width="80px"/><ajaxToolkit:CalendarExtender ID="calendar_ex"
+                            runat="server" TargetControlID="tb_available" 
+                            Format="dd/MM/yyyy">
                         </ajaxToolkit:CalendarExtender>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="watermark_available" runat="server" TargetControlID="tb_available"
                             WatermarkText="dd/MM/yyyy"  WatermarkCssClass="watermarked">
@@ -112,7 +113,10 @@
                         <asp:Label runat="server" ID="lbl_nearest_mrt" Text="Nearest MRT:"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_mrt" />
+                        <asp:DropDownList ID="ddl_mrt1" runat="server" Width="120"></asp:DropDownList>
+                          <asp:DropDownList ID="ddl_mrt2" runat="server" Width="120"></asp:DropDownList>
+                            <asp:DropDownList ID="ddl_mrt3" runat="server" Width="120"></asp:DropDownList>
+
                     </td>
                     <td>
                     </td>
@@ -147,7 +151,7 @@
                     <td>
                     </td>
                     <td>
-                        <asp:Button runat="server" ID="btn_post" Text="Post" />
+                        <asp:Button runat="server" ID="btn_post" Text="Post" onclick="btn_post_Click" />
                     </td>
                     <td>
                     </td>

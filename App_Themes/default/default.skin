@@ -9,3 +9,5 @@
 <asp:DropDownList runat="server" Font-Size="10" Font-Names="Tohoma" />
 <%--RaidoButtonList--%>
 <asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tohoma" />
+<%--Linkbutton--%>
+<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tohoma" />

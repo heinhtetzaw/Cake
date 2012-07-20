@@ -31,14 +31,9 @@ public partial class Pages_page_room_post : System.Web.UI.Page
         Session["current_mobile"] != null)
         {
             tb_email.Text = Session["current_email"].ToString();
-           tb_mobile.Text = Session["current_mobile"].ToString();
-           Fill_On_Form();
+            tb_mobile.Text = Session["current_mobile"].ToString();
+            Fill_On_Form();
         }
-    }
-
-    protected void lbtn_get_info_Click(object sender, EventArgs e)
-    {
-        Fill_On_Form();
     }
     private void Fill_On_Form()
     {
@@ -53,20 +48,22 @@ public partial class Pages_page_room_post : System.Web.UI.Page
     }
     private void Fill_On_Form(filtered_flat_room _flat_room)
     {
-        tb_description.Text = _flat_room.description;
-        tb_postal_code.Text = _flat_room.postal_code;
-        tb_title.Text = _flat_room.title;
-        tb_price.Text = _flat_room.price.ToString();
-        if (_flat_room.available_count.HasValue) ddl_available_person.SelectedValue = _flat_room.available_count.Value.ToString();
-        if (_flat_room.available.HasValue) calendar_ex.SelectedDate = _flat_room.available;
-        rbtn_looking_type.SelectedValue = _flat_room.available_type;
+        if (_flat_room != null)
+        {
+            tb_description.Text = _flat_room.description;
+            tb_postal_code.Text = _flat_room.postal_code;
+            tb_title.Text = _flat_room.title;
+            tb_price.Text = _flat_room.price.ToString();
+            if (_flat_room.available_count.HasValue) ddl_available_person.SelectedValue = _flat_room.available_count.Value.ToString();
+            if (_flat_room.available.HasValue) calendar_ex.SelectedDate = _flat_room.available;
+            rbtn_looking_type.SelectedValue = _flat_room.available_type;
 
-        ddl_mrt1.SelectedValue = _flat_room.mrt1_id;
-        ddl_mrt2.SelectedValue = _flat_room.mrt2_id;
-        ddl_mrt3.SelectedValue = _flat_room.mrt3_id;
-
+            ddl_mrt1.SelectedValue = _flat_room.mrt1_id;
+            ddl_mrt2.SelectedValue = _flat_room.mrt2_id;
+            ddl_mrt3.SelectedValue = _flat_room.mrt3_id;
+        }
     }
-    public flat_room Get_Object_Form()
+    private flat_room Get_Object_Form()
     {
         flat_room _flat_room = new flat_room();
 
@@ -94,12 +91,48 @@ public partial class Pages_page_room_post : System.Web.UI.Page
 
         return _flat_room;
     }
+    private String PopulatePostTitle()
+    {
+        String available_type = "";
+        String nearest_mrt = "";
+        String Price = "";
+        String title = String.Format("Availe for {0}room-mate(s) {1}{2}",
+            available_type,
+            nearest_mrt);
 
+        return title;
+    }
+    private Boolean ValidateBeforePost_Step1()
+    {
+        lbl_email_error.Text = ""; tb_email.CssClass = "OrignalX";
+        lbl_mobile_error.Text = ""; tb_mobile.CssClass = "OrignalX";
 
+        Boolean IsValid = true;
+        if (!CommonHelper.CheckValidEmailFormat(tb_email.Text))
+        {
+            lbl_email_error.Text = "Invalid Email Format.";
+            tb_email.CssClass = "ErrorTextBox";
+            IsValid = false;
+        }
+
+        if (tb_mobile.Text.Trim() == "" || tb_mobile.Text.Length != 8)
+        {
+            lbl_mobile_error.Text = "Invalid, must be 8 digits.";
+            tb_mobile.CssClass = "ErrorTextBox";
+            IsValid = false;
+        }
+        return IsValid;
+    }
+    protected void lbtn_get_info_Click(object sender, EventArgs e)
+    {
+        if (!ValidateBeforePost_Step1()) return;
+        Fill_On_Form();
+    }
     protected void btn_post_Click(object sender, EventArgs e)
     {
         Session["current_email"] = tb_email.Text;
         Session["current_mobile"] = tb_mobile.Text;
+        if (!ValidateBeforePost_Step1()) return;
         Flat_Helper.Update_Flat_Room(Get_Object_Form());
     }
 }

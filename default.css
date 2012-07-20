@@ -62,8 +62,24 @@
     width: 150px;
     padding: 2px 0 0 2px;
     border: 1px solid #BEBEBE;
-    background-color: #F0F8FF;
+    background-color: white;
     color: gray;
+}
+.OrignalX
+{
+    width: 150px;
+    padding: 2px 0 0 2px;
+    border: 1px solid #BEBEBE;
+    background-color: white;
+    color: Black;
+}
+.ErrorTextBox
+{
+    width: 150px;
+    padding: 2px 0 0 2px;
+    border: 1px solid #BEBEBE;
+    background-color: #FFFFB2;
+    color: Black;
 }
 /*Update Progress Panel*/
 .panel_progress

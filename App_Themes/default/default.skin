@@ -1,12 +1,13 @@
 ﻿<%--Default skin--%>
 <%--Label--%>
 <asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma"/>
+<asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma" ForeColor="Red" SkinID="Error" />
 <%--Button--%>
 <asp:Button runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--TextBox--%>
-<asp:TextBox runat="server" Font-Size="10" Font-Names="Tahoma" />
+<asp:TextBox runat="server" Font-Size="10" Font-Names="Tahoma" cssClass="OrignalX"/>
 <%--Dropdownlist--%>
-<asp:DropDownList runat="server" Font-Size="10" Font-Names="Tahoma" />
+<asp:DropDownList runat="server" Font-Size="10" Font-Names="Tahoma" cssClass="OrignalX"/>
 <%--RaidoButtonList--%>
 <asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--Linkbutton--%>

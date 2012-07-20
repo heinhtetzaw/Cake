@@ -91,17 +91,7 @@ public partial class Pages_page_room_post : System.Web.UI.Page
 
         return _flat_room;
     }
-    private String PopulatePostTitle()
-    {
-        String available_type = "";
-        String nearest_mrt = "";
-        String Price = "";
-        String title = String.Format("Availe for {0}room-mate(s) {1}{2}",
-            available_type,
-            nearest_mrt);
-
-        return title;
-    }
+    
     private Boolean ValidateBeforePost_Step1()
     {
         lbl_email_error.Text = ""; tb_email.CssClass = "OrignalX";

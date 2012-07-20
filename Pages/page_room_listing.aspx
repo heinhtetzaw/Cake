@@ -1,15 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Default.master" Theme="default"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/RightDock.master" Theme="default"
     AutoEventWireup="true" CodeFile="page_room_listing.aspx.cs" Inherits="Pages_page_room_listing" %>
 
-<%@ Register src="../Controls/CakeExchangeRate.ascx" tagname="CakeExchangeRate" tagprefix="uc1" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<%@ Register Src="../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate" TagPrefix="uc1" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <asp:UpdatePanel runat="server" ID="panel_main">
         <ContentTemplate>
             <div class="HighLightBox">
-                <table width="100%">
+                <table>
                     <tr>
                         <td>
                             <asp:Label runat="server" ID="lbl_search_mrt1" Text="Nearest MRT:" />
@@ -18,9 +15,7 @@
                             <asp:Label runat="server" ID="Label1" Text="Looking for:" />
                         </td>
                         <td>
-                          
                         </td>
-                        <td rowspan="2" align="right"  style="width:670px"> <uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" /></td>
                     </tr>
                     <tr>
                         <td>
@@ -38,35 +33,40 @@
                             <asp:Button runat="server" ID="btn_search" Text="Search" OnClick="btn_search_Click" />
                         </td>
                     </tr>
-                    
                 </table>
-                 
             </div>
             <div class="WorkingBox">
-
-
                 <asp:GridView ID="gridview_rooms_list" runat="server" AutoGenerateColumns="False"
-                    Width="100%" OnRowCommand="gridview_rooms_list_RowCommand">
+                    CellPadding="5" Width="100%" OnRowCommand="gridview_rooms_list_RowCommand" OnRowDataBound="gridview_rooms_list_RowDataBound"
+                    AllowPaging="True">
                     <Columns>
-                        <asp:TemplateField HeaderText="Post">
+                        <asp:TemplateField HeaderText="Post Title">
                             <ItemTemplate>
-                                <asp:LinkButton ID="lbn_title" runat="server" Text='<%# Bind("title") %>' CommandName="go_detail"
-                                    CommandArgument='<%# Bind("room_id") %>'></asp:LinkButton>
-                                <asp:HiddenField ID="hidden_room_id" runat="server" Value='<%# Bind("room_id") %>' />
-                            </ItemTemplate>
+                                <asp:LinkButton ID="lbn_title" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
+                                    Font-Overline="false" Text='<%# Bind("title") %>' Width="100%" OnClick="lbn_title_Click">
+                                    <asp:HiddenField ID="hidden_room_id" runat="server" Value='<%# Bind("room_id") %>' />
+                                </asp:LinkButton></ItemTemplate>
                             <HeaderStyle HorizontalAlign="Left" />
                             <ItemStyle Width="700px" />
                         </asp:TemplateField>
                         <asp:BoundField DataField="view_count" HeaderText="View">
-                            <HeaderStyle HorizontalAlign="Left" />
-                            <ItemStyle Width="50px" />
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle Width="50px" HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="post_on" DataFormatString="{0:dd/MM/yyyy hh:mm:ss tt}"
-                            HeaderText="Posted On">
+                        <asp:TemplateField HeaderText="Posted On">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("post_on") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# CommonHelper.GetEasyPostTime((DateTime)Eval("post_on")) %>'></asp:Label>
+                            </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Left" />
                             <ItemStyle Width="160px" />
-                        </asp:BoundField>
+                        </asp:TemplateField>
                     </Columns>
+                    <RowStyle Font-Size="10" Font-Names="Tahoma" CssClass="GridRow" />
+                    <AlternatingRowStyle CssClass="GridAlterRow" Font-Size="10" Font-Names="Tahoma" />
+                    <SelectedRowStyle CssClass="GridSelectedRow" />
                 </asp:GridView>
             </div>
             <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay" Visible="false">
@@ -154,4 +154,7 @@
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
+    <uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
 </asp:Content>

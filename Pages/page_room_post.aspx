@@ -1,26 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Default.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/RightDock.master" AutoEventWireup="true"
     CodeFile="page_room_post.aspx.cs" Inherits="Pages_page_room_post" Theme="Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<script language="javascript" type="text/jscript">
-    function PopulateTitle() {
-        var _price = ",S$ " + document.getElementById('<%=this.tb_price.ClientID%>').value;
+    
+<asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
+    <script language="javascript" type="text/jscript">
+        function PopulateTitle() {
+            var _price = ",S$ " + document.getElementById('<%=this.tb_price.ClientID%>').value;
 
-     
-        var _ddl_available_count = document.getElementById('<%=this.ddl_available_person.ClientID%>');
-        var _count = _ddl_available_count.options[_ddl_available_count.selectedIndex].value + " ";
 
-        var _ddl_mrt = document.getElementById('<%=this.ddl_mrt1.ClientID%>');
-        var _mrt_name = "@" + _ddl_mrt.options[_ddl_mrt.selectedIndex].text + " ";
+            var _ddl_available_count = document.getElementById('<%=this.ddl_available_person.ClientID%>');
+            var _count = _ddl_available_count.options[_ddl_available_count.selectedIndex].value + " ";
 
-        document.getElementById('<%=this.tb_title.ClientID%>').value = "Available for " + _count  + "room-mate(s) " + _mrt_name + _price + ".";
-    }
-            </script>
+            var _ddl_mrt = document.getElementById('<%=this.ddl_mrt1.ClientID%>');
+            var _mrt_name = "@" + _ddl_mrt.options[_ddl_mrt.selectedIndex].text + " ";
+
+            document.getElementById('<%=this.tb_title.ClientID%>').value = "Available for " + _count + "room-mate(s) " + _mrt_name + _price + ".";
+        }
+    </script>
     <asp:UpdatePanel runat="server" ID="update_panel_main">
         <ContentTemplate>
-            
             <table>
                 <tr>
                     <td style="width: 120px">
@@ -80,7 +78,8 @@
                         <asp:Label runat="server" ID="Label3" Text="Looking for:"></asp:Label>
                     </td>
                     <td>
-                        <asp:RadioButtonList ID="rbtn_looking_type" runat="server" RepeatDirection="Horizontal" onchange="javascript:PopulateTitle()">
+                        <asp:RadioButtonList ID="rbtn_looking_type" runat="server" RepeatDirection="Horizontal"
+                            onchange="javascript:PopulateTitle()">
                             <asp:ListItem Value="m">Male only</asp:ListItem>
                             <asp:ListItem Value="f">Female only</asp:ListItem>
                             <asp:ListItem Value="b" Selected="True">Male or Female</asp:ListItem>
@@ -167,7 +166,6 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="tb_title" Width="400px" />
-                       
                     </td>
                     <td>
                     </td>
@@ -184,4 +182,7 @@
             </table>
         </ContentTemplate>
     </asp:UpdatePanel>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
+
 </asp:Content>

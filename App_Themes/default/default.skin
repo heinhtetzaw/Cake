@@ -11,10 +11,10 @@
 <%--RaidoButtonList--%>
 <asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--Linkbutton--%>
-<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tahoma" />
+<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tahoma" ForeColor="Black" />
 <asp:LinkButton runat="server" Font-Size="13" Font-Names="Tahoma" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"/>
 <%--Gridview--%>
-<asp:GridView runat="server"  >
+<asp:GridView runat="server" BorderColor="Silver"  >
     <HeaderStyle Font-Size="10" Font-Names="Tahoma" cssClass="Header"/>
-    <RowStyle Font-Size="10" Font-Names="Tahoma"/>
+    
 </asp:GridView>

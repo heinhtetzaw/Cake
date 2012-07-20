@@ -18,9 +18,10 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
     private void Bind_MRT_DDL()
     {
         List<filtered_flat_mrt> mrts = Flat_Helper.Get_MRT_List();
-        filtered_flat_mrt default_mrt = new filtered_flat_mrt() { 
-            mrt_name="All MRT",
-            mrt_id="all"
+        filtered_flat_mrt default_mrt = new filtered_flat_mrt()
+        {
+            mrt_name = "All MRT",
+            mrt_id = "all"
         };
         mrts.Add(default_mrt);
 
@@ -34,7 +35,7 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
     protected void btn_search_Click(object sender, EventArgs e)
     {
 
-        gridview_rooms_list.DataSource =Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue,ddl_roomate.SelectedValue) ;
+        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue, ddl_roomate.SelectedValue);
         gridview_rooms_list.DataBind();
     }
 
@@ -42,7 +43,8 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
     {
         if (e.CommandName == "go_detail")
         {
-            string room_id=e.CommandArgument.ToString();
+            //gridview_rooms_list.SelectedIndex = e.CommandSource.;
+            string room_id = e.CommandArgument.ToString();
             if (Flat_Helper.Update_View_Count(room_id))
             {
                 filtered_flat_room _room = Flat_Helper.Get_Flat_Room(room_id);
@@ -61,4 +63,28 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
         panel_record.Visible = false;
     }
 
+    protected void gridview_rooms_list_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            if (e.Row.RowState == DataControlRowState.Alternate)
+            {
+                e.Row.Attributes.Add("onmouseover", "this.className='GridMouseOverRow'");
+                e.Row.Attributes.Add("onmouseout", "this.className='GridAlterRow'");
+            }
+            else
+            {
+                e.Row.Attributes.Add("onmouseover", "this.className='GridMouseOverRow'");
+                e.Row.Attributes.Add("onmouseout", "this.className='GridRow'");
+            }
+        }
+    }
+
+
+    protected void lbn_title_Click(object sender, EventArgs e)
+    {
+        GridViewRow selectedRow = ((Control)sender).Parent.NamingContainer as GridViewRow;
+        gridview_rooms_list.SelectedIndex = selectedRow.RowIndex;
+
+    }
 }

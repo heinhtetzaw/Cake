@@ -1,0 +1,20 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/Default.master" AutoEventWireup="true"
+    CodeFile="RightDock.master.cs" Inherits="MasterPage_RightDock" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+  
+    <table width="100%" cellspacing="0" border="0">
+        <tr valign="top">
+            <td style="width:850px">
+                <asp:ContentPlaceHolder runat="server" ID="MainPanel">
+                </asp:ContentPlaceHolder>
+            </td>
+            <td style="width:150px" >
+                <asp:ContentPlaceHolder runat="server" ID="RightSidePanel">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

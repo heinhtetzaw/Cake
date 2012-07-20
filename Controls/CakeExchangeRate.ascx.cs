@@ -16,26 +16,16 @@ public partial class Controls_CakeExchangeRate : System.Web.UI.UserControl
     }
     private void ShowExchangeRate()
     {
-       
+
         CurrencyConverter cc = new CurrencyConverter();
 
         cc.AdjustToLocalTime = false;
 
         // Add a proxy here is needed. Example:
         // cc.Proxy = new System.Net.WebProxy("0.0.0.0", 80);
-
-        try
-        {
-            CurrencyData cd = cc.GetCurrencyData("SGD", "MMK");
-            lbl_ExchangeRate.Text = String.Format("1 SGD = {0} Kyats on {1}", cd.Rate.ToString("C0").Replace("$",""), cd.TradeDate.ToString("dd/MM/yyyy hh:mm:ss tt"));
-          
-
-      
-        }
-        catch (Exception ex)
-        {
-         
-        }
+        CurrencyData cd = cc.GetCurrencyData("SGD", "MMK");
+        lbl_ExchangeRate.Text = String.Format("1 SGD = {0} Kyats", cd.Rate.ToString("C0").Replace("$", "").Replace("RM", ""));
+        lbl_checkon.Text = CommonHelper.GetEasyPostTime(cd.TradeDate);
 
     }
 }

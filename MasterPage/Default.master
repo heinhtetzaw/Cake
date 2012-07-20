@@ -38,6 +38,7 @@
                             <asp:LinkButton ID="LinkButton2" runat="server" Text="Post Room Advertisement" 
                                 SkinID="menu" PostBackUrl="~/post" />
                         </td>
+
                     </tr>
                 </table>
             </center>

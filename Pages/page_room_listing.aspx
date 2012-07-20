@@ -1,13 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Default.master" Theme="default"
     AutoEventWireup="true" CodeFile="page_room_listing.aspx.cs" Inherits="Pages_page_room_listing" %>
 
+<%@ Register src="../Controls/CakeExchangeRate.ascx" tagname="CakeExchangeRate" tagprefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:UpdatePanel runat="server" ID="panel_main">
         <ContentTemplate>
             <div class="HighLightBox">
-                <table>
+                <table width="100%">
                     <tr>
                         <td>
                             <asp:Label runat="server" ID="lbl_search_mrt1" Text="Nearest MRT:" />
@@ -16,7 +18,9 @@
                             <asp:Label runat="server" ID="Label1" Text="Looking for:" />
                         </td>
                         <td>
+                          
                         </td>
+                        <td rowspan="2" align="right"  style="width:670px"> <uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" /></td>
                     </tr>
                     <tr>
                         <td>
@@ -34,7 +38,9 @@
                             <asp:Button runat="server" ID="btn_search" Text="Search" OnClick="btn_search_Click" />
                         </td>
                     </tr>
+                    
                 </table>
+                 
             </div>
             <div class="WorkingBox">
 

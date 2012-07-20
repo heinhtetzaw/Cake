@@ -126,7 +126,7 @@
                         <asp:Label runat="server" ID="lbl_description" Text="Description:"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_description" Height="150px" Width="400px" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tb_description" Height="215px" Width="550px" TextMode="MultiLine"></asp:TextBox>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server"
                             TargetControlID="tb_description" WatermarkText="Please tell more about your adv."  WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>

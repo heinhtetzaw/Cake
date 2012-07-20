@@ -27,13 +27,27 @@ public partial class Pages_page_room_post : System.Web.UI.Page
         ddl_mrt3.DataSource = mrts;
         ddl_mrt3.DataBind();
 
-
+        if (Session["current_email"] != null &&
+        Session["current_mobile"] != null)
+        {
+            tb_email.Text = Session["current_email"].ToString();
+           tb_mobile.Text = Session["current_mobile"].ToString();
+           Fill_On_Form();
+        }
     }
 
     protected void lbtn_get_info_Click(object sender, EventArgs e)
     {
+        Fill_On_Form();
+    }
+    private void Fill_On_Form()
+    {
         string email = tb_email.Text;
         string contact_no = tb_mobile.Text;
+
+        Session["current_email"] = email;
+        Session["current_mobile"] = contact_no;
+
         filtered_flat_room _flat_room = Flat_Helper.Get_Flat_Room(email, contact_no);
         Fill_On_Form(_flat_room);
     }
@@ -44,7 +58,7 @@ public partial class Pages_page_room_post : System.Web.UI.Page
         tb_title.Text = _flat_room.title;
         tb_price.Text = _flat_room.price.ToString();
         if (_flat_room.available_count.HasValue) ddl_available_person.SelectedValue = _flat_room.available_count.Value.ToString();
-        if (_flat_room.available.HasValue)  calendar_ex.SelectedDate = _flat_room.available;
+        if (_flat_room.available.HasValue) calendar_ex.SelectedDate = _flat_room.available;
         rbtn_looking_type.SelectedValue = _flat_room.available_type;
 
         ddl_mrt1.SelectedValue = _flat_room.mrt1_id;
@@ -61,11 +75,11 @@ public partial class Pages_page_room_post : System.Web.UI.Page
         _flat_room.email = tb_email.Text;
         _flat_room.contact_no = tb_mobile.Text;
         _flat_room.postal_code = tb_postal_code.Text;
-        _flat_room.available_count =Int32.Parse( ddl_available_person.SelectedValue);
+        _flat_room.available_count = Int32.Parse(ddl_available_person.SelectedValue);
         _flat_room.available_type = rbtn_looking_type.SelectedValue;
         _flat_room.mrt1_id = ddl_mrt1.SelectedValue;
         _flat_room.mrt2_id = ddl_mrt2.SelectedValue;
-        _flat_room.mrt3_id = ddl_mrt3.SelectedValue;  
+        _flat_room.mrt3_id = ddl_mrt3.SelectedValue;
 
         // Availabe date
         DateTime available = DateTime.Now;
@@ -84,6 +98,8 @@ public partial class Pages_page_room_post : System.Web.UI.Page
 
     protected void btn_post_Click(object sender, EventArgs e)
     {
+        Session["current_email"] = tb_email.Text;
+        Session["current_mobile"] = tb_mobile.Text;
         Flat_Helper.Update_Flat_Room(Get_Object_Form());
     }
 }

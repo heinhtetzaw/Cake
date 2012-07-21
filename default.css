@@ -38,6 +38,18 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#4387FE), to(#000080)); /* for webkit browsers */
     background: -moz-linear-gradient(top,  #4387FE,  #000080); /* for firefox 3.6+ */
 }
+.FooterBox
+{
+    background-color: #4387FE;
+    width: 100%;
+    height: 35px;
+    text-align: left;
+    color: White;
+    vertical-align: middle;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4387FE', endColorstr='#000080'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#4387FE), to(#000080)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #4387FE,  #000080); /* for firefox 3.6+ */
+}
 .MenuButtonBox
 {
     width: 100%;
@@ -61,7 +73,7 @@
     width: 1000px;
     background-color: #F5F5F5;
     border: 1px solid #BEBEBE;
-    min-height: 600px;
+    min-height: 520px;
     text-align: left;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#F5F5F5'); /* for IE */
     background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#F5F5F5)); /* for webkit browsers */
@@ -154,10 +166,10 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 700px;
-    height: 500px;
-    margin-top: -250px; /*set to a negative number 1/2 of your height*/
-    margin-left: -350px; /*set to a negative number 1/2 of your width*/
+    width: 980px;
+    height: 650px;
+    margin-top: -325px; /*set to a negative number 1/2 of your height*/
+    margin-left: -490px; /*set to a negative number 1/2 of your width*/
     border: 1px solid #ccc;
     background-color: #f3f3f3;
 }

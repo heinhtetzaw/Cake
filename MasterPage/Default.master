@@ -65,6 +65,7 @@
                     </td>
                 </tr>
             </table>
+            
             <asp:UpdateProgress runat="server" ID="update_progress_master">
                 <ProgressTemplate>
                     <asp:Panel runat="server" ID="panel1" CssClass="panel_progress_overlay">
@@ -84,7 +85,9 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </asp:Panel>
-        
+      <asp:Panel runat="server" ID="panel_footer" CssClass="FooterBox">
+      
+      </asp:Panel>  
     </center>
     </form>
 </body>

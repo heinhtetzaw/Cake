@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/RightDock.master" Theme="default"
     AutoEventWireup="true" CodeFile="page_room_listing.aspx.cs" Inherits="Pages_page_room_listing" %>
 
+<%@ Register Assembly="Artem.Google" Namespace="Artem.Google.UI" TagPrefix="artem" %>
 <%@ Register Src="../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate" TagPrefix="uc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <asp:UpdatePanel runat="server" ID="panel_main">
@@ -61,89 +62,133 @@
                                 <asp:Label ID="Label1" runat="server" Text='<%# CommonHelper.GetEasyPostTime((DateTime)Eval("post_on")) %>'></asp:Label>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Left" />
-                            <ItemStyle Width="160px" />
+                            <ItemStyle Width="180px" />
                         </asp:TemplateField>
                     </Columns>
-                    <RowStyle Font-Size="10" Font-Names="Tahoma" CssClass="GridRow" />
-                    <AlternatingRowStyle CssClass="GridAlterRow" Font-Size="10" Font-Names="Tahoma" />
+                    <RowStyle Font-Size="9" Font-Names="Tahoma" CssClass="GridRow" />
+                    <AlternatingRowStyle CssClass="GridAlterRow" Font-Size="9" Font-Names="Tahoma" />
                     <SelectedRowStyle CssClass="GridSelectedRow" />
                 </asp:GridView>
             </div>
-            <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay" Visible="false">
+            <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay" Visible="true">
                 <asp:Panel runat="server" ID="panel_record_inner" CssClass="panel_room_detail">
-                    <table width="695px" border="0px" style="height: 100%">
+                    <table width="975px" border="0px" style="height: 100%">
                         <tr>
-                            <td class="Title_td">
-                                <asp:Label ID="Label2" runat="server" Text="Title:"></asp:Label>
+                            <td style="width: 100px">
+                                <asp:Image ID="img_logo" ImageUrl="~/Images/Logo.png" runat="server" Height="25px" />
                             </td>
-                            <td colspan="2">
-                                <asp:Label runat="server" ID="lbl_title" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330"></asp:Label>
+                            <td align="center">
+                                <asp:Label runat="server" ID="Label8" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330"></asp:Label>
+                            </td>
+                            <td style="width: 100px" align="right">
+                            <asp:LinkButton runat="server" ID="btn_close" Text="[X] Close" OnClick="btn_close_Click" />
+                            </td>
+                        </tr>
+                        <tr style="height: 300">
+                            <td colspan="3">
+                                <%--Google Map--%>
+                                <artem:GoogleMap ID="googlemap" runat="server" MapType="Roadmap" Zoom="18" Height="300px"
+                                    Width="100%">
+                                </artem:GoogleMap>
                             </td>
                         </tr>
                         <tr>
-                            <td class="Title_td">
-                                <asp:Label ID="Label3" runat="server" Text="Available on:"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:Label runat="server" ID="lbl_available_on" Text="01/09/2012"></asp:Label>
-                            </td>
-                            <td rowspan="4">
-                                <asp:Image ID="img_record" ImageUrl="~/Images/find_rooms.png" runat="server" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="Title_td">
-                                <asp:Label ID="Label4" runat="server" Text="Welcome to:"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:Label runat="server" ID="lbl_available_for" Text="Male only, 2 persons"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="Title_td">
-                                <asp:Label ID="Label5" runat="server" Text="Price:"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:Label runat="server" ID="lbl_price" Text="330 S$"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="Title_td">
-                                <asp:Label ID="Label7" runat="server" Text="Nearest MRT(s):"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:Label runat="server" ID="lbl_nearest_mrt" Text="Braddell, Toa Payoh"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="Title_td">
-                                <asp:Label ID="Label9" runat="server" Text="Postal Code:"></asp:Label>
-                            </td>
-                            <td colspan="2">
-                                <asp:Label runat="server" ID="lbl_postal_code" Text="310205"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="Title_td">
-                                <asp:Label ID="Label11" runat="server" Text="Contact No:"></asp:Label>
-                            </td>
-                            <td colspan="2">
-                                <asp:Label runat="server" ID="lbl_contact_no" Text="98254965"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr valign="top">
-                            <td class="Title_td">
-                                <asp:Label ID="Label13" runat="server" Text="Description:"></asp:Label>
-                            </td>
-                            <td colspan="2">
-                                <asp:TextBox runat="server" ID="lbl_description" ReadOnly="true" TextMode="MultiLine"
-                                    Text="" Width="550px" Height="265px"></asp:TextBox>
+                            <td colspan="3">
+                                <table width="100%">
+                                    <tr valign="top">
+                                        <td>
+                                            <%--Post Info--%>
+                                            <table>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label2" runat="server" Text="Title:"></asp:Label>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <asp:Label runat="server" ID="lbl_title" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label3" runat="server" Text="Available on:"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lbl_available_on" Text="01/09/2012"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label4" runat="server" Text="Welcome to:"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lbl_available_for" Text="Male only, 2 persons"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label5" runat="server" Text="Price:"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lbl_price" Text="330 S$"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label7" runat="server" Text="Nearest MRT(s):"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lbl_nearest_mrt" Text="Braddell, Toa Payoh"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label9" runat="server" Text="Postal Code:"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lbl_postal_code" Text="310205"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label11" runat="server" Text="Contact No:"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lbl_contact_no" Text="98254965"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="Title_td">
+                                                        <asp:Label ID="Label6" runat="server" Text="Post on:"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lbl_post_on" Text=""></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <%--Post Description--%>
+                                            <table>
+                                                <tr>
+                                                    <td class="Title_td" style="text-align: left">
+                                                        <asp:Label ID="Label13" runat="server" Text="Description:"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:TextBox runat="server" ID="lbl_description" ReadOnly="true" TextMode="MultiLine"
+                                                            Text="" Width="490px" Height="250px"></asp:TextBox>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" align="right">
                                 <hr />
-                                <asp:Button runat="server" Width="80px" ID="btn_close" Text="Close" OnClick="btn_close_Click" />
                             </td>
                         </tr>
                     </table>

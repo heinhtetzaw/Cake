@@ -10,12 +10,16 @@ public static class Flat_Helper
 {
     static FlatDataContext flatDataContext = new FlatDataContext();
 
+    public static filtered_site_status Get_Site_Status()
+    {
+        return (from c in flatDataContext.filtered_site_status select c).FirstOrDefault();
+    }
+
     public static filtered_flat_room Get_Flat_Room(string room_id)
     {
         filtered_flat_room _flat_room = (from c in flatDataContext.filtered_flat_rooms where c.room_id == room_id select c).FirstOrDefault();
         return _flat_room;
     }
-
 
     public static filtered_flat_room Get_Flat_Room(string email, string contact_no)
     {

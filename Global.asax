@@ -4,9 +4,14 @@
     void Application_Start(object sender, EventArgs e)
     {
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
+           "contactus", "contactus", "~/Pages/contactus.aspx");
+        
+        System.Web.Routing.RouteTable.Routes.MapPageRoute(
             "room_post", "post", "~/Pages/page_room_post.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
             "room_list", "list", "~/Pages/page_room_listing.aspx");
+        System.Web.Routing.RouteTable.Routes.MapPageRoute(
+            "room_map", "map/{postalcode}", "~/Pages/page_google_map.aspx");
     }
 
     void Application_End(object sender, EventArgs e)

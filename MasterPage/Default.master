@@ -4,10 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link rel="shortcut icon" href="favicon.ico" />
     <link href="../default.css" rel="stylesheet" type="text/css" />
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-    
 </head>
 <body class="main_body_back_frame">
     <form id="form1" runat="server">
@@ -15,45 +13,66 @@
     </asp:ScriptManager>
     <center>
         <asp:Panel runat="server" ID="panel_header" CssClass="HeadBox">
-            <asp:Image runat="server" ID="logo" ImageUrl="~/Images/Logo.png" Height="50px" />
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td rowspan="2" style="width: 250px">
+                        <asp:Image runat="server" ID="logo" ImageUrl="~/Images/Logo.png" Height="50px" />
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr valign="bottom" style="height: 48px;">
+                    <td align="left">
+                        <table style="padding-right: 3px" cellpadding="0px">
+                            <tr>
+                             <td>
+                                    <asp:LinkButton runat="server" ID="LinkButton1" PostBackUrl="~/list">
+                                        <asp:Panel runat="server" ID="panel_button_home" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
+                                            onmouseout="this.className='MenuButtonSmall';">
+                                            <asp:Label runat="server" ID="Label1" Text="Home" SkinID="MenuButton" />
+                                        </asp:Panel>
+                                        <ajaxToolkit:RoundedCornersExtender ID="RoundedCornersExtender1" runat="server"
+                                            TargetControlID="panel_button_home" Corners="Top">
+                                        </ajaxToolkit:RoundedCornersExtender>
+                                    </asp:LinkButton>
+                                </td>
+                                <td>
+                                    <asp:LinkButton runat="server" ID="btn_room" PostBackUrl="~/list">
+                                        <asp:Panel runat="server" ID="panel_button_room" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
+                                            onmouseout="this.className='MenuButtonSmall';">
+                                            <asp:Label runat="server" ID="lbl_room_menu" Text="Room" SkinID="MenuButton" />
+                                        </asp:Panel>
+                                        <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_room" runat="server"
+                                            TargetControlID="panel_button_room" Corners="Top">
+                                        </ajaxToolkit:RoundedCornersExtender>
+                                    </asp:LinkButton>
+                                </td>
+                                <td>
+                                    <asp:LinkButton runat="server" ID="btn_contact_us" PostBackUrl="~/contactus">
+                                        <asp:Panel runat="server" ID="panel_button_contact_us" CssClass="MenuButtonSmall"
+                                            onmouseover="this.className='MenuButtonSmall_Mouse_Over';" onmouseout="this.className='MenuButtonSmall';">
+                                            <asp:Label runat="server" ID="lbl_contact_us_menu" Text="Contact Us" SkinID="MenuButton" />
+                                        </asp:Panel>
+                                        <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_contact_us" runat="server"
+                                            TargetControlID="panel_button_contact_us" Corners="Top">
+                                        </ajaxToolkit:RoundedCornersExtender>
+                                    </asp:LinkButton>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </asp:Panel>
         <ajaxToolkit:RoundedCornersExtender ID="RoundedCornersExtender_panelHeader" runat="server"
             TargetControlID="panel_header">
         </ajaxToolkit:RoundedCornersExtender>
         <asp:Panel runat="server" ID="panel_menu" CssClass="MenuBox">
             <center>
-                <table width="1000" style="text-align: left" cellspacing="0">
-                    <tr valign="middle">
-                        <td onmouseover="this.className='MenuButtonBoxMouseOver';" onmouseout="this.className='MenuButtonBoxMouseUp';">
-                            <asp:LinkButton ID="LinkButton1" runat="server" SkinID="menu" PostBackUrl="~/list">
-                                <table class="MenuButtonBox">
-                                    <tr>
-                                        <td  style="width:64px">
-                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/find_rooms.png" />
-                                        </td>
-                                        <td>
-                                            Find Room
-                                        </td>
-                                    </tr>
-                                </table>
-                            </asp:LinkButton>
-                        </td>
-                        <td onmouseover="this.className='MenuButtonBoxMouseOver';" onmouseout="this.className='MenuButtonBoxMouseUp';">
-                            <asp:LinkButton ID="LinkButton2" runat="server" Text="" SkinID="menu" PostBackUrl="~/post">
-                                <table class="MenuButtonBox">
-                                    <tr>
-                                        <td  style="width:64px">
-                                            <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/post_adv.png" />
-                                        </td>
-                                        <td>
-                                            Post Room Advertisement
-                                        </td>
-                                    </tr>
-                                </table>
-                            </asp:LinkButton>
-                        </td>
-                    </tr>
-                </table>
+                <asp:ContentPlaceHolder ID="head" runat="server">
+                </asp:ContentPlaceHolder>
             </center>
         </asp:Panel>
         <asp:Panel runat="server" ID="panel_body" CssClass="main_body_frame">
@@ -65,7 +84,6 @@
                     </td>
                 </tr>
             </table>
-            
             <asp:UpdateProgress runat="server" ID="update_progress_master">
                 <ProgressTemplate>
                     <asp:Panel runat="server" ID="panel1" CssClass="panel_progress_overlay">
@@ -85,9 +103,8 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </asp:Panel>
-      <asp:Panel runat="server" ID="panel_footer" CssClass="FooterBox">
-      
-      </asp:Panel>  
+        <asp:Panel runat="server" ID="panel_footer">
+        </asp:Panel>
     </center>
     </form>
 </body>

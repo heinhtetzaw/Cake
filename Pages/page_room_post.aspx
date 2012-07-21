@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/RightDock.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Flat.master" AutoEventWireup="true"
     CodeFile="page_room_post.aspx.cs" Inherits="Pages_page_room_post" Theme="Default" %>
 
     

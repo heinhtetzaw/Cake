@@ -2,6 +2,7 @@
 <%--Label--%>
 <asp:Label runat="server"  Font-Size="9" Font-Names="Tahoma"/>
 <asp:Label runat="server"  Font-Size="9" Font-Names="Tahoma" ForeColor="Red" SkinID="Error" />
+<asp:Label runat="server"  Font-Size="9" Font-Names="Tahoma" SkinID="MenuButton" Font-Bold="true" Font-Overline="false" />
 <%--Button--%>
 <asp:Button runat="server" Font-Size="9" Font-Names="Tahoma" />
 <%--TextBox--%>

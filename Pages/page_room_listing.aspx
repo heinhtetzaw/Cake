@@ -1,9 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/RightDock.master" Theme="default"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Flat.master" Theme="default"
     AutoEventWireup="true" CodeFile="page_room_listing.aspx.cs" Inherits="Pages_page_room_listing" %>
 
-<%@ Register Assembly="Artem.Google" Namespace="Artem.Google.UI" TagPrefix="artem" %>
 <%@ Register Src="../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate" TagPrefix="uc1" %>
+<%@ Register src="../Controls/PostAndViewCount.ascx" tagname="PostAndViewCount" tagprefix="uc2" %>
+<%@ Register src="../Controls/facebookLike.ascx" tagname="facebookLike" tagprefix="uc3" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
+   
     <asp:UpdatePanel runat="server" ID="panel_main">
         <ContentTemplate>
             <div class="HighLightBox">
@@ -44,7 +46,8 @@
                         <asp:TemplateField HeaderText="Post Title">
                             <ItemTemplate>
                                 <asp:LinkButton ID="lbn_title" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
-                                    Font-Overline="false" Text='<%# Bind("title") %>' Width="100%" OnClick="lbn_title_Click">
+                                    Font-Overline="false" Text='<%# Bind("title") %>' Width="100%" OnClick="lbn_title_Click"
+                                    OnClientClick="javascript:visiblity_record_panel(true); ">
                                     <asp:HiddenField ID="hidden_room_id" runat="server" Value='<%# Bind("room_id") %>' />
                                 </asp:LinkButton></ItemTemplate>
                             <HeaderStyle HorizontalAlign="Left" />
@@ -70,7 +73,7 @@
                     <SelectedRowStyle CssClass="GridSelectedRow" />
                 </asp:GridView>
             </div>
-            <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay" Visible="true">
+            <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay" Visible="false" >
                 <asp:Panel runat="server" ID="panel_record_inner" CssClass="panel_room_detail">
                     <table width="975px" border="0px" style="height: 100%">
                         <tr>
@@ -81,15 +84,15 @@
                                 <asp:Label runat="server" ID="Label8" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330"></asp:Label>
                             </td>
                             <td style="width: 100px" align="right">
-                            <asp:LinkButton runat="server" ID="btn_close" Text="[X] Close" OnClick="btn_close_Click" />
+                                <asp:LinkButton runat="server" ID="btn_close" Text="[X] Close" OnClick="btn_close_Click" />
                             </td>
                         </tr>
-                        <tr style="height: 300">
+                        <tr >
                             <td colspan="3">
                                 <%--Google Map--%>
-                                <artem:GoogleMap ID="googlemap" runat="server" MapType="Roadmap" Zoom="18" Height="300px"
-                                    Width="100%">
-                                </artem:GoogleMap>
+                                <iframe runat="server" id="google_map_iframe" width="100%" height="310px"  style="border:1px"
+                                    src="map"></iframe>
+                               
                             </td>
                         </tr>
                         <tr>
@@ -163,7 +166,6 @@
                                                         <asp:Label runat="server" ID="lbl_post_on" Text=""></asp:Label>
                                                     </td>
                                                 </tr>
-                                                
                                             </table>
                                         </td>
                                         <td>
@@ -202,4 +204,8 @@
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
     <uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
+    <hr />
+    <uc2:PostAndViewCount ID="PostAndViewCount1" runat="server" />
+    <hr />
+    <uc3:facebookLike ID="facebookLike1" runat="server" />
 </asp:Content>

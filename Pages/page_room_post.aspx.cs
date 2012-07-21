@@ -9,6 +9,7 @@ public partial class Pages_page_room_post : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.Title = "shwe8.com, Post";
         if (IsPostBack) return;
         // Get MRT List;
         List<filtered_flat_mrt> mrts = Flat_Helper.Get_MRT_List();

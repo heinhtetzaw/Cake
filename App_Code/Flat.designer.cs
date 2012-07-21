@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CAKE_WAVE")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="cake_wave")]
 public partial class FlatDataContext : System.Data.Linq.DataContext
 {
 	
@@ -41,7 +41,7 @@ public partial class FlatDataContext : System.Data.Linq.DataContext
   #endregion
 	
 	public FlatDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CAKE_WAVEConnectionString3"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["cake_waveConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -107,6 +107,14 @@ public partial class FlatDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<filtered_flat_room>();
+		}
+	}
+	
+	public System.Data.Linq.Table<filtered_site_status> filtered_site_status
+	{
+		get
+		{
+			return this.GetTable<filtered_site_status>();
 		}
 	}
 }
@@ -1408,6 +1416,51 @@ public partial class filtered_flat_room
 			if ((this._mrt3_name != value))
 			{
 				this._mrt3_name = value;
+			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.filtered_site_status")]
+public partial class filtered_site_status
+{
+	
+	private System.Nullable<int> _total_post;
+	
+	private System.Nullable<int> _total_view;
+	
+	public filtered_site_status()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_post", DbType="Int")]
+	public System.Nullable<int> total_post
+	{
+		get
+		{
+			return this._total_post;
+		}
+		set
+		{
+			if ((this._total_post != value))
+			{
+				this._total_post = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_view", DbType="Int")]
+	public System.Nullable<int> total_view
+	{
+		get
+		{
+			return this._total_view;
+		}
+		set
+		{
+			if ((this._total_view != value))
+			{
+				this._total_view = value;
 			}
 		}
 	}

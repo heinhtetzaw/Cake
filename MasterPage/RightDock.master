@@ -2,16 +2,17 @@
     CodeFile="RightDock.master.cs" Inherits="MasterPage_RightDock" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <asp:ContentPlaceHolder runat="server" ID="HeadPanel">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  
     <table width="100%" cellspacing="0" border="0">
         <tr valign="top">
-            <td style="width:850px">
+            <td style="width: 850px">
                 <asp:ContentPlaceHolder runat="server" ID="MainPanel">
                 </asp:ContentPlaceHolder>
             </td>
-            <td style="width:150px" >
+            <td style="width: 150px">
                 <asp:ContentPlaceHolder runat="server" ID="RightSidePanel">
                 </asp:ContentPlaceHolder>
             </td>

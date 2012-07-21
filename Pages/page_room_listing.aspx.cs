@@ -9,26 +9,14 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.Title = "shwe8.com, Rooms";
         if (IsPostBack) return;
-
-        String postal_code_value = "310205";
-        Marker _marker = new Marker();
-        _marker.Address = postal_code_value;
-        _marker.Animation = MarkerAnimation.Drop;
-        _marker.Title = "Here";
-        _marker.Info = "310205";
-
-        //MarkerImage _marker_image = new MarkerImage();
-        //_marker_image.Url = "http://aux4.iconpedia.net/uploads/929579781226397845.png";
-        //_marker.Icon = _marker_image;
-
-        googlemap.Markers.Add(_marker);
-        googlemap.DefaultAddress = postal_code_value;
 
         Bind_MRT_DDL();
 
         gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List();
         gridview_rooms_list.DataBind();
+
     }
     private void Bind_MRT_DDL()
     {
@@ -71,23 +59,26 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
                 lbl_nearest_mrt.Text = String.Format("{0}, {1}, {2}", _room.mrt1_name, _room.mrt2_name, _room.mrt3_name);
                 lbl_post_on.Text = CommonHelper.GetEasyPostTime(_room.post_on.Value);
 
-                //Google Map
-                String postal_code_value = _room.postal_code;
-                Marker _marker = new Marker();
-                _marker.Address = postal_code_value;
-                _marker.Animation = MarkerAnimation.Drop;
-                _marker.Title = _room.title;
-                _marker.Info = _room.title;
-
-                //MarkerImage _marker_image = new MarkerImage();
-                //_marker_image.Url = "http://aux4.iconpedia.net/uploads/929579781226397845.png";
-                //_marker.Icon = _marker_image;
-
-                googlemap.Markers.Add(_marker);
-                googlemap.DefaultAddress = postal_code_value;
-
-
                 panel_record.Visible = true;
+                google_map_iframe.Attributes.Add("src", String.Format("map/{0}",_room.postal_code));
+
+                ////Google Map
+                //String postal_code_value = _room.postal_code;
+                //Marker _marker = new Marker();
+                //_marker.Address = postal_code_value;
+                //_marker.Animation = MarkerAnimation.Drop;
+                //_marker.Title = _room.title;
+                //_marker.Info = _room.title;
+
+                ////MarkerImage _marker_image = new MarkerImage();
+                ////_marker_image.Url = "http://aux4.iconpedia.net/uploads/929579781226397845.png";
+                ////_marker.Icon = _marker_image;
+
+                //googlemap.Markers.Add(_marker);
+                //googlemap.DefaultAddress = postal_code_value;
+
+                
+                
 
 
             }

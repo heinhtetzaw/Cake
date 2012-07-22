@@ -26,6 +26,18 @@
     height: 50px;
     text-align: left;
 }
+.TitleBox
+{
+    height: 20px;
+    padding-top: 3px;
+    vertical-align: middle;
+    width: 120px;
+    color: White;
+    text-align: center;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='gray'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(gray)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  white, gray ); /* for firefox 3.6+ */
+}
 .MenuBox
 {
     background-color: #4387FE;
@@ -54,9 +66,8 @@
 .MenuButtonSmall
 {
     background-color: Silver;
-    
-    height:23px;
-    padding-top:5px;
+    height: 23px;
+    padding-top: 5px;
     vertical-align: middle;
     width: 120px;
     color: White;
@@ -68,9 +79,8 @@
 .MenuButtonSmall_Mouse_Over
 {
     background-color: Silver;
-    
-    height:23px;
-    padding-top:5px;
+    height: 23px;
+    padding-top: 5px;
     vertical-align: middle;
     width: 120px;
     color: White;
@@ -127,7 +137,7 @@
 }
 .GridRow
 {
-    background-color: transparent;
+    background-color: white;
 }
 .GridAlterRow
 {
@@ -153,11 +163,12 @@
 }
 
 /*Textbox Watermark*/
+
 .watermarked
 {
     width: 150px;
     padding: 2px 0 0 2px;
-    border: 1px solid #BEBEBE;
+    border: 1px solid #98AFC7;
     background-color: white;
     color: gray;
 }
@@ -165,7 +176,7 @@
 {
     width: 150px;
     padding: 2px 0 0 2px;
-    border: 1px solid #BEBEBE;
+    border: 1px solid #98AFC7;
     background-color: white;
     color: Black;
 }
@@ -173,7 +184,7 @@
 {
     width: 150px;
     padding: 2px 0 0 2px;
-    border: 1px solid #BEBEBE;
+    border: 1px solid #98AFC7;
     background-color: #FFFFB2;
     color: Black;
 }

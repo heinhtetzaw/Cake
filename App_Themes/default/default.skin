@@ -2,6 +2,8 @@
 <%--Label--%>
 <asp:Label runat="server"  Font-Size="9" Font-Names="Tahoma"/>
 <asp:Label runat="server"  Font-Size="9" Font-Names="Tahoma" ForeColor="Red" SkinID="Error" />
+<asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma" ForeColor="Green" SkinID="Highlighted" Font-Bold="true"/>
+<asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma" ForeColor="Black" SkinID="TitleLabel" Font-Bold="true"/>
 <asp:Label runat="server"  Font-Size="9" Font-Names="Tahoma" SkinID="MenuButton" Font-Bold="true" Font-Overline="false" />
 <%--Button--%>
 <asp:Button runat="server" Font-Size="9" Font-Names="Tahoma" />
@@ -15,7 +17,10 @@
 <asp:LinkButton runat="server" Font-Size="9" Font-Names="Tahoma" ForeColor="Black" />
 <asp:LinkButton runat="server" Font-Size="12" Font-Names="Tahoma" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"/>
 <%--Gridview--%>
-<asp:GridView runat="server" BorderColor="Silver"  >
+<asp:GridView runat="server" BorderColor="Silver" AutoGenerateColumns="False" >
     <HeaderStyle Font-Size="9" Font-Names="Tahoma" cssClass="Header"/>
-    
+
+    <RowStyle Font-Size="9" Font-Names="Tahoma" CssClass="GridRow" />
+    <AlternatingRowStyle CssClass="GridAlterRow" Font-Size="9" Font-Names="Tahoma" />
+    <SelectedRowStyle CssClass="GridSelectedRow" />
 </asp:GridView>

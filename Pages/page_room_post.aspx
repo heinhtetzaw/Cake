@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Flat.master" AutoEventWireup="true"
     CodeFile="page_room_post.aspx.cs" Inherits="Pages_page_room_post" Theme="Default" %>
 
-    
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <script language="javascript" type="text/jscript">
         function PopulateTitle() {
@@ -64,11 +63,15 @@
                         <asp:Label runat="server" ID="lbl_price" Text="Price: "></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_price" Width="60px" onkeyup="javascript:PopulateTitle()" />
-                        <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server"
+                        <asp:TextBox runat="server" ID="tb_price" Width="60px" onkeyup="javascript:PopulateTitle()"  MaxLength="5"/>
+                        <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" 
                             TargetControlID="tb_price" WatermarkText="350" WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
+                         <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" runat="server"
+                            FilterType="Numbers" TargetControlID="tb_price" ValidChars="Numbers">
+                        </ajaxToolkit:FilteredTextBoxExtender>
                         <asp:Label runat="server" ID="Label1" Text="S$"></asp:Label>
+                         <asp:Label runat="server" ID="lbl_price_error" Text="" SkinID="Error"></asp:Label>
                     </td>
                     <td>
                     </td>
@@ -80,9 +83,9 @@
                     <td>
                         <asp:RadioButtonList ID="rbtn_looking_type" runat="server" RepeatDirection="Horizontal"
                             onchange="javascript:PopulateTitle()">
+                            <asp:ListItem Value="b" Selected="True">All</asp:ListItem>
                             <asp:ListItem Value="m">Male only</asp:ListItem>
                             <asp:ListItem Value="f">Female only</asp:ListItem>
-                            <asp:ListItem Value="b" Selected="True">Male or Female</asp:ListItem>
                             <asp:ListItem Value="c">Couple</asp:ListItem>
                         </asp:RadioButtonList>
                     </td>
@@ -123,10 +126,14 @@
                         <asp:Label runat="server" ID="lbl_postal_code" Text="Postal Code:"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_postal_code" Width="80px"></asp:TextBox><ajaxToolkit:TextBoxWatermarkExtender
+                        <asp:TextBox runat="server" ID="tb_postal_code" Width="80px" MaxLength="6"></asp:TextBox>
+                        <asp:Label runat="server" ID="lbl_postal_code_error" Text="" SkinID="Error" /><ajaxToolkit:TextBoxWatermarkExtender
                             ID="watermark_postal_code" runat="server" TargetControlID="tb_postal_code" WatermarkText="6 digits"
                             WatermarkCssClass="watermarked">
-                        </ajaxToolkit:TextBoxWatermarkExtender>
+                           
+                        </ajaxToolkit:TextBoxWatermarkExtender> <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" runat="server"
+                            FilterType="Numbers" TargetControlID="tb_postal_code" ValidChars="Numbers">
+                        </ajaxToolkit:FilteredTextBoxExtender>
                     </td>
                     <td>
                     </td>
@@ -142,6 +149,7 @@
                         </asp:DropDownList>
                         <asp:DropDownList ID="ddl_mrt3" runat="server" Width="120">
                         </asp:DropDownList>
+                        <asp:Label runat="server" ID="lbl_mrt_error" Text="" SkinID="Error"></asp:Label>
                     </td>
                     <td>
                     </td>
@@ -155,7 +163,8 @@
                         <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server"
                             TargetControlID="tb_description" WatermarkText="Please tell more about your adv."
                             WatermarkCssClass="watermarked">
-                        </ajaxToolkit:TextBoxWatermarkExtender>
+                           
+                        </ajaxToolkit:TextBoxWatermarkExtender>   <asp:Label runat="server" ID="lbl_description_error" Text="" SkinID="Error" />
                     </td>
                     <td>
                     </td>
@@ -166,6 +175,7 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="tb_title" Width="400px" />
+                        <asp:Label runat="server" ID="lbl_title_error" Text="" SkinID="Error" />
                     </td>
                     <td>
                     </td>
@@ -174,7 +184,7 @@
                     <td>
                     </td>
                     <td>
-                        <asp:Button runat="server" ID="btn_post" Text="Post" OnClick="btn_post_Click" />
+                        <asp:LinkButton runat="server" ID="btn_post" Text="Post" OnClick="btn_post_Click" />
                     </td>
                     <td>
                     </td>
@@ -184,5 +194,4 @@
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
-
 </asp:Content>

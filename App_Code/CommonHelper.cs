@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Text.RegularExpressions;
-
+using System.Net.Mail;
+using System.Net;
 /// <summary>
 /// Summary description for CommonHelper
 /// </summary>
@@ -32,11 +33,13 @@ public static class CommonHelper
 
     }
 
-    public static String GetEasyPostTime(DateTime check_date_time)
+    public static String GetEasyPostTime(DateTime? check_date_time)
     {
+        if(!check_date_time.HasValue) return "";
         string result = "";
+        
         DateTime current_time = DateTime.Now;
-        TimeSpan difference = current_time.Subtract(check_date_time);
+        TimeSpan difference = current_time.Subtract(check_date_time.Value);
         if (difference.Days == 0 && difference.Hours == 0 && difference.Minutes == 0)
             result = "just now";
         else if (difference.Days == 0 && difference.Hours == 0 && difference.Minutes > 0)
@@ -46,8 +49,28 @@ public static class CommonHelper
         else if (difference.Days > 0 && difference.Days <= 7)
             result = string.Format("last {0} days ago", difference.Days.ToString());
         else if (difference.Days > 7)
-            result = check_date_time.ToString("dd MMMM hh:mm tt");
+            result = check_date_time.Value.ToString("dd MMMM hh:mm tt");
         return result;
     }
-   
+
+    public static String SendEmail(string from_mail_address, string to_mail_address, string subject, string body)
+    {
+        MailMessage mailObj = new MailMessage(from_mail_address, to_mail_address, subject, body);
+        SmtpClient SMTPServer = new SmtpClient("smtp.gmail.com", 587);
+        SMTPServer.EnableSsl = true;
+        SMTPServer.Timeout = 10000;
+        SMTPServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+        SMTPServer.UseDefaultCredentials = false;
+        SMTPServer.Credentials = new NetworkCredential("htz.hertz@gmail.com", "nop@ssw0rd");
+
+        try
+        {
+            SMTPServer.Send(mailObj);
+            return "success";
+        }
+        catch (Exception ex)
+        {
+            return ex.ToString();
+        }
+    }
 }

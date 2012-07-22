@@ -13,9 +13,10 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <artem:GoogleMap ID="google_map_default" runat="server"  MapType="Roadmap"
-            Zoom="18" Height="280px" Width="100%" >
+            Zoom="13" Height="280px" Width="100%" >
         </artem:GoogleMap>
     </div>
+    
     </form>
 </body>
 </html>

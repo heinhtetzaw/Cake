@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Default : System.Web.UI.MasterPage
+public partial class Pages_page_bookmark : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        this.Title = "Shwe 8: Bookmark";
+        if (IsPostBack) return;
     }
-   
 }

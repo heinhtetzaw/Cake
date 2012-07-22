@@ -4,56 +4,35 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Artem.Google.UI;
-public partial class Pages_page_room_listing : System.Web.UI.Page
+
+public partial class Controls_BookmarkPostsList : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Title = "Shwe 8: Rooms";
         if (IsPostBack) return;
-
-        Bind_MRT_DDL();
-
-        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List();
-        gridview_rooms_list.DataBind();
-
-        if (Page.RouteData.Values["room_id"] != null)
+        if (Session["current_email"] != null && Session["current_email"]!="")
         {
-            flat_room_detail.View_Record(Page.RouteData.Values["room_id"].ToString());
+            tb_useremail.Text = Session["current_email"].ToString();
         }
-
+        Refersh();
     }
-    private void Bind_MRT_DDL()
-    {
-        List<filtered_flat_mrt> mrts = Flat_Helper.Get_MRT_List();
-        filtered_flat_mrt default_mrt = new filtered_flat_mrt()
-        {
-            mrt_name = "All MRT",
-            mrt_id = "all"
-        };
-        mrts.Add(default_mrt);
-
-
-        ddl_mrt1.DataTextField = "mrt_name";
-        ddl_mrt1.DataValueField = "mrt_id";
-        ddl_mrt1.DataSource = mrts;
-        ddl_mrt1.DataBind();
-        ddl_mrt1.SelectedValue = "all";
-    }
-    protected void btn_search_Click(object sender, EventArgs e)
+    public void Refersh()
     {
 
-        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue, ddl_roomate.SelectedValue);
+
+        List<filtered_flat_bookmark> list = Flat_Helper.Get_Flat_Room_List_with_bookmark(tb_useremail.Text);
+        Session["current_email"] = tb_useremail.Text;
+        
+        gridview_rooms_list.DataSource = list;
         gridview_rooms_list.DataBind();
-    }
 
+    }
     protected void gridview_rooms_list_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "go_detail")
         {
             string room_id = e.CommandArgument.ToString();
             flat_room_detail.View_Record(room_id);
-
         }
     }
 
@@ -83,4 +62,15 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
 
     }
 
+    protected void btnRefresh_Click(object sender, EventArgs e)
+    {
+        lbl_error.Text = "";
+        if (!CommonHelper.CheckValidEmailFormat(tb_useremail.Text))
+        {
+            lbl_error.Text = "Use valid email address format.";
+            return;
+        }
+    
+        Refersh();
+    }
 }

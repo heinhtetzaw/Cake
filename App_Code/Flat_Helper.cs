@@ -9,24 +9,21 @@ using System.Web;
 public static class Flat_Helper
 {
     static FlatDataContext flatDataContext = new FlatDataContext();
-
     public static filtered_site_status Get_Site_Status()
     {
         return (from c in flatDataContext.filtered_site_status select c).FirstOrDefault();
     }
-
+    #region Room
     public static filtered_flat_room Get_Flat_Room(string room_id)
     {
         filtered_flat_room _flat_room = (from c in flatDataContext.filtered_flat_rooms where c.room_id == room_id select c).FirstOrDefault();
         return _flat_room;
     }
-
     public static filtered_flat_room Get_Flat_Room(string email, string contact_no)
     {
         filtered_flat_room _flat_room = (from c in flatDataContext.filtered_flat_rooms where c.email == email && c.contact_no == contact_no select c).FirstOrDefault();
         return _flat_room;
     }
-
     public static Boolean Update_View_Count(string room_id)
     {
         flat_room found_room = (from c in flatDataContext.flat_rooms where c.room_id == room_id select c).FirstOrDefault();
@@ -38,8 +35,7 @@ public static class Flat_Helper
         }
         return false;
     }
-
-    public static Boolean Update_Flat_Room(flat_room _flat_room)
+    public static string Update_Flat_Room(flat_room _flat_room)
     {
         flat_room found_room = (from c in flatDataContext.flat_rooms where c.contact_no == _flat_room.contact_no && c.email == _flat_room.email select c).FirstOrDefault();
         if (found_room != null)
@@ -60,7 +56,8 @@ public static class Flat_Helper
             Int32 post_count = 0;
             Int32.TryParse(found_room.post_count.ToString(), out post_count);
             found_room.post_count = ++post_count;
-
+            flatDataContext.SubmitChanges();
+            return found_room.room_id;
         }
         else
         {
@@ -73,20 +70,11 @@ public static class Flat_Helper
             _flat_room.post_count = 1;
             _flat_room.view_count = 1;
             flatDataContext.flat_rooms.InsertOnSubmit(_flat_room);
-
+            flatDataContext.SubmitChanges();
+            return _flat_room.room_id;
         }
-        flatDataContext.SubmitChanges();
-        return true;
+        
     }
-
-    public static List<filtered_flat_mrt> Get_MRT_List()
-    {
-        List<filtered_flat_mrt> _mrts = (from c in flatDataContext.filtered_flat_mrts
-                                         select c).ToList();
-        return _mrts.OrderBy(c => c.seq_no).ToList();
-    }
-
-
     public static List<filtered_flat_room> Get_Flat_Room_List()
     {
         List<filtered_flat_room> _flat_rooms = (from c in flatDataContext.filtered_flat_rooms
@@ -103,6 +91,45 @@ public static class Flat_Helper
              select c).ToList();
         return _flat_rooms.OrderByDescending(c => c.post_on).ToList();
     }
+    #endregion
+    #region MRT
+    public static List<filtered_flat_mrt> Get_MRT_List()
+    {
+        List<filtered_flat_mrt> _mrts = (from c in flatDataContext.filtered_flat_mrts
+                                         select c).ToList();
+        return _mrts.OrderBy(c => c.seq_no).ToList();
+    }
+    #endregion
 
-
+    #region bookmark
+    public static List<filtered_flat_bookmark> Get_Flat_Room_List_with_bookmark(string email)
+    {
+        List<filtered_flat_bookmark> _flat_rooms_with_bookmark = (from c in flatDataContext.filtered_flat_bookmarks
+                                                                  where c.bookmark_by == email
+                                                                  select c).ToList();
+        return _flat_rooms_with_bookmark.OrderByDescending(c => c.bookmark_on).ToList();
+    }
+    public static Boolean is_bookmarked(string email, string post_id)
+    {
+        Int32 bookmark_count = (from c in flatDataContext.post_bookmarks
+                                where c.user_email == email && c.post_id == post_id
+                                select c).ToList().Count;
+        return (bookmark_count > 0);
+    }
+    public static void Bookmark_This_Post(string post_id, string email)
+    {
+        if ((from c in flatDataContext.post_bookmarks where c.post_id == post_id && c.user_email == email select c).ToList().Count == 0)
+        {
+            post_bookmark new_bookmark = new post_bookmark()
+            {
+                post_id = post_id,
+                user_email = email,
+                post_type = 1,
+                bookmark_on = DateTime.Now
+            };
+            flatDataContext.post_bookmarks.InsertOnSubmit(new_bookmark);
+            flatDataContext.SubmitChanges();
+        }
+    }
+    #endregion
 }

@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="cake_wave")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CAKE_WAVE")]
 public partial class FlatDataContext : System.Data.Linq.DataContext
 {
 	
@@ -38,10 +38,13 @@ public partial class FlatDataContext : System.Data.Linq.DataContext
   partial void Insertflat_mrt(flat_mrt instance);
   partial void Updateflat_mrt(flat_mrt instance);
   partial void Deleteflat_mrt(flat_mrt instance);
+  partial void Insertpost_bookmark(post_bookmark instance);
+  partial void Updatepost_bookmark(post_bookmark instance);
+  partial void Deletepost_bookmark(post_bookmark instance);
   #endregion
 	
 	public FlatDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["cake_waveConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CAKE_WAVEConnectionString4"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -115,6 +118,22 @@ public partial class FlatDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<filtered_site_status>();
+		}
+	}
+	
+	public System.Data.Linq.Table<post_bookmark> post_bookmarks
+	{
+		get
+		{
+			return this.GetTable<post_bookmark>();
+		}
+	}
+	
+	public System.Data.Linq.Table<filtered_flat_bookmark> filtered_flat_bookmarks
+	{
+		get
+		{
+			return this.GetTable<filtered_flat_bookmark>();
 		}
 	}
 }
@@ -1461,6 +1480,599 @@ public partial class filtered_site_status
 			if ((this._total_view != value))
 			{
 				this._total_view = value;
+			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.post_bookmark")]
+public partial class post_bookmark : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private string _user_email;
+	
+	private string _post_id;
+	
+	private int _post_type;
+	
+	private System.Nullable<System.DateTime> _bookmark_on;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onuser_emailChanging(string value);
+    partial void Onuser_emailChanged();
+    partial void Onpost_idChanging(string value);
+    partial void Onpost_idChanged();
+    partial void Onpost_typeChanging(int value);
+    partial void Onpost_typeChanged();
+    partial void Onbookmark_onChanging(System.Nullable<System.DateTime> value);
+    partial void Onbookmark_onChanged();
+    #endregion
+	
+	public post_bookmark()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_email", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	public string user_email
+	{
+		get
+		{
+			return this._user_email;
+		}
+		set
+		{
+			if ((this._user_email != value))
+			{
+				this.Onuser_emailChanging(value);
+				this.SendPropertyChanging();
+				this._user_email = value;
+				this.SendPropertyChanged("user_email");
+				this.Onuser_emailChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_id", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	public string post_id
+	{
+		get
+		{
+			return this._post_id;
+		}
+		set
+		{
+			if ((this._post_id != value))
+			{
+				this.Onpost_idChanging(value);
+				this.SendPropertyChanging();
+				this._post_id = value;
+				this.SendPropertyChanged("post_id");
+				this.Onpost_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_type", DbType="Int NOT NULL")]
+	public int post_type
+	{
+		get
+		{
+			return this._post_type;
+		}
+		set
+		{
+			if ((this._post_type != value))
+			{
+				this.Onpost_typeChanging(value);
+				this.SendPropertyChanging();
+				this._post_type = value;
+				this.SendPropertyChanged("post_type");
+				this.Onpost_typeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bookmark_on", DbType="DateTime")]
+	public System.Nullable<System.DateTime> bookmark_on
+	{
+		get
+		{
+			return this._bookmark_on;
+		}
+		set
+		{
+			if ((this._bookmark_on != value))
+			{
+				this.Onbookmark_onChanging(value);
+				this.SendPropertyChanging();
+				this._bookmark_on = value;
+				this.SendPropertyChanged("bookmark_on");
+				this.Onbookmark_onChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.filtered_flat_bookmark")]
+public partial class filtered_flat_bookmark
+{
+	
+	private string _bookmark_by;
+	
+	private string _room_id;
+	
+	private string _available_type;
+	
+	private string _postal_code;
+	
+	private string _email;
+	
+	private string _contact_no;
+	
+	private System.Nullable<System.DateTime> _available;
+	
+	private System.Nullable<int> _aircon;
+	
+	private System.Nullable<int> _price;
+	
+	private string _description;
+	
+	private string _remarks;
+	
+	private System.Nullable<System.DateTime> _post_on;
+	
+	private System.Nullable<int> _view_count;
+	
+	private string _title;
+	
+	private string _username;
+	
+	private System.Nullable<int> _post_count;
+	
+	private System.Nullable<int> _available_count;
+	
+	private string _nearest_mrt;
+	
+	private string _mrt1_id;
+	
+	private string _mrt2_id;
+	
+	private string _mrt3_id;
+	
+	private string _mrt1_name;
+	
+	private string _mrt2_name;
+	
+	private string _mrt3_name;
+	
+	private System.Nullable<System.DateTime> _bookmark_on;
+	
+	public filtered_flat_bookmark()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bookmark_by", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string bookmark_by
+	{
+		get
+		{
+			return this._bookmark_by;
+		}
+		set
+		{
+			if ((this._bookmark_by != value))
+			{
+				this._bookmark_by = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_room_id", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string room_id
+	{
+		get
+		{
+			return this._room_id;
+		}
+		set
+		{
+			if ((this._room_id != value))
+			{
+				this._room_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_type", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+	public string available_type
+	{
+		get
+		{
+			return this._available_type;
+		}
+		set
+		{
+			if ((this._available_type != value))
+			{
+				this._available_type = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postal_code", DbType="VarChar(6)")]
+	public string postal_code
+	{
+		get
+		{
+			return this._postal_code;
+		}
+		set
+		{
+			if ((this._postal_code != value))
+			{
+				this._postal_code = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string email
+	{
+		get
+		{
+			return this._email;
+		}
+		set
+		{
+			if ((this._email != value))
+			{
+				this._email = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contact_no", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string contact_no
+	{
+		get
+		{
+			return this._contact_no;
+		}
+		set
+		{
+			if ((this._contact_no != value))
+			{
+				this._contact_no = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Date")]
+	public System.Nullable<System.DateTime> available
+	{
+		get
+		{
+			return this._available;
+		}
+		set
+		{
+			if ((this._available != value))
+			{
+				this._available = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_aircon", DbType="Int")]
+	public System.Nullable<int> aircon
+	{
+		get
+		{
+			return this._aircon;
+		}
+		set
+		{
+			if ((this._aircon != value))
+			{
+				this._aircon = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int")]
+	public System.Nullable<int> price
+	{
+		get
+		{
+			return this._price;
+		}
+		set
+		{
+			if ((this._price != value))
+			{
+				this._price = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(1000)")]
+	public string description
+	{
+		get
+		{
+			return this._description;
+		}
+		set
+		{
+			if ((this._description != value))
+			{
+				this._description = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="NVarChar(500)")]
+	public string remarks
+	{
+		get
+		{
+			return this._remarks;
+		}
+		set
+		{
+			if ((this._remarks != value))
+			{
+				this._remarks = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_on", DbType="DateTime")]
+	public System.Nullable<System.DateTime> post_on
+	{
+		get
+		{
+			return this._post_on;
+		}
+		set
+		{
+			if ((this._post_on != value))
+			{
+				this._post_on = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_view_count", DbType="Int")]
+	public System.Nullable<int> view_count
+	{
+		get
+		{
+			return this._view_count;
+		}
+		set
+		{
+			if ((this._view_count != value))
+			{
+				this._view_count = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+	public string title
+	{
+		get
+		{
+			return this._title;
+		}
+		set
+		{
+			if ((this._title != value))
+			{
+				this._title = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(100)")]
+	public string username
+	{
+		get
+		{
+			return this._username;
+		}
+		set
+		{
+			if ((this._username != value))
+			{
+				this._username = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_count", DbType="Int")]
+	public System.Nullable<int> post_count
+	{
+		get
+		{
+			return this._post_count;
+		}
+		set
+		{
+			if ((this._post_count != value))
+			{
+				this._post_count = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_count", DbType="Int")]
+	public System.Nullable<int> available_count
+	{
+		get
+		{
+			return this._available_count;
+		}
+		set
+		{
+			if ((this._available_count != value))
+			{
+				this._available_count = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nearest_mrt", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+	public string nearest_mrt
+	{
+		get
+		{
+			return this._nearest_mrt;
+		}
+		set
+		{
+			if ((this._nearest_mrt != value))
+			{
+				this._nearest_mrt = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt1_id", DbType="VarChar(50)")]
+	public string mrt1_id
+	{
+		get
+		{
+			return this._mrt1_id;
+		}
+		set
+		{
+			if ((this._mrt1_id != value))
+			{
+				this._mrt1_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt2_id", DbType="VarChar(50)")]
+	public string mrt2_id
+	{
+		get
+		{
+			return this._mrt2_id;
+		}
+		set
+		{
+			if ((this._mrt2_id != value))
+			{
+				this._mrt2_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt3_id", DbType="VarChar(50)")]
+	public string mrt3_id
+	{
+		get
+		{
+			return this._mrt3_id;
+		}
+		set
+		{
+			if ((this._mrt3_id != value))
+			{
+				this._mrt3_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt1_name", DbType="VarChar(50)")]
+	public string mrt1_name
+	{
+		get
+		{
+			return this._mrt1_name;
+		}
+		set
+		{
+			if ((this._mrt1_name != value))
+			{
+				this._mrt1_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt2_name", DbType="VarChar(50)")]
+	public string mrt2_name
+	{
+		get
+		{
+			return this._mrt2_name;
+		}
+		set
+		{
+			if ((this._mrt2_name != value))
+			{
+				this._mrt2_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt3_name", DbType="VarChar(50)")]
+	public string mrt3_name
+	{
+		get
+		{
+			return this._mrt3_name;
+		}
+		set
+		{
+			if ((this._mrt3_name != value))
+			{
+				this._mrt3_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bookmark_on", DbType="DateTime")]
+	public System.Nullable<System.DateTime> bookmark_on
+	{
+		get
+		{
+			return this._bookmark_on;
+		}
+		set
+		{
+			if ((this._bookmark_on != value))
+			{
+				this._bookmark_on = value;
 			}
 		}
 	}

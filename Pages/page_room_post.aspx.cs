@@ -9,32 +9,48 @@ public partial class Pages_page_room_post : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Title = "shwe8.com, Post";
+        this.Title = "Shwe 8: Post";
         if (IsPostBack) return;
+        Fill_MRT_LIST();
+
+        if (Session["current_email"] != null) tb_email.Text = Session["current_email"].ToString();
+        if (Session["current_mobile"] != null) tb_mobile.Text = Session["current_mobile"].ToString();
+        if (Session["current_email"] != null &&
+        Session["current_mobile"] != null)
+        {
+            Fill_On_Form();
+        }
+    }
+    private void Fill_MRT_LIST()
+    {
         // Get MRT List;
         List<filtered_flat_mrt> mrts = Flat_Helper.Get_MRT_List();
+        filtered_flat_mrt default_mrt = new filtered_flat_mrt()
+        {
+            mrt_id = "None",
+            mrt_name = " "
+        };
+        mrts.Add(default_mrt);
+
         ddl_mrt1.DataTextField = "mrt_name";
         ddl_mrt1.DataValueField = "mrt_id";
         ddl_mrt1.DataSource = mrts;
         ddl_mrt1.DataBind();
+        ddl_mrt1.SelectedIndex = mrts.Count() - 1;
 
         ddl_mrt2.DataTextField = "mrt_name";
         ddl_mrt2.DataValueField = "mrt_id";
         ddl_mrt2.DataSource = mrts;
         ddl_mrt2.DataBind();
+        ddl_mrt2.SelectedIndex = mrts.Count() - 1;
 
         ddl_mrt3.DataTextField = "mrt_name";
         ddl_mrt3.DataValueField = "mrt_id";
         ddl_mrt3.DataSource = mrts;
         ddl_mrt3.DataBind();
+        ddl_mrt3.SelectedIndex = mrts.Count() - 1;
 
-        if (Session["current_email"] != null &&
-        Session["current_mobile"] != null)
-        {
-            tb_email.Text = Session["current_email"].ToString();
-            tb_mobile.Text = Session["current_mobile"].ToString();
-            Fill_On_Form();
-        }
+        tb_available.Text = DateTime.Now.ToString("dd/MM/yyyy");
     }
     private void Fill_On_Form()
     {
@@ -92,7 +108,7 @@ public partial class Pages_page_room_post : System.Web.UI.Page
 
         return _flat_room;
     }
-    
+
     private Boolean ValidateBeforePost_Step1()
     {
         lbl_email_error.Text = ""; tb_email.CssClass = "OrignalX";
@@ -114,6 +130,52 @@ public partial class Pages_page_room_post : System.Web.UI.Page
         }
         return IsValid;
     }
+    private Boolean ValidateBeforePost_Step2()
+    {
+        lbl_postal_code_error.Text = ""; tb_postal_code.CssClass = "OrignalX";
+        lbl_description_error.Text = ""; tb_description.CssClass = "OrignalX";
+        lbl_title_error.Text = ""; tb_title.CssClass = "OrignalX";
+        lbl_mrt_error.Text = "";
+        lbl_price_error.Text = ""; tb_price.CssClass = "OrignalX";
+        Boolean IsValid = true;
+
+
+        //if (tb_postal_code.Text.Trim() == "")
+        //{
+        //    lbl_postal_code_error.Text = "Invalid, must be 6 digits.";
+        //    tb_postal_code.CssClass = "ErrorTextBox";
+        //    IsValid = false;
+        //}
+
+        if (tb_description.Text.Trim() == "")
+        {
+            lbl_description_error.Text = "Please fill.";
+            tb_description.CssClass = "ErrorTextBox";
+            IsValid = false;
+        }
+        if (tb_title.Text.Trim() == "")
+        {
+            lbl_title_error.Text = "Please fill";
+            tb_title.CssClass = "ErrorTextBox";
+            IsValid = false;
+        }
+
+        if (tb_price.Text.Trim() == "")
+        {
+            lbl_price_error.Text = "Please fill";
+            tb_price.CssClass = "ErrorTextBox";
+            IsValid = false;
+        }
+
+        if (ddl_mrt1.SelectedValue == "None" && ddl_mrt2.SelectedValue == "None" && ddl_mrt3.SelectedValue == "None")
+        {
+            lbl_mrt_error.Text = "Please select";
+
+            IsValid = false;
+        }
+
+        return IsValid;
+    }
     protected void lbtn_get_info_Click(object sender, EventArgs e)
     {
         if (!ValidateBeforePost_Step1()) return;
@@ -123,7 +185,11 @@ public partial class Pages_page_room_post : System.Web.UI.Page
     {
         Session["current_email"] = tb_email.Text;
         Session["current_mobile"] = tb_mobile.Text;
-        if (!ValidateBeforePost_Step1()) return;
-        Flat_Helper.Update_Flat_Room(Get_Object_Form());
+        Boolean step1validate = ValidateBeforePost_Step1();
+        Boolean step2validate = ValidateBeforePost_Step2();
+        if (!step1validate || !step2validate) return;
+
+       string room_id= Flat_Helper.Update_Flat_Room(Get_Object_Form());
+       Response.Redirect("~/list2/" + room_id);
     }
 }

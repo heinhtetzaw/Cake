@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="cake_wave" Class="FlatDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\cake_wave.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="cake_waveConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CAKE_WAVE" Class="FlatDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=CAKE_WAVE;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CAKE_WAVEConnectionString4" Provider="System.Data.SqlClient" />
   <Table Name="dbo.flat_line" Member="flat_lines">
     <Type Name="flat_line">
       <Column Name="line_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -80,6 +80,43 @@
     <Type Name="filtered_site_status">
       <Column Name="total_post" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="total_view" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.post_bookmark" Member="post_bookmarks">
+    <Type Name="post_bookmark">
+      <Column Name="user_email" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="post_id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="post_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bookmark_on" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.filtered_flat_bookmark" Member="filtered_flat_bookmarks">
+    <Type Name="filtered_flat_bookmark">
+      <Column Name="bookmark_by" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="room_id" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="available_type" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="postal_code" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="contact_no" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="available" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="aircon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="post_on" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="view_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="post_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="available_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nearest_mrt" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="mrt1_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mrt2_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mrt3_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mrt1_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mrt2_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mrt3_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bookmark_on" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

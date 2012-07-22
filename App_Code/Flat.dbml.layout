@@ -8,12 +8,6 @@
         <elementListCompartment Id="e0f1228e-8abd-4310-af79-6a7342859531" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5ac56212-6789-4a35-befc-61f755e0d904" absoluteBounds="3.75, 0.75, 2, 4.4631168619791666">
-      <DataClassMoniker Name="/FlatDataContext/flat_room" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b5078fab-af88-4e06-9d09-9561c0b2bf68" absoluteBounds="3.765, 1.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="1177f0fc-61aa-4a15-8fc6-82b7c04d5cd4" absoluteBounds="6.75, 0.75, 2, 1.7708968098958329">
       <DataClassMoniker Name="/FlatDataContext/flat_mrt" />
       <nestedChildShapes>
@@ -48,6 +42,12 @@
       <DataClassMoniker Name="/FlatDataContext/filtered_flat_bookmark" />
       <nestedChildShapes>
         <elementListCompartment Id="c08441a6-697c-416b-bf5d-45e4620b35d2" absoluteBounds="9.515, 1.835, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="23fecbd3-4e7d-41c5-bd81-7ee35d96f151" absoluteBounds="4.25, 1.25, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/FlatDataContext/flat_room" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b5e510f-6fe2-4c85-9acf-251876672224" absoluteBounds="4.265, 1.71, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

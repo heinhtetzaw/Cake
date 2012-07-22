@@ -50,8 +50,8 @@ public partial class Pages_contactus : System.Web.UI.Page
         Message += "Enquiry:" + Environment.NewLine + Environment.NewLine;
         Message += tb_meassage.Text;
 
-        string email_result = CommonHelper.SendEmail(tb_email.Text,
-             "htz.hertz@gmail.com", "General enquiry to Shwe8.com", Message);
+        string email_result = CommonHelper.SendEmail("support@shwe8.net",
+             "support@shwe8.net", "General enquiry to Shwe 8", Message);
         if (email_result == "success")
         {
             panel_form.Visible = false;

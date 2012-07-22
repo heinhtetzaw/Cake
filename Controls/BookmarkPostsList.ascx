@@ -8,8 +8,10 @@
     Corners="Top">
 </ajaxToolkit:RoundedCornersExtender>
 <asp:GridView ID="gridview_rooms_list" runat="server" CellPadding="5" Width="100%"
-    OnRowCommand="gridview_rooms_list_RowCommand" OnRowDataBound="gridview_rooms_list_RowDataBound"
-    AllowPaging="True">
+    OnRowCommand="gridview_rooms_list_RowCommand" 
+    OnRowDataBound="gridview_rooms_list_RowDataBound" PageSize="25"
+    AllowPaging="True" 
+    onpageindexchanging="gridview_rooms_list_PageIndexChanging">
     <Columns>
         <asp:TemplateField HeaderText="Bookmarked Post Title">
             <ItemTemplate>

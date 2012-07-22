@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CAKE_WAVE")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="cake_wave")]
 public partial class FlatDataContext : System.Data.Linq.DataContext
 {
 	
@@ -32,19 +32,19 @@ public partial class FlatDataContext : System.Data.Linq.DataContext
   partial void Insertflat_line(flat_line instance);
   partial void Updateflat_line(flat_line instance);
   partial void Deleteflat_line(flat_line instance);
-  partial void Insertflat_room(flat_room instance);
-  partial void Updateflat_room(flat_room instance);
-  partial void Deleteflat_room(flat_room instance);
   partial void Insertflat_mrt(flat_mrt instance);
   partial void Updateflat_mrt(flat_mrt instance);
   partial void Deleteflat_mrt(flat_mrt instance);
   partial void Insertpost_bookmark(post_bookmark instance);
   partial void Updatepost_bookmark(post_bookmark instance);
   partial void Deletepost_bookmark(post_bookmark instance);
+  partial void Insertflat_room(flat_room instance);
+  partial void Updateflat_room(flat_room instance);
+  partial void Deleteflat_room(flat_room instance);
   #endregion
 	
 	public FlatDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CAKE_WAVEConnectionString4"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["cake_waveConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -78,14 +78,6 @@ public partial class FlatDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<flat_line>();
-		}
-	}
-	
-	public System.Data.Linq.Table<flat_room> flat_rooms
-	{
-		get
-		{
-			return this.GetTable<flat_room>();
 		}
 	}
 	
@@ -134,6 +126,14 @@ public partial class FlatDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<filtered_flat_bookmark>();
+		}
+	}
+	
+	public System.Data.Linq.Table<flat_room> flat_rooms
+	{
+		get
+		{
+			return this.GetTable<flat_room>();
 		}
 	}
 }
@@ -223,500 +223,6 @@ public partial class flat_line : INotifyPropertyChanging, INotifyPropertyChanged
 				this._description = value;
 				this.SendPropertyChanged("description");
 				this.OndescriptionChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.flat_room")]
-public partial class flat_room : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private string _room_id;
-	
-	private string _available_type;
-	
-	private string _postal_code;
-	
-	private string _email;
-	
-	private string _contact_no;
-	
-	private System.Nullable<System.DateTime> _available;
-	
-	private System.Nullable<int> _aircon;
-	
-	private System.Nullable<int> _price;
-	
-	private string _description;
-	
-	private string _remarks;
-	
-	private System.Nullable<System.DateTime> _post_on;
-	
-	private System.Nullable<int> _view_count;
-	
-	private string _title;
-	
-	private string _username;
-	
-	private System.Nullable<int> _post_count;
-	
-	private System.Nullable<int> _available_count;
-	
-	private string _mrt1_id;
-	
-	private string _mrt2_id;
-	
-	private string _mrt3_id;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onroom_idChanging(string value);
-    partial void Onroom_idChanged();
-    partial void Onavailable_typeChanging(string value);
-    partial void Onavailable_typeChanged();
-    partial void Onpostal_codeChanging(string value);
-    partial void Onpostal_codeChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void Oncontact_noChanging(string value);
-    partial void Oncontact_noChanged();
-    partial void OnavailableChanging(System.Nullable<System.DateTime> value);
-    partial void OnavailableChanged();
-    partial void OnairconChanging(System.Nullable<int> value);
-    partial void OnairconChanged();
-    partial void OnpriceChanging(System.Nullable<int> value);
-    partial void OnpriceChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OnremarksChanging(string value);
-    partial void OnremarksChanged();
-    partial void Onpost_onChanging(System.Nullable<System.DateTime> value);
-    partial void Onpost_onChanged();
-    partial void Onview_countChanging(System.Nullable<int> value);
-    partial void Onview_countChanged();
-    partial void OntitleChanging(string value);
-    partial void OntitleChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void Onpost_countChanging(System.Nullable<int> value);
-    partial void Onpost_countChanged();
-    partial void Onavailable_countChanging(System.Nullable<int> value);
-    partial void Onavailable_countChanged();
-    partial void Onmrt1_idChanging(string value);
-    partial void Onmrt1_idChanged();
-    partial void Onmrt2_idChanging(string value);
-    partial void Onmrt2_idChanged();
-    partial void Onmrt3_idChanging(string value);
-    partial void Onmrt3_idChanged();
-    #endregion
-	
-	public flat_room()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_room_id", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-	public string room_id
-	{
-		get
-		{
-			return this._room_id;
-		}
-		set
-		{
-			if ((this._room_id != value))
-			{
-				this.Onroom_idChanging(value);
-				this.SendPropertyChanging();
-				this._room_id = value;
-				this.SendPropertyChanged("room_id");
-				this.Onroom_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_type", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
-	public string available_type
-	{
-		get
-		{
-			return this._available_type;
-		}
-		set
-		{
-			if ((this._available_type != value))
-			{
-				this.Onavailable_typeChanging(value);
-				this.SendPropertyChanging();
-				this._available_type = value;
-				this.SendPropertyChanged("available_type");
-				this.Onavailable_typeChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postal_code", DbType="VarChar(6)")]
-	public string postal_code
-	{
-		get
-		{
-			return this._postal_code;
-		}
-		set
-		{
-			if ((this._postal_code != value))
-			{
-				this.Onpostal_codeChanging(value);
-				this.SendPropertyChanging();
-				this._postal_code = value;
-				this.SendPropertyChanged("postal_code");
-				this.Onpostal_codeChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string email
-	{
-		get
-		{
-			return this._email;
-		}
-		set
-		{
-			if ((this._email != value))
-			{
-				this.OnemailChanging(value);
-				this.SendPropertyChanging();
-				this._email = value;
-				this.SendPropertyChanged("email");
-				this.OnemailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contact_no", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string contact_no
-	{
-		get
-		{
-			return this._contact_no;
-		}
-		set
-		{
-			if ((this._contact_no != value))
-			{
-				this.Oncontact_noChanging(value);
-				this.SendPropertyChanging();
-				this._contact_no = value;
-				this.SendPropertyChanged("contact_no");
-				this.Oncontact_noChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Date")]
-	public System.Nullable<System.DateTime> available
-	{
-		get
-		{
-			return this._available;
-		}
-		set
-		{
-			if ((this._available != value))
-			{
-				this.OnavailableChanging(value);
-				this.SendPropertyChanging();
-				this._available = value;
-				this.SendPropertyChanged("available");
-				this.OnavailableChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_aircon", DbType="Int")]
-	public System.Nullable<int> aircon
-	{
-		get
-		{
-			return this._aircon;
-		}
-		set
-		{
-			if ((this._aircon != value))
-			{
-				this.OnairconChanging(value);
-				this.SendPropertyChanging();
-				this._aircon = value;
-				this.SendPropertyChanged("aircon");
-				this.OnairconChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int")]
-	public System.Nullable<int> price
-	{
-		get
-		{
-			return this._price;
-		}
-		set
-		{
-			if ((this._price != value))
-			{
-				this.OnpriceChanging(value);
-				this.SendPropertyChanging();
-				this._price = value;
-				this.SendPropertyChanged("price");
-				this.OnpriceChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(1000)")]
-	public string description
-	{
-		get
-		{
-			return this._description;
-		}
-		set
-		{
-			if ((this._description != value))
-			{
-				this.OndescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._description = value;
-				this.SendPropertyChanged("description");
-				this.OndescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="NVarChar(500)")]
-	public string remarks
-	{
-		get
-		{
-			return this._remarks;
-		}
-		set
-		{
-			if ((this._remarks != value))
-			{
-				this.OnremarksChanging(value);
-				this.SendPropertyChanging();
-				this._remarks = value;
-				this.SendPropertyChanged("remarks");
-				this.OnremarksChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_on", DbType="DateTime")]
-	public System.Nullable<System.DateTime> post_on
-	{
-		get
-		{
-			return this._post_on;
-		}
-		set
-		{
-			if ((this._post_on != value))
-			{
-				this.Onpost_onChanging(value);
-				this.SendPropertyChanging();
-				this._post_on = value;
-				this.SendPropertyChanged("post_on");
-				this.Onpost_onChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_view_count", DbType="Int")]
-	public System.Nullable<int> view_count
-	{
-		get
-		{
-			return this._view_count;
-		}
-		set
-		{
-			if ((this._view_count != value))
-			{
-				this.Onview_countChanging(value);
-				this.SendPropertyChanging();
-				this._view_count = value;
-				this.SendPropertyChanged("view_count");
-				this.Onview_countChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-	public string title
-	{
-		get
-		{
-			return this._title;
-		}
-		set
-		{
-			if ((this._title != value))
-			{
-				this.OntitleChanging(value);
-				this.SendPropertyChanging();
-				this._title = value;
-				this.SendPropertyChanged("title");
-				this.OntitleChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(100)")]
-	public string username
-	{
-		get
-		{
-			return this._username;
-		}
-		set
-		{
-			if ((this._username != value))
-			{
-				this.OnusernameChanging(value);
-				this.SendPropertyChanging();
-				this._username = value;
-				this.SendPropertyChanged("username");
-				this.OnusernameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_count", DbType="Int")]
-	public System.Nullable<int> post_count
-	{
-		get
-		{
-			return this._post_count;
-		}
-		set
-		{
-			if ((this._post_count != value))
-			{
-				this.Onpost_countChanging(value);
-				this.SendPropertyChanging();
-				this._post_count = value;
-				this.SendPropertyChanged("post_count");
-				this.Onpost_countChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_count", DbType="Int")]
-	public System.Nullable<int> available_count
-	{
-		get
-		{
-			return this._available_count;
-		}
-		set
-		{
-			if ((this._available_count != value))
-			{
-				this.Onavailable_countChanging(value);
-				this.SendPropertyChanging();
-				this._available_count = value;
-				this.SendPropertyChanged("available_count");
-				this.Onavailable_countChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt1_id", DbType="VarChar(50)")]
-	public string mrt1_id
-	{
-		get
-		{
-			return this._mrt1_id;
-		}
-		set
-		{
-			if ((this._mrt1_id != value))
-			{
-				this.Onmrt1_idChanging(value);
-				this.SendPropertyChanging();
-				this._mrt1_id = value;
-				this.SendPropertyChanged("mrt1_id");
-				this.Onmrt1_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt2_id", DbType="VarChar(50)")]
-	public string mrt2_id
-	{
-		get
-		{
-			return this._mrt2_id;
-		}
-		set
-		{
-			if ((this._mrt2_id != value))
-			{
-				this.Onmrt2_idChanging(value);
-				this.SendPropertyChanging();
-				this._mrt2_id = value;
-				this.SendPropertyChanged("mrt2_id");
-				this.Onmrt2_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt3_id", DbType="VarChar(50)")]
-	public string mrt3_id
-	{
-		get
-		{
-			return this._mrt3_id;
-		}
-		set
-		{
-			if ((this._mrt3_id != value))
-			{
-				this.Onmrt3_idChanging(value);
-				this.SendPropertyChanging();
-				this._mrt3_id = value;
-				this.SendPropertyChanged("mrt3_id");
-				this.Onmrt3_idChanged();
 			}
 		}
 	}
@@ -2074,6 +1580,500 @@ public partial class filtered_flat_bookmark
 			{
 				this._bookmark_on = value;
 			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.flat_room")]
+public partial class flat_room : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private string _room_id;
+	
+	private string _available_type;
+	
+	private string _postal_code;
+	
+	private string _email;
+	
+	private string _contact_no;
+	
+	private System.Nullable<System.DateTime> _available;
+	
+	private System.Nullable<int> _aircon;
+	
+	private System.Nullable<int> _price;
+	
+	private string _description;
+	
+	private string _remarks;
+	
+	private System.Nullable<System.DateTime> _post_on;
+	
+	private System.Nullable<int> _view_count;
+	
+	private string _title;
+	
+	private string _username;
+	
+	private System.Nullable<int> _post_count;
+	
+	private System.Nullable<int> _available_count;
+	
+	private string _mrt1_id;
+	
+	private string _mrt2_id;
+	
+	private string _mrt3_id;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onroom_idChanging(string value);
+    partial void Onroom_idChanged();
+    partial void Onavailable_typeChanging(string value);
+    partial void Onavailable_typeChanged();
+    partial void Onpostal_codeChanging(string value);
+    partial void Onpostal_codeChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void Oncontact_noChanging(string value);
+    partial void Oncontact_noChanged();
+    partial void OnavailableChanging(System.Nullable<System.DateTime> value);
+    partial void OnavailableChanged();
+    partial void OnairconChanging(System.Nullable<int> value);
+    partial void OnairconChanged();
+    partial void OnpriceChanging(System.Nullable<int> value);
+    partial void OnpriceChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnremarksChanging(string value);
+    partial void OnremarksChanged();
+    partial void Onpost_onChanging(System.Nullable<System.DateTime> value);
+    partial void Onpost_onChanged();
+    partial void Onview_countChanging(System.Nullable<int> value);
+    partial void Onview_countChanged();
+    partial void OntitleChanging(string value);
+    partial void OntitleChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void Onpost_countChanging(System.Nullable<int> value);
+    partial void Onpost_countChanged();
+    partial void Onavailable_countChanging(System.Nullable<int> value);
+    partial void Onavailable_countChanged();
+    partial void Onmrt1_idChanging(string value);
+    partial void Onmrt1_idChanged();
+    partial void Onmrt2_idChanging(string value);
+    partial void Onmrt2_idChanged();
+    partial void Onmrt3_idChanging(string value);
+    partial void Onmrt3_idChanged();
+    #endregion
+	
+	public flat_room()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_room_id", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	public string room_id
+	{
+		get
+		{
+			return this._room_id;
+		}
+		set
+		{
+			if ((this._room_id != value))
+			{
+				this.Onroom_idChanging(value);
+				this.SendPropertyChanging();
+				this._room_id = value;
+				this.SendPropertyChanged("room_id");
+				this.Onroom_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_type", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+	public string available_type
+	{
+		get
+		{
+			return this._available_type;
+		}
+		set
+		{
+			if ((this._available_type != value))
+			{
+				this.Onavailable_typeChanging(value);
+				this.SendPropertyChanging();
+				this._available_type = value;
+				this.SendPropertyChanged("available_type");
+				this.Onavailable_typeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postal_code", DbType="VarChar(6)")]
+	public string postal_code
+	{
+		get
+		{
+			return this._postal_code;
+		}
+		set
+		{
+			if ((this._postal_code != value))
+			{
+				this.Onpostal_codeChanging(value);
+				this.SendPropertyChanging();
+				this._postal_code = value;
+				this.SendPropertyChanged("postal_code");
+				this.Onpostal_codeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string email
+	{
+		get
+		{
+			return this._email;
+		}
+		set
+		{
+			if ((this._email != value))
+			{
+				this.OnemailChanging(value);
+				this.SendPropertyChanging();
+				this._email = value;
+				this.SendPropertyChanged("email");
+				this.OnemailChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contact_no", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string contact_no
+	{
+		get
+		{
+			return this._contact_no;
+		}
+		set
+		{
+			if ((this._contact_no != value))
+			{
+				this.Oncontact_noChanging(value);
+				this.SendPropertyChanging();
+				this._contact_no = value;
+				this.SendPropertyChanged("contact_no");
+				this.Oncontact_noChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Date")]
+	public System.Nullable<System.DateTime> available
+	{
+		get
+		{
+			return this._available;
+		}
+		set
+		{
+			if ((this._available != value))
+			{
+				this.OnavailableChanging(value);
+				this.SendPropertyChanging();
+				this._available = value;
+				this.SendPropertyChanged("available");
+				this.OnavailableChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_aircon", DbType="Int")]
+	public System.Nullable<int> aircon
+	{
+		get
+		{
+			return this._aircon;
+		}
+		set
+		{
+			if ((this._aircon != value))
+			{
+				this.OnairconChanging(value);
+				this.SendPropertyChanging();
+				this._aircon = value;
+				this.SendPropertyChanged("aircon");
+				this.OnairconChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int")]
+	public System.Nullable<int> price
+	{
+		get
+		{
+			return this._price;
+		}
+		set
+		{
+			if ((this._price != value))
+			{
+				this.OnpriceChanging(value);
+				this.SendPropertyChanging();
+				this._price = value;
+				this.SendPropertyChanged("price");
+				this.OnpriceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(1000)")]
+	public string description
+	{
+		get
+		{
+			return this._description;
+		}
+		set
+		{
+			if ((this._description != value))
+			{
+				this.OndescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._description = value;
+				this.SendPropertyChanged("description");
+				this.OndescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="NVarChar(500)")]
+	public string remarks
+	{
+		get
+		{
+			return this._remarks;
+		}
+		set
+		{
+			if ((this._remarks != value))
+			{
+				this.OnremarksChanging(value);
+				this.SendPropertyChanging();
+				this._remarks = value;
+				this.SendPropertyChanged("remarks");
+				this.OnremarksChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_on", DbType="DateTime")]
+	public System.Nullable<System.DateTime> post_on
+	{
+		get
+		{
+			return this._post_on;
+		}
+		set
+		{
+			if ((this._post_on != value))
+			{
+				this.Onpost_onChanging(value);
+				this.SendPropertyChanging();
+				this._post_on = value;
+				this.SendPropertyChanged("post_on");
+				this.Onpost_onChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_view_count", DbType="Int")]
+	public System.Nullable<int> view_count
+	{
+		get
+		{
+			return this._view_count;
+		}
+		set
+		{
+			if ((this._view_count != value))
+			{
+				this.Onview_countChanging(value);
+				this.SendPropertyChanging();
+				this._view_count = value;
+				this.SendPropertyChanged("view_count");
+				this.Onview_countChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+	public string title
+	{
+		get
+		{
+			return this._title;
+		}
+		set
+		{
+			if ((this._title != value))
+			{
+				this.OntitleChanging(value);
+				this.SendPropertyChanging();
+				this._title = value;
+				this.SendPropertyChanged("title");
+				this.OntitleChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(100)")]
+	public string username
+	{
+		get
+		{
+			return this._username;
+		}
+		set
+		{
+			if ((this._username != value))
+			{
+				this.OnusernameChanging(value);
+				this.SendPropertyChanging();
+				this._username = value;
+				this.SendPropertyChanged("username");
+				this.OnusernameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_post_count", DbType="Int")]
+	public System.Nullable<int> post_count
+	{
+		get
+		{
+			return this._post_count;
+		}
+		set
+		{
+			if ((this._post_count != value))
+			{
+				this.Onpost_countChanging(value);
+				this.SendPropertyChanging();
+				this._post_count = value;
+				this.SendPropertyChanged("post_count");
+				this.Onpost_countChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_count", DbType="Int")]
+	public System.Nullable<int> available_count
+	{
+		get
+		{
+			return this._available_count;
+		}
+		set
+		{
+			if ((this._available_count != value))
+			{
+				this.Onavailable_countChanging(value);
+				this.SendPropertyChanging();
+				this._available_count = value;
+				this.SendPropertyChanged("available_count");
+				this.Onavailable_countChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt1_id", DbType="VarChar(50)")]
+	public string mrt1_id
+	{
+		get
+		{
+			return this._mrt1_id;
+		}
+		set
+		{
+			if ((this._mrt1_id != value))
+			{
+				this.Onmrt1_idChanging(value);
+				this.SendPropertyChanging();
+				this._mrt1_id = value;
+				this.SendPropertyChanged("mrt1_id");
+				this.Onmrt1_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt2_id", DbType="VarChar(50)")]
+	public string mrt2_id
+	{
+		get
+		{
+			return this._mrt2_id;
+		}
+		set
+		{
+			if ((this._mrt2_id != value))
+			{
+				this.Onmrt2_idChanging(value);
+				this.SendPropertyChanging();
+				this._mrt2_id = value;
+				this.SendPropertyChanged("mrt2_id");
+				this.Onmrt2_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mrt3_id", DbType="VarChar(50)")]
+	public string mrt3_id
+	{
+		get
+		{
+			return this._mrt3_id;
+		}
+		set
+		{
+			if ((this._mrt3_id != value))
+			{
+				this.Onmrt3_idChanging(value);
+				this.SendPropertyChanging();
+				this._mrt3_id = value;
+				this.SendPropertyChanged("mrt3_id");
+				this.Onmrt3_idChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

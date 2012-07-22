@@ -9,7 +9,7 @@
 <%@ Register Src="../Controls/BookmarkPostsList.ascx" TagName="BookmarkPostsList"
     TagPrefix="uc5" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
-    <asp:UpdatePanel runat="server" ID="panel_main">
+    <asp:UpdatePanel runat="server" ID="panel_main" >
         <ContentTemplate>
             
             <asp:Panel runat="server" ID="panel_header" Width="100%" CssClass="TitleBox">
@@ -49,9 +49,10 @@
                 </table>
             </div>
             <div class="WorkingBox">
-                <asp:GridView ID="gridview_rooms_list" runat="server" CellPadding="5" Width="100%"
+                <asp:GridView ID="gridview_rooms_list" runat="server" CellPadding="5" Width="100%" 
                     OnRowCommand="gridview_rooms_list_RowCommand" OnRowDataBound="gridview_rooms_list_RowDataBound"
-                    AllowPaging="True">
+                    AllowPaging="True"  PageSize="25" onpageindexchanging="gridview_rooms_list_PageIndexChanging" 
+                    >
                     <Columns>
                         <asp:TemplateField HeaderText="Post Title">
                             <ItemTemplate>

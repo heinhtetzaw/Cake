@@ -73,4 +73,9 @@ public partial class Controls_BookmarkPostsList : System.Web.UI.UserControl
     
         Refersh();
     }
+    protected void gridview_rooms_list_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gridview_rooms_list.PageIndex = e.NewPageIndex;
+        Refersh();
+    }
 }

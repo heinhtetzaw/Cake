@@ -56,12 +56,12 @@ public static class CommonHelper
     public static String SendEmail(string from_mail_address, string to_mail_address, string subject, string body)
     {
         MailMessage mailObj = new MailMessage(from_mail_address, to_mail_address, subject, body);
-        SmtpClient SMTPServer = new SmtpClient("smtp.gmail.com", 587);
-        SMTPServer.EnableSsl = true;
+        SmtpClient SMTPServer = new SmtpClient("mail.shwe8.net");
+        SMTPServer.EnableSsl = false;
         SMTPServer.Timeout = 10000;
         SMTPServer.DeliveryMethod = SmtpDeliveryMethod.Network;
         SMTPServer.UseDefaultCredentials = false;
-        SMTPServer.Credentials = new NetworkCredential("htz.hertz@gmail.com", "nop@ssw0rd");
+        SMTPServer.Credentials = new NetworkCredential("support@shwe8.net", "nop@ssw0rd");
 
         try
         {

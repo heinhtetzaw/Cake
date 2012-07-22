@@ -9,14 +9,15 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+       
         this.Title = "Shwe 8: Rooms";
-        if (IsPostBack) return;
+         if (IsPostBack) return;
 
         Bind_MRT_DDL();
 
         gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List();
         gridview_rooms_list.DataBind();
-
+       
         if (Page.RouteData.Values["room_id"] != null)
         {
             flat_room_detail.View_Record(Page.RouteData.Values["room_id"].ToString());
@@ -53,8 +54,8 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
         {
             string room_id = e.CommandArgument.ToString();
             flat_room_detail.View_Record(room_id);
-
         }
+     
     }
 
 
@@ -83,4 +84,12 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
 
     }
 
+   
+    protected void gridview_rooms_list_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gridview_rooms_list.PageIndex = e.NewPageIndex;
+
+        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List();
+        gridview_rooms_list.DataBind();
+    }
 }

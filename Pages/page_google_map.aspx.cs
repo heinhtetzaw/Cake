@@ -15,15 +15,7 @@ public partial class Pages_page_google_map : System.Web.UI.Page
         String postal_code_value = location.Split('^')[0];
         String mrt_station = location.Split('^')[1];
 
-        if (postal_code_value != "")
-        {
-            Marker _marker = new Marker();
-            _marker.Address =  postal_code_value + " Singapore";
-            _marker.Animation = MarkerAnimation.Drop;
-            _marker.Title = "Postal Code: " + postal_code_value;
-            _marker.Info = postal_code_value;
-            google_map_default.Markers.Add(_marker);
-        }
+       
 
         if (mrt_station != "")
         {
@@ -37,9 +29,20 @@ public partial class Pages_page_google_map : System.Web.UI.Page
             _marker_image.Url = "../Images/train.png";
             _marker_mrt.Icon = _marker_image;
             google_map_default.Markers.Add(_marker_mrt);
+
+
         }
-      
+        if (postal_code_value != "")
+        {
+            Marker _marker = new Marker();
+            _marker.Address = postal_code_value + " Singapore";
+            _marker.Animation = MarkerAnimation.Drop;
+            _marker.Title = "Postal Code: " + postal_code_value;
+            _marker.Info = postal_code_value;
+            google_map_default.Markers.Add(_marker);
+            
+        }
+        google_map_default.DefaultAddress = (postal_code_value != "") ? postal_code_value : mrt_station +" MRT Singapore";
         
-        google_map_default.DefaultAddress = postal_code_value;
     }
 }

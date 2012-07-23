@@ -35,9 +35,9 @@ public static class CommonHelper
 
     public static String GetEasyPostTime(DateTime? check_date_time)
     {
-        if(!check_date_time.HasValue) return "";
+        if (!check_date_time.HasValue) return "";
         string result = "";
-        
+
         DateTime current_time = DateTime.Now;
         TimeSpan difference = current_time.Subtract(check_date_time.Value);
         if (difference.Days == 0 && difference.Hours == 0 && difference.Minutes == 0)
@@ -52,7 +52,31 @@ public static class CommonHelper
             result = check_date_time.Value.ToString("dd MMMM hh:mm tt");
         return result;
     }
-
+    public static String GetStandardDateFormat(DateTime? check_date_time)
+    {
+        if (check_date_time.HasValue)
+            return check_date_time.Value.ToString("dd/MM/yyyy");
+        else
+            return " - ";
+    }
+    public static String GetStandardPriceFormat(Int32? check_price)
+    {
+        if (check_price.HasValue)
+            return "S$ " + check_price.Value.ToString("D0");
+        else
+            return " - ";
+    }
+    public static String GetGenderFormart(string check_gender)
+    {
+        switch (check_gender)
+        {
+            case "m": return "Male Only";
+            case "f": return "Female Only";
+            case "c": return "Couple Only";
+            case "b": return "Male/Female";
+        }
+        return " - ";
+    }
     public static String SendEmail(string from_mail_address, string to_mail_address, string subject, string body)
     {
         MailMessage mailObj = new MailMessage(from_mail_address, to_mail_address, subject, body);

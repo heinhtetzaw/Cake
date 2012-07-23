@@ -163,12 +163,12 @@ public partial class Pages_page_room_post : BasePage
             IsValid = false;
         }
 
-        if (tb_price.Text.Trim() == "")
-        {
-            lbl_price_error.Text = "Please fill";
-            tb_price.CssClass = "ErrorTextBox";
-            IsValid = false;
-        }
+        //if (tb_price.Text.Trim() == "")
+        //{
+        //    lbl_price_error.Text = "Please fill";
+        //    tb_price.CssClass = "ErrorTextBox";
+        //    IsValid = false;
+        //}
 
         if (ddl_mrt1.SelectedValue == "None" && ddl_mrt2.SelectedValue == "None" && ddl_mrt3.SelectedValue == "None")
         {

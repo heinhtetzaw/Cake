@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <script language="javascript" type="text/jscript">
         function PopulateTitle() {
-            var _price = ",S$ " + document.getElementById('<%=this.tb_price.ClientID%>').value;
+            //var _price = ",S$ " + document.getElementById('<%=this.tb_price.ClientID%>').value;
 
 
             var _ddl_available_count = document.getElementById('<%=this.ddl_available_person.ClientID%>');
@@ -13,7 +13,7 @@
             var _ddl_mrt = document.getElementById('<%=this.ddl_mrt1.ClientID%>');
             var _mrt_name = "@" + _ddl_mrt.options[_ddl_mrt.selectedIndex].text + " ";
 
-            document.getElementById('<%=this.tb_title.ClientID%>').value = "Available for " + _count + "room-mate(s) " + _mrt_name + _price + ".";
+            document.getElementById('<%=this.tb_title.ClientID%>').value = "Available for " + _count + "room-mate(s) " + _mrt_name ;
         }
     </script>
     <asp:UpdatePanel runat="server" ID="update_panel_main">

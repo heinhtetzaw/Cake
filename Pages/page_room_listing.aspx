@@ -8,11 +8,12 @@
 <%@ Register Src="../Controls/Flat_Room_Detail.ascx" TagName="Flat_Room_Detail" TagPrefix="uc4" %>
 <%@ Register Src="../Controls/BookmarkPostsList.ascx" TagName="BookmarkPostsList"
     TagPrefix="uc5" %>
+<%@ Register Src="../Controls/GoogleAdsence_SlideBar.ascx" TagName="GoogleAdsence_SlideBar"
+    TagPrefix="uc6" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
-    <asp:UpdatePanel runat="server" ID="panel_main" >
+    <asp:UpdatePanel runat="server" ID="panel_main">
         <ContentTemplate>
-            
-            <asp:Panel runat="server" ID="panel_header" Width="100%" CssClass="TitleBox">
+            <asp:Panel runat="server" ID="panel_header" Width="100%" CssClass="TitleBox" Visible="false">
                 <asp:Label runat="server" ID="lbl_title" Text="Room List for Rental" SkinID="TitleLabel" />
             </asp:Panel>
             <ajaxToolkit:RoundedCornersExtender ID="rce_panel_header" runat="server" TargetControlID="panel_header"
@@ -35,15 +36,11 @@
                             <asp:DropDownList runat="server" ID="ddl_mrt1" Width="120px" />
                         </td>
                         <td>
-                            <asp:RadioButtonList ID="rbtn_welcomeType" runat="server" 
-                                RepeatDirection="Horizontal" >
-
+                            <asp:RadioButtonList ID="rbtn_welcomeType" runat="server" RepeatDirection="Horizontal">
                                 <asp:ListItem Selected="True" Value="all">All</asp:ListItem>
                                 <asp:ListItem Value="m">Male Only</asp:ListItem>
                                 <asp:ListItem Value="f">Female only</asp:ListItem>
-
                             </asp:RadioButtonList>
-                          
                         </td>
                         <td>
                             <asp:Button runat="server" ID="btn_search" Text="Search" OnClick="btn_search_Click" />
@@ -52,31 +49,80 @@
                 </table>
             </div>
             <div class="WorkingBox">
-                <asp:GridView ID="gridview_rooms_list" runat="server" CellPadding="5" Width="100%" 
+                <asp:GridView ID="gridview_rooms_list" runat="server" CellPadding="5" Width="100%"
                     OnRowCommand="gridview_rooms_list_RowCommand" OnRowDataBound="gridview_rooms_list_RowDataBound"
-                    AllowPaging="True"  PageSize="25" onpageindexchanging="gridview_rooms_list_PageIndexChanging" 
-                    >
+                    AllowPaging="True" PageSize="25" OnPageIndexChanging="gridview_rooms_list_PageIndexChanging">
                     <Columns>
-                        <asp:TemplateField HeaderText="Post Title">
+                        <asp:TemplateField HeaderText="Room listing for Shwe Rental.">
                             <ItemTemplate>
-                                <asp:LinkButton ID="lbn_title" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
-                                    Font-Overline="false" Text='<%# Bind("title") %>' Width="100%" OnClick="lbn_title_Click">
-                                    <asp:HiddenField ID="hidden_room_id" runat="server" Value='<%# Bind("room_id") %>' />
-                                </asp:LinkButton></ItemTemplate>
+                                <table>
+                                    <tr>
+                                        <td class="Title_td" style="max-width: 70px; width: 50px">
+                                            <asp:Label runat="server" ID="lbl_room_" Text="Title: " />
+                                        </td>
+                                        <td colspan="6">
+                                            <asp:LinkButton ID="lbn_title" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
+                                                Text='<%# Bind("title") %>' Font-Underline="false" Font-Bold="true" OnClick="lbn_title_Click"> </asp:LinkButton>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="Title_td" style="max-width: 70px; width: 50px">
+                                            <asp:Label runat="server" ID="Label4" Text="MRT: " />
+                                        </td>
+                                        <td style="width: 150px">
+                                            <asp:Label runat="server" ID="Label5" Text='<%# Eval("mrt1_name") %>' />
+                                        </td>
+                                        <td class="Title_td">
+                                            <asp:Label runat="server" ID="lbl_room_title" Text="Available on: " />
+                                        </td>
+                                        <td style="width: 100px">
+                                            <asp:Label runat="server" ID="lbl_avaiable_date" Text='<%# CommonHelper.GetStandardDateFormat((DateTime?)Eval("available")) %>' />
+                                        </td>
+                                        <td class="Title_td">
+                                            <asp:Label runat="server" ID="Label2" Text="Price: " />
+                                        </td>
+                                        <td style="width: 50px">
+                                            <asp:Label runat="server" ID="Label3" Text='<%# CommonHelper.GetStandardPriceFormat((Int32?)Eval("price")) %>' />
+                                        </td>
+                                        <td class="Title_td">
+                                            <asp:Label runat="server" ID="Label7" Text="Person: " />
+                                        </td>
+                                        <td style="width: 70px">
+                                            <asp:Label ID="Label8" runat="server" Text='<%# Eval("available_count") + " person"%>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="Title_td" style="max-width: 70px; width: 50px">
+                                            <asp:Label runat="server" ID="lbl_looking" Text="Looking:" />
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" ID="Label9" Text='<%# CommonHelper.GetGenderFormart((string)Eval("available_type")) %>' />
+                                        </td>
+                                        <td class="Title_td">
+                                            <asp:Label runat="server" ID="Label6" Text="Post on: " />
+                                        </td>
+                                        <td colspan="4">
+                                            <asp:Label ID="Label1" runat="server" Text='<%# CommonHelper.GetEasyPostTime((DateTime?)Eval("post_on")) %>'></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton ID="btn_detail" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
+                                                Text="View Detail" Width="80px" OnClick="lbn_title_Click" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                </table>
+                                <hr />
+                                <asp:HiddenField ID="hidden_room_id" runat="server" Value='<%# Bind("room_id") %>' />
+                            </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Left" />
                             <ItemStyle Width="700px" />
                         </asp:TemplateField>
-                        <asp:BoundField DataField="view_count" HeaderText="View">
+                        <asp:BoundField DataField="view_count" HeaderText="View" Visible="false">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle Width="50px" HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:TemplateField HeaderText="Posted On">
-                            <ItemTemplate>
-                                <asp:Label ID="Label1" runat="server" Text='<%# CommonHelper.GetEasyPostTime((DateTime?)Eval("post_on")) %>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Left" />
-                            <ItemStyle Width="180px" />
-                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </div>
@@ -86,6 +132,8 @@
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
     <uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
+    <hr />
+    <uc6:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />
     <hr />
     <uc2:PostAndViewCount ID="PostAndViewCount1" runat="server" />
     <hr />

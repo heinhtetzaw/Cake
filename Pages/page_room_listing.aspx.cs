@@ -5,12 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Artem.Google.UI;
-public partial class Pages_page_room_listing : System.Web.UI.Page
+public partial class Pages_page_room_listing :BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
        
-        this.Title = "Shwe 8: Rooms";
+         this.Title =Title_Prefix+"Rooms";
          if (IsPostBack) return;
 
         Bind_MRT_DDL();
@@ -44,7 +44,7 @@ public partial class Pages_page_room_listing : System.Web.UI.Page
     protected void btn_search_Click(object sender, EventArgs e)
     {
 
-        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue, ddl_roomate.SelectedValue);
+        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue, rbtn_welcomeType.SelectedValue);
         gridview_rooms_list.DataBind();
     }
 

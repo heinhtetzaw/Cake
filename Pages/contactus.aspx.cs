@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Pages_contactus : System.Web.UI.Page
+public partial class Pages_contactus : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Title = "Shwe 8: Contact Us";
+        this.Title = Title_Prefix + "Contact Us";
         if (IsPostBack) return;
     }
     Boolean ValidateBeforePost()

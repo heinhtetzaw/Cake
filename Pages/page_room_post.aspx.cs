@@ -4,12 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
-public partial class Pages_page_room_post : System.Web.UI.Page
+public partial class Pages_page_room_post : BasePage
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Title = "Shwe 8: Post";
+        this.Title =Title_Prefix+ "Post";
+
         if (IsPostBack) return;
         Fill_MRT_LIST();
 

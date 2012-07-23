@@ -9,7 +9,7 @@
                                 <asp:Image ID="img_logo" ImageUrl="~/Images/Logo.png" runat="server" Height="25px" />
                             </td>
                             <td align="center">
-                                <asp:Label runat="server" ID="Label8" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330"></asp:Label>
+                                <asp:Label runat="server" ID="lbl_page_title" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330" Font-Bold="true"></asp:Label>
                             </td>
                             <td style="width: 100px" align="right">
                                 <asp:LinkButton runat="server" ID="btn_close" Text="[X] Close" OnClick="btn_close_Click" />

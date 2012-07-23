@@ -96,8 +96,9 @@ public static class Flat_Helper
     public static List<filtered_flat_mrt> Get_MRT_List()
     {
         List<filtered_flat_mrt> _mrts = (from c in flatDataContext.filtered_flat_mrts
+                                         orderby c.mrt_name
                                          select c).ToList();
-        return _mrts.OrderBy(c => c.seq_no).ToList();
+        return _mrts;
     }
     #endregion
 

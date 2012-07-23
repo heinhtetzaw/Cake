@@ -63,15 +63,16 @@
                         <asp:Label runat="server" ID="lbl_price" Text="Price: "></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_price" Width="60px" onkeyup="javascript:PopulateTitle()"  MaxLength="5"/>
-                        <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" 
+                        <asp:TextBox runat="server" ID="tb_price" Width="60px" onkeyup="javascript:PopulateTitle()"
+                            MaxLength="5" />
+                        <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server"
                             TargetControlID="tb_price" WatermarkText="350" WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
-                         <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" runat="server"
+                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" runat="server"
                             FilterType="Numbers" TargetControlID="tb_price" ValidChars="Numbers">
                         </ajaxToolkit:FilteredTextBoxExtender>
                         <asp:Label runat="server" ID="Label1" Text="S$"></asp:Label>
-                         <asp:Label runat="server" ID="lbl_price_error" Text="" SkinID="Error"></asp:Label>
+                        <asp:Label runat="server" ID="lbl_price_error" Text="" SkinID="Error"></asp:Label>
                     </td>
                     <td>
                     </td>
@@ -130,8 +131,8 @@
                         <asp:Label runat="server" ID="lbl_postal_code_error" Text="" SkinID="Error" /><ajaxToolkit:TextBoxWatermarkExtender
                             ID="watermark_postal_code" runat="server" TargetControlID="tb_postal_code" WatermarkText="6 digits"
                             WatermarkCssClass="watermarked">
-                           
-                        </ajaxToolkit:TextBoxWatermarkExtender> <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" runat="server"
+                        </ajaxToolkit:TextBoxWatermarkExtender>
+                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" runat="server"
                             FilterType="Numbers" TargetControlID="tb_postal_code" ValidChars="Numbers">
                         </ajaxToolkit:FilteredTextBoxExtender>
                     </td>
@@ -163,8 +164,8 @@
                         <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server"
                             TargetControlID="tb_description" WatermarkText="Please tell more about your adv."
                             WatermarkCssClass="watermarked">
-                           
-                        </ajaxToolkit:TextBoxWatermarkExtender>   <asp:Label runat="server" ID="lbl_description_error" Text="" SkinID="Error" />
+                        </ajaxToolkit:TextBoxWatermarkExtender>
+                        <asp:Label runat="server" ID="lbl_description_error" Text="" SkinID="Error" />
                     </td>
                     <td>
                     </td>

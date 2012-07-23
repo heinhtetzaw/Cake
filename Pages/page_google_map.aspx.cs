@@ -42,7 +42,7 @@ public partial class Pages_page_google_map : System.Web.UI.Page
             google_map_default.Markers.Add(_marker);
             
         }
-        google_map_default.DefaultAddress = (postal_code_value != "") ? postal_code_value : mrt_station +" MRT Singapore";
+        google_map_default.DefaultAddress = (postal_code_value != "") ? postal_code_value + " Singapore" : mrt_station + " MRT Singapore";
         
     }
 }

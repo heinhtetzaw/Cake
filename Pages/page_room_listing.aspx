@@ -25,7 +25,7 @@
                             <asp:Label runat="server" ID="lbl_search_mrt1" Text="Nearest MRT:" />
                         </td>
                         <td>
-                            <asp:Label runat="server" ID="Label1" Text="Looking for:" />
+                            <asp:Label runat="server" ID="Label1" Text="Welcome: " />
                         </td>
                         <td>
                         </td>
@@ -35,12 +35,15 @@
                             <asp:DropDownList runat="server" ID="ddl_mrt1" Width="120px" />
                         </td>
                         <td>
-                            <asp:DropDownList runat="server" ID="ddl_roomate" Width="120px">
-                                <asp:ListItem Selected="True" Value="all">Welcome All</asp:ListItem>
-                                <asp:ListItem Value="m">Male only</asp:ListItem>
+                            <asp:RadioButtonList ID="rbtn_welcomeType" runat="server" 
+                                RepeatDirection="Horizontal" >
+
+                                <asp:ListItem Selected="True" Value="all">All</asp:ListItem>
+                                <asp:ListItem Value="m">Male Only</asp:ListItem>
                                 <asp:ListItem Value="f">Female only</asp:ListItem>
-                                <asp:ListItem Value="c">Couple</asp:ListItem>
-                            </asp:DropDownList>
+
+                            </asp:RadioButtonList>
+                          
                         </td>
                         <td>
                             <asp:Button runat="server" ID="btn_search" Text="Search" OnClick="btn_search_Click" />

@@ -18,17 +18,17 @@
                         <tr>
                             <td colspan="3">
                                 <%--Google Map--%>
-                                <iframe runat="server" id="google_map_iframe" width="100%" height="310px" style="border: 1px"
+                                <iframe runat="server" id="google_map_iframe" width="100%" height="250px" style="border: 1px"
                                     src="~/Pages/page_google_map.aspx"></iframe>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <table width="100%">
+                                <table width="100%" >
                                     <tr valign="top">
                                         <td>
                                             <%--Post Info--%>
-                                            <table>
+                                            <table >
                                                 <tr>
                                                     <td class="Title_td">
                                                         <asp:Label ID="Label2" runat="server" Text="Title:"></asp:Label>
@@ -101,7 +101,7 @@
                                                       
                                                     </td>
                                                 </tr>
-                                               
+                                              
                                             </table>
                                         </td>
                                         <td>
@@ -111,9 +111,13 @@
                                                     <td class="Title_td" style="text-align: left">
                                                         <asp:Label ID="Label13" runat="server" Text="Description:"></asp:Label>
                                                     </td>
+                                                    <td class="Title_td" >
+                                                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/stats.png" />
+                                                           <asp:Label runat="server" ID="lbl_view" Text="" />
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan="2">
                                                         <asp:TextBox runat="server" ID="lbl_description" ReadOnly="true" TextMode="MultiLine"
                                                             Text="" Width="490px" Height="250px"></asp:TextBox>
                                                     </td>

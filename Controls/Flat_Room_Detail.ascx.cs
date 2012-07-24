@@ -43,6 +43,7 @@ public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
             lbl_description.Text = _room.description;
             lbl_nearest_mrt.Text = String.Format("{0}, {1}, {2}", _room.mrt1_name, _room.mrt2_name, _room.mrt3_name);
             lbl_post_on.Text = CommonHelper.GetEasyPostTime(_room.post_on.Value);
+            lbl_view.Text = String.Format("Total View: {0}",_room.view_count.ToString());
 
             panel_record.Visible = true;
             bookmark_object.PostID = _room.room_id;

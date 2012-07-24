@@ -25,7 +25,7 @@ public partial class Controls_CakeExchangeRate : System.Web.UI.UserControl
         // cc.Proxy = new System.Net.WebProxy("0.0.0.0", 80);
         CurrencyData cd = cc.GetCurrencyData("SGD", "MMK");
         lbl_ExchangeRate.Text = String.Format("1 SGD = {0} Kyats", (cd.Rate-15).ToString("C0").Replace("$", "").Replace("RM", ""));
-        lbl_checkon.Text = CommonHelper.GetEasyPostTime(cd.TradeDate);
+        lbl_checkon.Text =  CommonHelper.GetEasyPostTime(cd.TradeDate);
 
     }
 }

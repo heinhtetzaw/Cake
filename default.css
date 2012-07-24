@@ -4,6 +4,9 @@
 {
     background-color: White;
     margin: auto;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4387FE', endColorstr='#000080'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#4387FE), to(#000080)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #4387FE,  #000080); /* for firefox 3.6+ */
 }
 
 /*Div*/
@@ -141,7 +144,9 @@
 }
 .GridAlterRow
 {
-    background-color: LightGray;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#E5EBE3'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#E5EBE3)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  white,  #E5EBE3); /* for firefox 3.6+ */
 }
 .GridSelectedRow
 {

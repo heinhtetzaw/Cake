@@ -15,6 +15,7 @@
 <asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tahoma" />
 <%--Linkbutton--%>
 <asp:LinkButton runat="server" Font-Size="10" Font-Names="Tahoma" ForeColor="Black" />
+<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tahoma" ForeColor="#00008B" SkinID="TitleLabel_BLUE" Font-Bold="true"/>
 <asp:LinkButton runat="server" Font-Size="12" Font-Names="Tahoma" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"/>
 <%--Gridview--%>
 <asp:GridView runat="server" BorderColor="Silver" AutoGenerateColumns="False" >

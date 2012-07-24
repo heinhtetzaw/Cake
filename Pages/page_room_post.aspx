@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Flat.master" AutoEventWireup="true"
     CodeFile="page_room_post.aspx.cs" Inherits="Pages_page_room_post" Theme="Default" %>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <script language="javascript" type="text/jscript">
         function PopulateTitle() {
@@ -16,12 +17,14 @@
             document.getElementById('<%=this.tb_title.ClientID%>').value = "Available for " + _count + "room-mate(s) " + _mrt_name ;
         }
     </script>
+    
     <asp:UpdatePanel runat="server" ID="update_panel_main">
         <ContentTemplate>
             <table>
                 <tr>
                     <td style="width: 120px">
                         <asp:Label runat="server" ID="lbl_lookingfor" Text="Email: "></asp:Label>
+                      
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="tb_email" Width="170px"></asp:TextBox>
@@ -195,4 +198,5 @@
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
+   
 </asp:Content>

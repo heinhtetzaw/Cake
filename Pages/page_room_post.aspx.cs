@@ -193,6 +193,6 @@ public partial class Pages_page_room_post : BasePage
         if (!step1validate || !step2validate) return;
 
        string room_id= Flat_Helper.Update_Flat_Room(Get_Object_Form());
-       Response.Redirect("~/list2/" + room_id);
+       ScriptManager.RegisterStartupScript(update_panel_main, update_panel_main.GetType(), "key", GenerateNewDetailPageLink(room_id), true);
     }
 }

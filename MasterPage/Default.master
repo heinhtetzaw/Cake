@@ -6,7 +6,11 @@
     <title></title>
     <link rel="Shortcut Icon" href="../favicon.ico" type="image/x-icon" />
     <link href="../default.css" rel="stylesheet" type="text/css" />
-    
+    <script language="JScript" type="text/javascript">
+        function OpenNewWindow(url) {
+            open(url, "_blank");
+        }
+</script>
 </head>
 <body class="main_body_back_frame">
     <form id="form1" runat="server">
@@ -95,7 +99,7 @@
             </asp:UpdateProgress>
     
         </asp:Panel>
-        <asp:Panel runat="server" ID="panel_footer">
+        <asp:Panel runat="server" ID="panel_footer" CssClass="FooterBox">
         </asp:Panel>
     </center>
     </form>

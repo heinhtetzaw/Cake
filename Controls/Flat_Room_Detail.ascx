@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Flat_Room_Detail.ascx.cs" Inherits="Controls_Flat_Room_Detail" %>
 <%@ Register Src="BookmarkPostControl.ascx" TagName="BookmarkPostControl"
     TagPrefix="uc5" %>
-       <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay" Visible="false">
+       <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay" >
                 <asp:Panel runat="server" ID="panel_record_inner" CssClass="panel_room_detail">
                     <table width="975px" border="0px" style="height: 100%">
                         <tr>
@@ -12,7 +12,7 @@
                                 <asp:Label runat="server" ID="lbl_page_title" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330" Font-Bold="true"></asp:Label>
                             </td>
                             <td style="width: 100px" align="right">
-                                <asp:LinkButton runat="server" ID="btn_close" Text="[X] Close" OnClick="btn_close_Click" />
+                                <asp:LinkButton runat="server" ID="btn_close" Text="[X] Close" OnClientClick="javaScript:window.close(); return false;"  />
                             </td>
                         </tr>
                         <tr>
@@ -33,7 +33,7 @@
                                                     <td class="Title_td">
                                                         <asp:Label ID="Label2" runat="server" Text="Title:"></asp:Label>
                                                     </td>
-                                                    <td colspan="2">
+                                                    <td>
                                                         <asp:Label runat="server" ID="lbl_title" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330"></asp:Label>
                                                     </td>
                                                 </tr>

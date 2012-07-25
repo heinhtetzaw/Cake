@@ -18,12 +18,10 @@ public partial class Pages_page_room_listing :BasePage
         gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List();
         gridview_rooms_list.DataBind();
        
-        if (Page.RouteData.Values["room_id"] != null)
-        {
-            flat_room_detail.View_Record(Page.RouteData.Values["room_id"].ToString());
-        }
+       
 
     }
+  
     private void Bind_MRT_DDL()
     {
         List<filtered_flat_mrt> mrts = Flat_Helper.Get_MRT_List();
@@ -53,7 +51,7 @@ public partial class Pages_page_room_listing :BasePage
         if (e.CommandName == "go_detail")
         {
             string room_id = e.CommandArgument.ToString();
-            flat_room_detail.View_Record(room_id);
+
         }
      
     }
@@ -81,6 +79,8 @@ public partial class Pages_page_room_listing :BasePage
     {
         GridViewRow selectedRow = ((Control)sender).Parent.NamingContainer as GridViewRow;
         gridview_rooms_list.SelectedIndex = selectedRow.RowIndex;
+
+        
 
     }
 

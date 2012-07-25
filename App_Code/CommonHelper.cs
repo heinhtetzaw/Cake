@@ -57,6 +57,8 @@ public static class CommonHelper
             result = check_date_time.Value.ToString("dd MMMM hh:mm tt");
         return result;
     }
+
+   
     public static String GetStandardDateFormat(DateTime? check_date_time)
     {
         if (check_date_time.HasValue)

@@ -11,6 +11,7 @@
 <%@ Register Src="../Controls/GoogleAdsence_SlideBar.ascx" TagName="GoogleAdsence_SlideBar"
     TagPrefix="uc6" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
+
     <asp:UpdatePanel runat="server" ID="panel_main">
         <ContentTemplate>
             <asp:Panel runat="server" ID="panel_header" Width="100%" CssClass="TitleBox" Visible="false">
@@ -63,7 +64,7 @@
                                         </td>
                                         <td colspan="6">
                                             <asp:LinkButton ID="lbn_title" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
-                                                Text='<%# Bind("title") %>' SkinID="TitleLabel_BLUE"  OnClick="lbn_title_Click"> </asp:LinkButton>
+                                                Text='<%# Bind("title") %>' SkinID="TitleLabel_BLUE" OnClientClick='<%#GenerateNewDetailPageLink((String)Eval("room_id")) %>' OnClick="lbn_title_Click"> </asp:LinkButton>
                                                 
                                         </td>
                                         <td class="Title_td" style="width:50px">
@@ -123,7 +124,7 @@
                                         <td></td>
                                         <td>
                                             <asp:LinkButton ID="btn_detail" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
-                                                Text="View Detail" Width="80px" OnClick="lbn_title_Click" />
+                                                Text="View Detail" Width="80px" OnClick="lbn_title_Click"   OnClientClick='<%#GenerateNewDetailPageLink((String)Eval("room_id")) %>'/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -141,7 +142,7 @@
                     </Columns>
                 </asp:GridView>
             </div>
-            <uc4:Flat_Room_Detail ID="flat_room_detail" runat="server" />
+        
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

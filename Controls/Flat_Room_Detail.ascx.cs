@@ -13,7 +13,7 @@ public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
     {
         if (IsPostBack) return;
     }
-    public void View_Record(string room_id)
+    public String View_Record(string room_id)
     {
         if (Flat_Helper.Update_View_Count(room_id))
         {
@@ -38,7 +38,7 @@ public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
                 lbl_price.Text = _room.price.ToString() + " S$";
             else
                 lbl_price.Text = "Please contact for price.";
-
+           
             lbl_postal_code.Text = (_room.postal_code == "") ? "Not shown" : _room.postal_code;
             lbl_description.Text = _room.description;
             lbl_nearest_mrt.Text = String.Format("{0}, {1}, {2}", _room.mrt1_name, _room.mrt2_name, _room.mrt3_name);
@@ -50,11 +50,9 @@ public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
             google_map_iframe.Attributes.Add("src", String.Format("../map/{0}", _room.postal_code + "^" + _room.mrt1_name));
 
             bookmark_object.Refresh();
-
+            return (_room.postal_code == "") ? _room.mrt1_name : _room.postal_code; ;
         }
+        return "Oops: Error";
     }
-    protected void btn_close_Click(object sender, EventArgs e)
-    {
-        panel_record.Visible = false;
-    }
+   
 }

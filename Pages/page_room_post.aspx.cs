@@ -186,13 +186,25 @@ public partial class Pages_page_room_post : BasePage
     }
     protected void btn_post_Click(object sender, EventArgs e)
     {
-        Session["current_email"] = tb_email.Text;
-        Session["current_mobile"] = tb_mobile.Text;
-        Boolean step1validate = ValidateBeforePost_Step1();
-        Boolean step2validate = ValidateBeforePost_Step2();
-        if (!step1validate || !step2validate) return;
+        try
+        {
+            DateTime a = new DateTime();
+            throw new Exception("So Sad You.");
+          double b=  a.Subtract(DateTime.Now).TotalMilliseconds/0;
 
-       string room_id= Flat_Helper.Update_Flat_Room(Get_Object_Form());
-       ScriptManager.RegisterStartupScript(update_panel_main, update_panel_main.GetType(), "key", GenerateNewDetailPageLink(room_id), true);
+            Session["current_email"] = tb_email.Text;
+            Session["current_mobile"] = tb_mobile.Text;
+            Boolean step1validate = ValidateBeforePost_Step1();
+            Boolean step2validate = ValidateBeforePost_Step2();
+          
+            if (!step1validate || !step2validate) return;
+
+            string room_id = Flat_Helper.Update_Flat_Room(Get_Object_Form());
+            ScriptManager.RegisterStartupScript(update_panel_main, update_panel_main.GetType(), "key", GenerateNewDetailPageLink(room_id), true);
+        }
+        catch (Exception ex)
+        {
+            CommonHelper.ReportError(ex,String.Format( "Creating new post by {0}, {1}", tb_email.Text,tb_mobile.Text)); 
+        }
     }
 }

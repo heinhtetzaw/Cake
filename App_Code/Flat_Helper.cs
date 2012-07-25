@@ -63,9 +63,6 @@ public static class Flat_Helper
         {
 
             _flat_room.room_id = Guid.NewGuid().ToString();
-
-            _flat_room.room_id = Guid.NewGuid().ToString();
-
             _flat_room.post_on = DateTime.Now;
             _flat_room.post_count = 1;
             _flat_room.view_count = 1;

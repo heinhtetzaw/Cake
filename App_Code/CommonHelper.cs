@@ -32,14 +32,13 @@ public static class CommonHelper
         }
 
     }
-
     public static String GetEasyPostTime(DateTime? check_date_time)
     {
         if (!check_date_time.HasValue) return "";
         string result = "";
 
         DateTime current_time = DateTime.Now;
-        TimeSpan difference = current_time.Subtract(check_date_time.Value.AddDays(1));
+        TimeSpan difference;
         if (current_time >= check_date_time.Value)
             difference = current_time.Subtract(check_date_time.Value);
         else
@@ -57,8 +56,6 @@ public static class CommonHelper
             result = check_date_time.Value.ToString("dd MMMM hh:mm tt");
         return result;
     }
-
-   
     public static String GetStandardDateFormat(DateTime? check_date_time)
     {
         if (check_date_time.HasValue)
@@ -84,6 +81,16 @@ public static class CommonHelper
         }
         return " - ";
     }
+
+    public static String ReportError(Exception ex, String extra_parameter)
+    {
+        String Support_Email = "support@shwe8.net";
+        String Subject = String.Format("Support: Error report on {0}", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"));
+        String Body = String.Format("Information: {0}\nError Message:{1}", extra_parameter, ex.Message);
+        SendEmail(Support_Email, Support_Email, Subject, Body);
+        return "Oops. Your action is unsuccessed becuase of the system fault. We have immediately inform to Shwe 8 Support Team. \n Please refresh the page and try again.\n Sorry :(";
+    }
+
     public static String SendEmail(string from_mail_address, string to_mail_address, string subject, string body)
     {
         MailMessage mailObj = new MailMessage(from_mail_address, to_mail_address, subject, body);

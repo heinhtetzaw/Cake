@@ -15,8 +15,7 @@ public partial class Pages_page_room_listing :BasePage
 
         Bind_MRT_DDL();
 
-        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List();
-        gridview_rooms_list.DataBind();
+        Bind_List(0);
        
        
 
@@ -41,9 +40,7 @@ public partial class Pages_page_room_listing :BasePage
     }
     protected void btn_search_Click(object sender, EventArgs e)
     {
-
-        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue, rbtn_welcomeType.SelectedValue);
-        gridview_rooms_list.DataBind();
+        Bind_List(0);
     }
 
     protected void gridview_rooms_list_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -51,9 +48,7 @@ public partial class Pages_page_room_listing :BasePage
         if (e.CommandName == "go_detail")
         {
             string room_id = e.CommandArgument.ToString();
-
         }
-     
     }
 
 
@@ -79,17 +74,21 @@ public partial class Pages_page_room_listing :BasePage
     {
         GridViewRow selectedRow = ((Control)sender).Parent.NamingContainer as GridViewRow;
         gridview_rooms_list.SelectedIndex = selectedRow.RowIndex;
-
-        
-
     }
 
    
     protected void gridview_rooms_list_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
-        gridview_rooms_list.PageIndex = e.NewPageIndex;
-
-        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List();
+        Bind_List(e.NewPageIndex);
+    }
+    private void Bind_List(Int32 index_page)
+    {
+        DateTime Start_point = DateTime.Now;
+        gridview_rooms_list.PageIndex = index_page;
+        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue,rbtn_welcomeType.SelectedValue);
         gridview_rooms_list.DataBind();
+        DateTime end_point = DateTime.Now;
+        TimeSpan difference = end_point.Subtract(Start_point);
+        lbl_search_duration.Text = String.Format("Searching time: {0}", difference.TotalMilliseconds.ToString());
     }
 }

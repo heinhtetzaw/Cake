@@ -15,6 +15,8 @@ public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
     }
     public String View_Record(string room_id)
     {
+        DateTime Start_point = DateTime.Now;
+       
         if (Flat_Helper.Update_View_Count(room_id))
         {
             filtered_flat_room _room = Flat_Helper.Get_Flat_Room(room_id);
@@ -50,6 +52,12 @@ public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
             google_map_iframe.Attributes.Add("src", String.Format("../map/{0}", _room.postal_code + "^" + _room.mrt1_name));
 
             bookmark_object.Refresh();
+
+            DateTime end_point = DateTime.Now;
+            TimeSpan difference = end_point.Subtract(Start_point);
+            lbl_loading_time.Text = String.Format("Loading time: {0}", difference.TotalMilliseconds.ToString());
+
+
             return (_room.postal_code == "") ? _room.mrt1_name : _room.postal_code; ;
         }
         return "Oops: Error";

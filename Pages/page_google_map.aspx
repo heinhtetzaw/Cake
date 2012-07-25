@@ -7,9 +7,9 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div style="width:100%;height:100%;padding:0px">
+<body style="padding:0px;background-color:White">
+    <form id="form1" runat="server" style="padding:0px">
+    <div style="width:100%;height:100%;padding:0px; border:1">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <artem:GoogleMap ID="google_map_default" runat="server"  MapType="Roadmap"

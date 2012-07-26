@@ -13,7 +13,8 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="Title_td" style="text-align:left;font-style:italic">
+          
                 <asp:Label runat="server" ID="lbl_checkon" Text="" />
             </td>
         </tr>

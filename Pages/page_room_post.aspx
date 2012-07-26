@@ -18,7 +18,7 @@
         }
     </script>
     
-    <asp:UpdatePanel runat="server" ID="update_panel_main">
+    <asp:UpdatePanel runat="server" ID="update_panel_main" UpdateMode="Conditional">
         <ContentTemplate>
             <table>
                 <tr>

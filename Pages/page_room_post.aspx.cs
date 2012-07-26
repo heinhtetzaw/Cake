@@ -188,10 +188,6 @@ public partial class Pages_page_room_post : BasePage
     {
         try
         {
-            DateTime a = new DateTime();
-            throw new Exception("So Sad You.");
-          double b=  a.Subtract(DateTime.Now).TotalMilliseconds/0;
-
             Session["current_email"] = tb_email.Text;
             Session["current_mobile"] = tb_mobile.Text;
             Boolean step1validate = ValidateBeforePost_Step1();

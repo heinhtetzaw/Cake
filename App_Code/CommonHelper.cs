@@ -85,7 +85,7 @@ public static class CommonHelper
     public static String ReportError(Exception ex, String extra_parameter)
     {
         String Support_Email = "support@shwe8.net";
-        String Subject = String.Format("Support: Error report on {0}", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"));
+        String Subject = String.Format("Support: Error reported on {0}", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"));
         String Body = String.Format("Information: {0}\nError Message:{1}", extra_parameter, ex.Message);
         SendEmail(Support_Email, Support_Email, Subject, Body);
         return "Oops. Your action is unsuccessed becuase of the system fault. We have immediately inform to Shwe 8 Support Team. \n Please refresh the page and try again.\n Sorry :(";

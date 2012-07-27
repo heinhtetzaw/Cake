@@ -2,6 +2,7 @@
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Text.RegularExpressions;
+using System.Web;
 
 /// <SUMMARY>
 /// Base class with properties for meta tags for content pages 
@@ -23,9 +24,9 @@ public class BasePage : Page
     // add meta keywords and descriptions if available
     void BasePage_Init(object sender, EventArgs e)
     {
-        AddMetaData();
-        
+       AddMetaData();
     }
+
     public String GenerateNewDetailPageLink(String Room_ID)
     {
         return string.Format("OpenNewWindow('{0}://{1}{2}/room/{3}');", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, Room_ID);
@@ -35,7 +36,8 @@ public class BasePage : Page
 
         HtmlMeta _metaD = new HtmlMeta();
         _metaD.Name = "Description";
-        _metaD.Content = "Shwe8.net is the one of search engine site for Myanmar in  Singapore as shwe rooms.";
+        _metaD.Content = "Shwe8.net is the one of search engine site for Myanmar in  Singapore as shwe rooms."+
+            "ေရႊၿမန္မာ မ်ားအတြက္ စင္ကာပူ အိမ္ခန္း ငွား ရွာေဖြရန္ ႏွင့္ ေၾကၿငာမ်ား အခမဲ့ တင္ႏုိင္ရန္";
 
         HtmlMeta _metaK = new HtmlMeta();
         _metaK.Name = "Keywords";

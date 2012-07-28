@@ -32,6 +32,10 @@ public class BaseControl : UserControl
         }
     }
     #endregion
+    public String GenerateNewDetailPageLink(String Room_ID)
+    {
+        return string.Format("OpenNewWindow('{0}://{1}{2}/room/{3}');", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, Room_ID);
+    }
 }
 public class BasePage : Page
 {

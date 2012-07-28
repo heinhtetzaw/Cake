@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Controls_BookmarkPostsList : System.Web.UI.UserControl
+public partial class Controls_BookmarkPostsList : BaseControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -32,7 +32,7 @@ public partial class Controls_BookmarkPostsList : System.Web.UI.UserControl
         if (e.CommandName == "go_detail")
         {
             string room_id = e.CommandArgument.ToString();
-            flat_room_detail.View_Record(room_id);
+           
         }
     }
 

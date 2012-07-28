@@ -10,6 +10,17 @@ using System.Net;
 /// </summary>
 public static class CommonHelper
 {
+    public static String GetWebAppSetting(String AppSettingName)
+    {
+        try
+        {
+            return System.Web.Configuration.WebConfigurationManager.AppSettings[AppSettingName];
+        }
+        catch (Exception ex)
+        {
+            return String.Format("AppSetting {0} is not found. Please configure",AppSettingName);
+        }
+    }
     public static Boolean CheckValidEmailFormat(string sEmail)
     {
         if (sEmail == null)
@@ -111,4 +122,15 @@ public static class CommonHelper
             return ex.ToString();
         }
     }
+
+    #region Encrypt and Decrypt
+    public static String Encrypt(String OrignalCode)
+    {
+        return OrignalCode;
+    }
+    public static String Decrypt(String EncryptedCode)
+    {
+        return EncryptedCode;
+    }
+    #endregion
 }

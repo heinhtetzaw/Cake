@@ -29,9 +29,17 @@ public static class Flat_Helper
         flat_room found_room = (from c in flatDataContext.flat_rooms where c.room_id == room_id select c).FirstOrDefault();
         if (found_room != null)
         {
-            found_room.view_count = ++found_room.view_count;
-            flatDataContext.SubmitChanges();
-            return true;
+            try
+            {
+                found_room.view_count = ++found_room.view_count;
+                flatDataContext.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            { 
+                CommonHelper.ReportError(ex,"Increasing Room View Count :" + room_id);
+            }
+            
         }
         return false;
     }

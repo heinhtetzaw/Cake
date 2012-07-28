@@ -7,9 +7,57 @@ using System.Web;
 /// <SUMMARY>
 /// Base class with properties for meta tags for content pages 
 /// </SUMMARY>
+
+
+public class BaseControl : UserControl
+{
+    #region Session GET/SET Function
+    public void SetSessionValue(String SessionName, Object SessionValue)
+    {
+        Session[SessionName] = SessionValue;
+    }
+    public Object GetSessionValue(String SessionName)
+    {
+        try
+        {
+            if (Session[SessionName] == null)
+                return "";
+            else
+                return Session[SessionName] as Object;
+        }
+        catch (Exception ex)
+        {
+            //Unhalded Exception;
+            return "Session Error: " + ex.Message;
+        }
+    }
+    #endregion
+}
 public class BasePage : Page
 {
 
+
+    #region Session GET/SET Function
+    public void SetSessionValue(String SessionName, Object SessionValue)
+    {
+        Session[SessionName] = SessionValue;
+    }
+    public Object GetSessionValue(String SessionName)
+    {
+        try
+        {
+            if (Session[SessionName] == null)
+                return "";
+            else
+                return Session[SessionName] as Object;
+        }
+        catch (Exception ex)
+        {
+            //Unhalded Exception;
+            return "Session Error: " + ex.Message;
+        }
+    }
+    #endregion
     public string Title_Prefix = "Shwe 8: ";
     // Constructor
     // Add an event handler to Init event for the control

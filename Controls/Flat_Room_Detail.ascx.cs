@@ -4,13 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using System.Web.UI.HtmlControls;
 
-public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
+
+
+public partial class Controls_Flat_Room_Detail : BaseControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+     
+
         if (IsPostBack) return;
     }
     public String View_Record(string room_id)
@@ -51,14 +54,27 @@ public partial class Controls_Flat_Room_Detail : System.Web.UI.UserControl
             bookmark_object.PostID = _room.room_id;
             google_map_iframe.Attributes.Add("src", String.Format("../map/{0}", _room.postal_code + "^" + _room.mrt1_name));
 
+            #region Facebook Post Paramenters
+            FBpost.PostName = _room.title;
+            FBpost.Caption =lbl_available_for.Text;
+            FBpost.Description = _room.description;
+            FBpost.ImageURL = "http://shwe8.net/images/train.png";
+            FBpost.Message = "အိမ္ခန္းေၾကၿငာ via Shwe8.Net";
+            FBpost.PostURL = System.Web.HttpContext.Current.Request.Url.ToString(); 
+         
+
+            #endregion
+
+
             bookmark_object.Refresh();
 
             DateTime end_point = DateTime.Now;
             TimeSpan difference = end_point.Subtract(Start_point);
             lbl_loading_time.Text = String.Format("Loading time: {0}", difference.TotalMilliseconds.ToString());
+            return (_room.postal_code == "") ? _room.mrt1_name : _room.postal_code;
 
+         
 
-            return (_room.postal_code == "") ? _room.mrt1_name : _room.postal_code; ;
         }
         return "Oops: Error";
     }

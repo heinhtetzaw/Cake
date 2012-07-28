@@ -1,12 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Flat_Room_Detail.ascx.cs"
     Inherits="Controls_Flat_Room_Detail" %>
+
 <%@ Register Src="BookmarkPostControl.ascx" TagName="BookmarkPostControl" TagPrefix="uc5" %>
+<%@ Register src="Facebook_Post.ascx" tagname="Facebook_Post" tagprefix="uc1" %>
+
 <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay">
     <asp:Panel runat="server" ID="panel_record_inner" CssClass="panel_room_detail">
         <table width="975px" border="0px" style="height: 100%">
             <tr>
                 <td style="width: 100px">
-                    <asp:Image ID="img_logo" ImageUrl="~/Images/Logo.png" runat="server" Height="25px" />
+               <asp:ImageButton
+                        ID="img_button" ImageUrl="~/Images/Logo.png" runat="server" PostBackUrl="..\list\all" Height="35px" />
                 </td>
                 <td align="center">
                     <asp:Label runat="server" ID="lbl_page_title" Text="Available 2 male room-mate(s) @ Toa Payoh, S$ 330"
@@ -104,7 +108,9 @@
                                         <td>
                                         </td>
                                         <td>
+                                           
                                             <uc5:BookmarkPostControl ID="bookmark_object" runat="server" />
+                                           <uc1:Facebook_Post ID="FBpost" runat="server" />
                                         </td>
                                     </tr>
                                 </table>
@@ -125,7 +131,7 @@
                                     <tr>
                                         <td colspan="2">
                                             <asp:TextBox runat="server" ID="lbl_description" ReadOnly="true" TextMode="MultiLine"
-                                                Text="" Width="490px" Height="250px"></asp:TextBox>
+                                                Text="" Width="520px" Height="220px"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>

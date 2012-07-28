@@ -211,8 +211,8 @@
     top: 50%;
     left: 50%;
     width: 980px;
-    height: 650px;
-    margin-top: -325px; /*set to a negative number 1/2 of your height*/
+    height: 600px;
+    margin-top: -300px; /*set to a negative number 1/2 of your height*/
     margin-left: -490px; /*set to a negative number 1/2 of your width*/
     border: 1px solid #ccc;
     background-color: #f3f3f3;

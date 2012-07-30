@@ -14,6 +14,8 @@ public partial class Pages_page_room_post : BasePage
         this.Title =Title_Prefix+ "Post";
 
         if (IsPostBack) return;
+        lbl_message.Text = "";
+        lbtn_post_link.Text = "";
         Fill_MRT_LIST();
 
         if (Session["current_email"] != null) tb_email.Text = Session["current_email"].ToString();
@@ -188,18 +190,56 @@ public partial class Pages_page_room_post : BasePage
     {
         try
         {
+
+            lbl_message.Text = "";
+            lbtn_post_link.Text = "";
+
             Session["current_email"] = tb_email.Text;
             Session["current_mobile"] = tb_mobile.Text;
             Boolean step1validate = ValidateBeforePost_Step1();
             Boolean step2validate = ValidateBeforePost_Step2();
           
             if (!step1validate || !step2validate) return;
+            flat_room _flat_room = Get_Object_Form();
+            string room_id = Flat_Helper.Update_Flat_Room(_flat_room);
 
-            string room_id = Flat_Helper.Update_Flat_Room(Get_Object_Form());
-            ScriptManager.RegisterStartupScript(update_panel_main, update_panel_main.GetType(), "key", GenerateNewDetailPageLink(room_id), true);
+
+
+            #region Facebook Post Paramenters
+            if (cb_share_on_fb.Checked)
+            {
+                FBpost.PostName = _flat_room.title;
+                String welcometype = "both male/female";
+                switch (rbtn_looking_type.SelectedValue)
+                {
+                    case "m": welcometype = "male only"; break;
+                    case "f": welcometype = "female only"; break;
+                    case "c": welcometype = "couple only"; break;
+                }
+                FBpost.Caption = String.Format("Available for {0} person(s), welcome {1}", ddl_available_person.SelectedValue.ToString(),
+                    welcometype);
+                FBpost.Description = _flat_room.description;
+                FBpost.ImageURL = "http://shwe8.net/images/train.png";
+                FBpost.Message = "အိမ္ခန္းေၾကၿငာ via Shwe8.Net";
+                FBpost.PostURL = GenerateNewDetailPageLinkOnly(room_id);
+                FBpost.Post_Now();
+            }
+            else
+            {
+                lbl_message.Text = "Great! Your adv is posted on our listing. For viewing your post, please click the following link.";
+                lbtn_post_link.Attributes.Add("target", "_blank");
+                lbtn_post_link.Text = GenerateNewDetailPageLinkOnly(room_id);
+                lbtn_post_link.PostBackUrl = GenerateNewDetailPageLinkOnly(room_id);
+            }
+            #endregion
+
+
+
+            
         }
         catch (Exception ex)
         {
+           
             CommonHelper.ReportError(ex,String.Format( "Creating new post by {0}, {1}", tb_email.Text,tb_mobile.Text)); 
         }
     }

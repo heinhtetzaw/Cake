@@ -3,7 +3,8 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Text.RegularExpressions;
 using System.Web;
-
+using System.Globalization;
+using System.Threading;
 /// <SUMMARY>
 /// Base class with properties for meta tags for content pages 
 /// </SUMMARY>
@@ -11,6 +12,8 @@ using System.Web;
 
 public class BaseControl : UserControl
 {
+  
+
     #region Session GET/SET Function
     public void SetSessionValue(String SessionName, Object SessionValue)
     {
@@ -39,7 +42,45 @@ public class BaseControl : UserControl
 }
 public class BasePage : Page
 {
+    #region Localization
+    protected override void InitializeCulture()
+    {
+        try
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(GetCurrentCultureCode());
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+        }
+        catch
+        {
+            throw;
+        }
 
+    }
+
+    public string GetCurrentCultureName()
+    {
+        string myCultureName = "";
+        switch (GetCurrentCultureCode().ToLower())
+        {
+            case "zh-cn": myCultureName = "myanmar"; break;
+            case "en-us": myCultureName = "english"; break;
+        }
+        return myCultureName;
+    }
+    public string GetCurrentCultureCode()
+    {
+
+        if (Session["sCurrentCulture"] == null)
+        {
+            return "zh-cn";
+        }
+        else
+        {
+            return Session["sCurrentCulture"].ToString();
+        }
+    }
+
+    #endregion
 
     #region Session GET/SET Function
     public void SetSessionValue(String SessionName, Object SessionValue)
@@ -82,6 +123,10 @@ public class BasePage : Page
     public String GenerateNewDetailPageLink(String Room_ID)
     {
         return string.Format("OpenNewWindow('{0}://{1}{2}/room/{3}');", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, Room_ID);
+    }
+    public String GenerateNewDetailPageLinkOnly(String Room_ID)
+    {
+        return string.Format("{0}://{1}{2}/room/{3}", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, Room_ID);
     }
     public void AddMetaData()
     {

@@ -10,7 +10,7 @@
         function OpenNewWindow(url) {
             open(url, "_blank");
         }
-</script>
+    </script>
 </head>
 <body class="main_body_back_frame">
     <form id="form1" runat="server">
@@ -30,14 +30,13 @@
                 </tr>
                 <tr valign="bottom" style="height: 48px;">
                     <td align="left">
-                        <table style="padding-right: 3px" cellpadding="0px">
+                        <table style="padding-right: 3px" cellpadding="0px" width="100%">
                             <tr>
-                               
                                 <td>
                                     <asp:LinkButton runat="server" ID="btn_room" PostBackUrl="~/list/all">
                                         <asp:Panel runat="server" ID="panel_button_room" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
                                             onmouseout="this.className='MenuButtonSmall';">
-                                            <asp:Label runat="server" ID="lbl_room_menu" Text="Room" SkinID="MenuButton" />
+                                            <asp:Label runat="server" ID="lbl_room_menu" Text="<%$ Resources:Resource,room_menu %>"  SkinID="MenuButton" />
                                         </asp:Panel>
                                         <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_room" runat="server"
                                             TargetControlID="panel_button_room" Corners="Top">
@@ -48,12 +47,18 @@
                                     <asp:LinkButton runat="server" ID="btn_contact_us" PostBackUrl="~/contactus">
                                         <asp:Panel runat="server" ID="panel_button_contact_us" CssClass="MenuButtonSmall"
                                             onmouseover="this.className='MenuButtonSmall_Mouse_Over';" onmouseout="this.className='MenuButtonSmall';">
-                                            <asp:Label runat="server" ID="lbl_contact_us_menu" Text="Contact Us" SkinID="MenuButton" />
+                                            <asp:Label runat="server" ID="lbl_contact_us_menu" Text="<%$ Resources:Resource,contact_us %>" SkinID="MenuButton" />
                                         </asp:Panel>
                                         <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_contact_us" runat="server"
                                             TargetControlID="panel_button_contact_us" Corners="Top">
                                         </ajaxToolkit:RoundedCornersExtender>
                                     </asp:LinkButton>
+                                </td>
+                                <td align="right" style="width:500px">
+                                    <asp:ImageButton ID="btn_myanmar" runat="server" ImageUrl="~/Images/flag_myanmar.png"
+                                        CommandArgument="myanmar" OnCommand="btn_myanmar_Command" />
+                                    <asp:ImageButton ID="btn_english" runat="server" ImageUrl="~/Images/flag_english.png"
+                                        CommandArgument="english" OnCommand="btn_myanmar_Command" />
                                 </td>
                             </tr>
                         </table>
@@ -61,7 +66,6 @@
                 </tr>
             </table>
         </asp:Panel>
-
         <asp:Panel runat="server" ID="panel_menu" CssClass="MenuBox">
             <center>
                 <asp:ContentPlaceHolder ID="head" runat="server">
@@ -97,7 +101,6 @@
                     </ajaxToolkit:RoundedCornersExtender>
                 </ProgressTemplate>
             </asp:UpdateProgress>
-    
         </asp:Panel>
         <asp:Panel runat="server" ID="panel_footer" CssClass="FooterBox">
         </asp:Panel>

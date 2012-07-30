@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Flat.master" AutoEventWireup="true"
     CodeFile="page_room_post.aspx.cs" Inherits="Pages_page_room_post" Theme="Default" %>
 
-
+<%@ Register Src="../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc1" %>
+<%@ Register Src="../Controls/GoogleAdsence_SlideBar.ascx" TagName="GoogleAdsence_SlideBar"
+    TagPrefix="uc2" %>
+<%@ Register Src="../Controls/Facebook_Post.ascx" TagName="Facebook_Post" TagPrefix="uc3" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <script language="javascript" type="text/jscript">
         function PopulateTitle() {
@@ -14,17 +17,26 @@
             var _ddl_mrt = document.getElementById('<%=this.ddl_mrt1.ClientID%>');
             var _mrt_name = "@" + _ddl_mrt.options[_ddl_mrt.selectedIndex].text + " ";
 
-            document.getElementById('<%=this.tb_title.ClientID%>').value = "Available for " + _count + "room-mate(s) " + _mrt_name ;
+            document.getElementById('<%=this.tb_title.ClientID%>').value = "Available for " + _count + "room-mate(s) " + _mrt_name;
         }
     </script>
-    
     <asp:UpdatePanel runat="server" ID="update_panel_main" UpdateMode="Conditional">
         <ContentTemplate>
-            <table>
+            <table width="100%">
                 <tr>
-                    <td style="width: 120px">
+                    <td colspan="3">
+                        <asp:Label runat="server" ID="lbl_page_title" Text="<%$ Resources:Resource,room_post_page_title %>"
+                            SkinID="TitleLabel" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 120px" class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_lookingfor" Text="Email: "></asp:Label>
-                      
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="tb_email" Width="170px"></asp:TextBox>
@@ -37,7 +49,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_mobile" Text="Mobile:"></asp:Label>
                     </td>
                     <td>
@@ -54,7 +66,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                     </td>
                     <td colspan="2">
                         <asp:LinkButton runat="server" ID="lbtn_get_info" Text="Lazy to retype? Get your last post here."
@@ -62,7 +74,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_price" Text="Price: "></asp:Label>
                     </td>
                     <td>
@@ -81,7 +93,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="Label3" Text="Looking for:"></asp:Label>
                     </td>
                     <td>
@@ -97,7 +109,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="Label4" Text="Available Date:"></asp:Label>
                     </td>
                     <td>
@@ -112,7 +124,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_available_person" Text="Available Person(s):"></asp:Label>
                     </td>
                     <td>
@@ -126,7 +138,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_postal_code" Text="Postal Code:"></asp:Label>
                     </td>
                     <td>
@@ -143,7 +155,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_nearest_mrt" Text="Nearest MRT:"></asp:Label>
                     </td>
                     <td>
@@ -159,7 +171,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: top">
+                    <td style="vertical-align: top" class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_description" Text="Description:"></asp:Label>
                     </td>
                     <td>
@@ -174,7 +186,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="Title_td_2">
                         <asp:Label runat="server" ID="lbl_title" Text="Post Title:" />
                     </td>
                     <td>
@@ -187,10 +199,25 @@
                 <tr>
                     <td>
                     </td>
-                    <td>
-                        <asp:LinkButton runat="server" ID="btn_post" Text="Post" OnClick="btn_post_Click" />
+                    <td valign="middle">
+                        <asp:Button runat="server" ID="btn_post" Text="Post Now" Width="100px" OnClick="btn_post_Click"
+                            Height="25px" />
+                        <asp:CheckBox ID="cb_share_on_fb" runat="server" Text="" Checked="True" />
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/share-facebook.gif" ImageAlign="AbsBottom" />
                     </td>
                     <td>
+                        <uc3:Facebook_Post ID="FBpost" runat="server" Visible="false" />
+                    </td>
+                </tr>
+                <tr>
+                <td colspan="3"><hr /></td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td colspan="2">
+                    <asp:Label runat="server" ID="lbl_message" />
+                    <asp:LinkButton runat="server" ID="lbtn_post_link"/>
                     </td>
                 </tr>
             </table>
@@ -198,5 +225,6 @@
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
-   
+    <uc1:facebookLike ID="facebookLike1" runat="server" />
+    <uc2:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />
 </asp:Content>

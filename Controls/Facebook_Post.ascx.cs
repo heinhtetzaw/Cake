@@ -79,10 +79,14 @@ public partial class Controls_Facebook_Post : BaseControl
     }
     protected void btnShare_Click(object sender, EventArgs e)
     {
+        Post_Now();
+    }
+    public void Post_Now()
+    {
         //Setting up the facebook object
         ImpactWorks.FBGraph.Connector.Facebook facebook = new ImpactWorks.FBGraph.Connector.Facebook();
         facebook.AppID = CommonHelper.GetWebAppSetting("FBAppID");
-        facebook.CallBackURL = System.Web.HttpContext.Current.Request.Url.ToString(); 
+        facebook.CallBackURL = PostURL;//System.Web.HttpContext.Current.Request.Url.ToString();
         facebook.Secret = CommonHelper.GetWebAppSetting("FBSecret");
 
         //Setting up the permissions
@@ -111,7 +115,7 @@ public partial class Controls_Facebook_Post : BaseControl
         {
             String authLink = facebook.GetAuthorizationLink();
             SetSessionValue("request_session", "true");
-            SetSessionValue( "current_facebook_account",facebook);
+            SetSessionValue("current_facebook_account", facebook);
             Response.Redirect(authLink);
         }
     }

@@ -12,5 +12,15 @@ public partial class _Default : System.Web.UI.MasterPage
      
 
     }
+
    
+    protected void btn_myanmar_Command(object sender, CommandEventArgs e)
+    {
+        switch (e.CommandArgument.ToString())
+        {
+            case "myanmar": CommonHelper.SetCurrentCulture("zh-cn"); break;
+            case "english": CommonHelper.SetCurrentCulture("en-US"); break;
+        }
+       Response.Redirect(Request.Url.ToString(),false);
+    }
 }

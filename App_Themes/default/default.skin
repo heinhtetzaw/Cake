@@ -1,27 +1,27 @@
 ﻿<%--Default skin--%>
 <%--Label--%>
-<asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma"/>
-<asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma" ForeColor="Red" SkinID="Error" />
-<asp:Label runat="server"  Font-Size="11" Font-Names="Tahoma" ForeColor="Green" SkinID="Highlighted" Font-Bold="true"/>
-<asp:Label runat="server"  Font-Size="11" Font-Names="Tahoma" ForeColor="Black" SkinID="TitleLabel" Font-Bold="true"/>
-<asp:Label runat="server"  Font-Size="10" Font-Names="Tahoma" SkinID="MenuButton" Font-Bold="true" Font-Overline="false" />
+<asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One"/>
+<asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One" ForeColor="Red" SkinID="Error" />
+<asp:Label runat="server"  Font-Size="11" Font-Names="Zawgyi-One" ForeColor="Green" SkinID="Highlighted" Font-Bold="true"/>
+<asp:Label runat="server"  Font-Size="11" Font-Names="Zawgyi-One" ForeColor="Black" SkinID="TitleLabel" Font-Bold="true"/>
+<asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One" SkinID="MenuButton" Font-Bold="true" Font-Overline="false" />
 <%--Button--%>
-<asp:Button runat="server" Font-Size="10" Font-Names="Tahoma" />
+<asp:Button runat="server" Font-Size="10" Font-Names="Zawgyi-One" />
 <%--TextBox--%>
-<asp:TextBox runat="server" Font-Size="10" Font-Names="Tahoma" cssClass="OrignalX"/>
+<asp:TextBox runat="server" Font-Size="10" Font-Names="Zawgyi-One" cssClass="OrignalX"/>
 <%--Dropdownlist--%>
-<asp:DropDownList runat="server" Font-Size="10" Font-Names="Tahoma" cssClass="OrignalX"/>
+<asp:DropDownList runat="server" Font-Size="10" Font-Names="Zawgyi-One" cssClass="OrignalX"/>
 <%--RaidoButtonList--%>
-<asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Tahoma" />
+<asp:RadioButtonList runat="server" Font-Size="10" Font-Names="Zawgyi-One" />
 <%--Linkbutton--%>
-<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tahoma" ForeColor="Black" />
-<asp:LinkButton runat="server" Font-Size="10" Font-Names="Tahoma" ForeColor="#00008B" SkinID="TitleLabel_BLUE" Font-Bold="true"/>
-<asp:LinkButton runat="server" Font-Size="12" Font-Names="Tahoma" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"/>
+<asp:LinkButton runat="server" Font-Size="10" Font-Names="Zawgyi-One" ForeColor="Black" />
+<asp:LinkButton runat="server" Font-Size="10" Font-Names="Zawgyi-One" ForeColor="#00008B" SkinID="TitleLabel_BLUE" Font-Bold="true"/>
+<asp:LinkButton runat="server" Font-Size="12" Font-Names="Zawgyi-One" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"/>
 <%--Gridview--%>
 <asp:GridView runat="server" BorderColor="Silver" AutoGenerateColumns="False" >
-    <HeaderStyle Font-Size="10" Font-Names="Tahoma" cssClass="Header"/>
+    <HeaderStyle Font-Size="10" Font-Names="Zawgyi-One" cssClass="Header"/>
 
-    <RowStyle Font-Size="10" Font-Names="Tahoma" CssClass="GridRow" />
+    <RowStyle Font-Size="10" Font-Names="Zawgyi-One" CssClass="GridRow" />
     <AlternatingRowStyle CssClass="GridAlterRow" Font-Size="10" Font-Names="Tahoma" />
     <SelectedRowStyle CssClass="GridSelectedRow" />
 </asp:GridView>

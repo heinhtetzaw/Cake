@@ -11,8 +11,8 @@
                             <td style="width: 70px">
                                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/find_rooms.png" />
                             </td>
-                            <td>
-                                Find Room
+                            <td> 
+                                <asp:Label runat="server" ID="menu_find_room" Text="<%$ Resources:Resource,find_room %>" />
                             </td>
                         </tr>
                     </table>
@@ -26,7 +26,7 @@
                                 <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/bookmark.png" />
                             </td>
                             <td>
-                               Your Bookmarks
+                                <asp:Label runat="server" ID="Label2" Text="<%$ Resources:Resource,room_bookmark %>" />
                             </td>
                         </tr>
                     </table>
@@ -40,7 +40,7 @@
                                 <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/post_adv.png" />
                             </td>
                             <td>
-                                Post Room Advertisement
+                                <asp:Label runat="server" ID="Label1" Text="<%$ Resources:Resource,post_room_adv %>" />
                             </td>
                         </tr>
                     </table>

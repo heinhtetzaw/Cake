@@ -5,6 +5,7 @@ using System.Web;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Net;
+using System.Web.UI;
 /// <summary>
 /// Summary description for CommonHelper
 /// </summary>
@@ -92,9 +93,14 @@ public static class CommonHelper
         }
         return " - ";
     }
-
+    public static void SetCurrentCulture(string prmCulture)
+    {
+        Page myCurrentPage = (Page)HttpContext.Current.Handler;
+        myCurrentPage.Session["sCurrentCulture"] = prmCulture;
+    }
     public static String ReportError(Exception ex, String extra_parameter)
     {
+        if (ex.Message == "Thread was being aborted.") return "";
         String Support_Email = "support@shwe8.net";
         String Subject = String.Format("Support: Error reported on {0}", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"));
         String Body = String.Format("Information: {0}\nError Message:{1}", extra_parameter, ex.Message);

@@ -62,9 +62,8 @@
                                             <asp:Label runat="server" ID="lbl_room_" Text="Title: " />
                                         </td>
                                         <td colspan="6">
-                                            <asp:LinkButton ID="lbn_title" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
-                                                Text='<%# Bind("title") %>' SkinID="TitleLabel_BLUE" OnClientClick='<%#GenerateNewDetailPageLink((String)Eval("room_id")) %>'
-                                                OnClick="lbn_title_Click"> </asp:LinkButton>
+                                            <a href='<%#GenerateNewDetailPageLinkOnly((String)Eval("room_id")) %>' target="_blank">
+                                                <%# Eval("title") %></a>
                                         </td>
                                         <td class="Title_td" style="width: 50px">
                                             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/stats.png" />
@@ -97,8 +96,7 @@
                                             <asp:Label ID="Label8" runat="server" Text='<%# Eval("available_count") + " person"%>'></asp:Label>
                                         </td>
                                     </tr>
-                                    <tr>
-                                    </tr>
+                                 
                                     <tr>
                                         <td class="Title_td" style="max-width: 70px; width: 50px">
                                             <asp:Label runat="server" ID="lbl_looking" Text="Looking:" />
@@ -118,11 +116,9 @@
                                         <td>
                                             <asp:Label ID="Label11" runat="server" Text='<%# Eval("contact_no") %>'></asp:Label>
                                         </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            <asp:LinkButton ID="btn_detail" runat="server" CommandName="go_detail" CommandArgument='<%# Bind("room_id") %>'
-                                                Text="View Detail" Width="80px" OnClick="lbn_title_Click" OnClientClick='<%#GenerateNewDetailPageLink((String)Eval("room_id")) %>' />
+                                        <td colspan="2" align="right">
+                                            <a href='<%#GenerateNewDetailPageLinkOnly((String)Eval("room_id")) %>' target="_blank">
+                                                View Detail</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -143,11 +139,11 @@
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
-    <uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
+    <uc3:facebookLike ID="facebookLike1" runat="server" />
     <hr />
     <uc6:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />
     <hr />
     <uc2:PostAndViewCount ID="PostAndViewCount1" runat="server" />
     <hr />
-    <uc3:facebookLike ID="facebookLike1" runat="server" />
+
 </asp:Content>

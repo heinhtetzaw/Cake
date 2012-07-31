@@ -5,22 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Artem.Google.UI;
-public partial class Pages_page_room_listing :BasePage
+public partial class Pages_page_room_listing : BasePage
 {
+ 
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-         this.Title =Title_Prefix+"Rooms";
-         if (IsPostBack) return;
+        DateTime Start_point = DateTime.Now;
+
+        this.Title = Title_Prefix + "Rooms";
+        if (IsPostBack) return;
+
 
         Bind_MRT_DDL();
-
         Bind_List(0);
-       
-       
+
+        DateTime end_point = DateTime.Now;
+        TimeSpan difference = end_point.Subtract(Start_point);
+        lbl_search_duration.Text = String.Format("Searching time: {0}", difference.TotalMilliseconds.ToString());
+
 
     }
-  
+
     private void Bind_MRT_DDL()
     {
         List<filtered_flat_mrt> mrts = Flat_Helper.Get_MRT_List();
@@ -70,13 +75,6 @@ public partial class Pages_page_room_listing :BasePage
     }
 
 
-    protected void lbn_title_Click(object sender, EventArgs e)
-    {
-        GridViewRow selectedRow = ((Control)sender).Parent.NamingContainer as GridViewRow;
-        gridview_rooms_list.SelectedIndex = selectedRow.RowIndex;
-    }
-
-   
     protected void gridview_rooms_list_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         Bind_List(e.NewPageIndex);
@@ -85,7 +83,7 @@ public partial class Pages_page_room_listing :BasePage
     {
         DateTime Start_point = DateTime.Now;
         gridview_rooms_list.PageIndex = index_page;
-        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue,rbtn_welcomeType.SelectedValue);
+        gridview_rooms_list.DataSource = Flat_Helper.Get_Flat_Room_List(ddl_mrt1.SelectedValue, rbtn_welcomeType.SelectedValue,index_page,gridview_rooms_list.PageSize);
         gridview_rooms_list.DataBind();
         DateTime end_point = DateTime.Now;
         TimeSpan difference = end_point.Subtract(Start_point);

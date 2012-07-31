@@ -80,21 +80,31 @@ public static class Flat_Helper
         }
         
     }
-    public static List<filtered_flat_room> Get_Flat_Room_List()
+    public static IQueryable<filtered_flat_room> Get_Flat_Room_List(Int32 page_index, Int32 row_per_page)
     {
-        List<filtered_flat_room> _flat_rooms = (from c in flatDataContext.filtered_flat_rooms
-                                                select c).ToList();
-        return _flat_rooms.OrderByDescending(c => c.post_on).ToList();
+        IQueryable<filtered_flat_room> _flat_rooms = (from c in flatDataContext.filtered_flat_rooms
+                select c);
+        if (row_per_page == 0)
+            return _flat_rooms.OrderByDescending(c => c.post_on)
+                .Skip(row_per_page * page_index)
+                .Take(row_per_page);
+        else
+            return _flat_rooms.OrderByDescending(c => c.post_on);
     }
-    public static List<filtered_flat_room> Get_Flat_Room_List(string mrt_id, string available_type)
+    public static IQueryable<filtered_flat_room> Get_Flat_Room_List(string mrt_id, string available_type,Int32 page_index, Int32 row_per_page)
     {
-        List<filtered_flat_room> _flat_rooms =
+        IQueryable<filtered_flat_room> _flat_rooms =
             (from c in flatDataContext.filtered_flat_rooms
              where
                  ((mrt_id == "all") || (mrt_id != "all" && (c.mrt1_id == mrt_id || c.mrt2_id == mrt_id || c.mrt3_id == mrt_id))) &&
                  ((available_type == "all") || (available_type != "all" && c.available_type == available_type))
-             select c).ToList();
-        return _flat_rooms.OrderByDescending(c => c.post_on).ToList();
+             select c);
+        if (row_per_page == 0)
+            return _flat_rooms.OrderByDescending(c => c.post_on)
+                .Skip(row_per_page * page_index)
+                .Take(row_per_page);
+        else
+            return _flat_rooms.OrderByDescending(c => c.post_on);
     }
     #endregion
 

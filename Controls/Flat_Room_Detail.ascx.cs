@@ -52,7 +52,9 @@ public partial class Controls_Flat_Room_Detail : BaseControl
 
             panel_record.Visible = true;
             bookmark_object.PostID = _room.room_id;
-            google_map_iframe.Attributes.Add("src", String.Format("../map/{0}", _room.postal_code + "^" + _room.mrt1_name));
+            google_map.Postal_Code=_room.postal_code;
+            google_map.MRT_Station = _room.mrt1_name;
+            google_map.Generate_Map();
 
             #region Facebook Post Paramenters
             FBpost.PostName = _room.title;

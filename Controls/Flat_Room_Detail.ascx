@@ -4,6 +4,8 @@
 <%@ Register Src="BookmarkPostControl.ascx" TagName="BookmarkPostControl" TagPrefix="uc5" %>
 <%@ Register src="Facebook_Post.ascx" tagname="Facebook_Post" tagprefix="uc1" %>
 
+<%@ Register src="GoogleMap.ascx" tagname="GoogleMap" tagprefix="uc2" %>
+
 <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay">
     <asp:Panel runat="server" ID="panel_record_inner" CssClass="panel_room_detail">
         <table width="975px" border="0px" style="height: 100%">
@@ -24,8 +26,7 @@
                 <td colspan="3">
                     <%--Google Map--%>
                     <asp:Panel runat="server" ID="panel_map"  >
-                        <iframe runat="server" id="google_map_iframe" width="100%" height="250px" style="border: 1px;
-                            padding: 0px" src="~/Pages/page_google_map.aspx"></iframe>
+                        <uc2:GoogleMap ID="google_map" runat="server" />
                     </asp:Panel>
                    
                     <ajaxToolkit:DropShadowExtender ID="DropShadowExtender1"  runat="server" 

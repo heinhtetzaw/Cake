@@ -12,7 +12,7 @@ using System.Threading;
 
 public class BaseControl : UserControl
 {
-  
+
 
     #region Session GET/SET Function
     public void SetSessionValue(String SessionName, Object SessionValue)
@@ -117,8 +117,9 @@ public class BasePage : Page
     // add meta keywords and descriptions if available
     void BasePage_Init(object sender, EventArgs e)
     {
-       AddMetaData();
+        AddMetaData();
     }
+
 
     public String GenerateNewDetailPageLink(String Room_ID)
     {
@@ -133,7 +134,7 @@ public class BasePage : Page
 
         HtmlMeta _metaD = new HtmlMeta();
         _metaD.Name = "Description";
-        _metaD.Content = "Shwe8.net is the one of search engine site for Myanmar in  Singapore as shwe rooms."+
+        _metaD.Content = "Shwe8.net is the one of search engine site for Myanmar in  Singapore as shwe rooms." +
             "ေရႊၿမန္မာ မ်ားအတြက္ စင္ကာပူ အိမ္ခန္း ငွား ရွာေဖြရန္ ႏွင့္ ေၾကၿငာမ်ား အခမဲ့ တင္ႏုိင္ရန္";
 
         HtmlMeta _metaK = new HtmlMeta();
@@ -148,5 +149,5 @@ public class BasePage : Page
         ((Control)Header).Controls.Add(_metaD);
         ((Control)Header).Controls.Add(_metaK);
     }
- 
+
 }

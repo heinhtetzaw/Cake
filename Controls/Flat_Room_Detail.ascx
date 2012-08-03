@@ -6,8 +6,13 @@
 
 <%@ Register src="GoogleMap.ascx" tagname="GoogleMap" tagprefix="uc2" %>
 
+<%@ Register src="GoogleAdsence_SlideBar.ascx" tagname="GoogleAdsence_SlideBar" tagprefix="uc3" %>
+
 <asp:Panel runat="server" ID="panel_record" CssClass="panel_progress_overlay">
     <asp:Panel runat="server" ID="panel_record_inner" CssClass="panel_room_detail">
+    <table cellpadding="0px">
+    <tr valign="top">
+    <td>
         <table width="975px" border="0px" style="height: 100%">
             <tr>
                 <td style="width: 100px">
@@ -132,7 +137,7 @@
                                     <tr>
                                         <td colspan="2">
                                             <asp:TextBox runat="server" ID="lbl_description" ReadOnly="true" TextMode="MultiLine"
-                                                Text="" Width="520px" Height="220px"></asp:TextBox>
+                                                Text="" Width="550px" Height="300px"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -144,12 +149,15 @@
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3" align="right">
-                    <hr />
-                </td>
-            </tr>
+           
         </table>
+    
+    </td>
+    <td><uc3:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />
+        </td>
+    </tr>
+    </table>
+    
     </asp:Panel>
     <ajaxToolkit:RoundedCornersExtender ID="RoundedCornersExtender_Record_panel" TargetControlID="panel_record_inner"
         runat="server">

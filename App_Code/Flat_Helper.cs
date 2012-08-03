@@ -97,7 +97,7 @@ public static class Flat_Helper
             (from c in flatDataContext.filtered_flat_rooms
              where
                  ((mrt_id == "all") || (mrt_id != "all" && (c.mrt1_id == mrt_id || c.mrt2_id == mrt_id || c.mrt3_id == mrt_id))) &&
-                 ((available_type == "all") || (available_type != "all" && c.available_type == available_type))
+                 ((available_type == "all") || (available_type != "all" && c.available_type == available_type || c.available_type=="b"))
              select c);
         if (row_per_page == 0)
             return _flat_rooms.OrderByDescending(c => c.post_on)

@@ -26,7 +26,24 @@ public partial class Controls_Flat_Room_Detail : BaseControl
             lbl_page_title.Text = _room.title;
             lbl_title.Text = _room.title;
             lbl_contact_no.Text = _room.contact_no;
-            lbl_available_on.Text = _room.available.Value.ToString("dd/MM/yyyy");
+            if (_room.available.HasValue)
+            {
+                if (Int32.Parse(_room.available.Value.ToString("yyyyMMdd")) >Int32.Parse( DateTime.Now.ToString("yyyyMMdd")))
+                {
+                    lbl_available_on.Text = _room.available.Value.ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    lbl_available_on.Text = "Immediately";
+                }
+               
+
+            }
+            else
+            {
+                lbl_available_on.Text = "Not shown";
+            }
+
 
             switch (_room.available_type)
             {

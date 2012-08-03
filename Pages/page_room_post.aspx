@@ -175,7 +175,8 @@
                         <asp:Label runat="server" ID="lbl_description" Text="Description:"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_description" Height="215px" Width="550px" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tb_description" Height="215px" Width="550px" TextMode="MultiLine"
+                            onkeyDown="return checkTextAreaMaxLength(this,event,'1000');"></asp:TextBox>
                         <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server"
                             TargetControlID="tb_description" WatermarkText="Please tell more about your adv."
                             WatermarkCssClass="watermarked">
@@ -190,7 +191,7 @@
                         <asp:Label runat="server" ID="lbl_title" Text="Post Title:" />
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="tb_title" Width="400px" />
+                        <asp:TextBox runat="server" ID="tb_title" Width="500px" MaxLength="100" />
                         <asp:Label runat="server" ID="lbl_title_error" Text="" SkinID="Error" />
                     </td>
                     <td>
@@ -210,14 +211,16 @@
                     </td>
                 </tr>
                 <tr>
-                <td colspan="3"><hr /></td>
+                    <td colspan="3">
+                        <hr />
+                    </td>
                 </tr>
                 <tr>
                     <td>
                     </td>
                     <td colspan="2">
-                    <asp:Label runat="server" ID="lbl_message" />
-                    <asp:LinkButton runat="server" ID="lbtn_post_link"/>
+                        <asp:Label runat="server" ID="lbl_message" />
+                        <asp:LinkButton runat="server" ID="lbtn_post_link" />
                     </td>
                 </tr>
             </table>

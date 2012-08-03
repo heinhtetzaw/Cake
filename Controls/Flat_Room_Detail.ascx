@@ -41,12 +41,12 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <table width="100%">
+                    <table width="100%" >
                         <tr valign="top">
-                            <td>
+                            <td style="width:450px">
                                 <%--Post Info--%>
                                 <table>
-                                    <tr>
+                                    <tr valign="top">
                                         <td class="Title_td">
                                             <asp:Label ID="Label2" runat="server" Text="Title:"></asp:Label>
                                         </td>
@@ -121,7 +121,7 @@
                                     </tr>
                                 </table>
                             </td>
-                            <td>
+                            <td >
                                 <%--Post Description--%>
                                 <table>
                                     <tr>
@@ -137,7 +137,7 @@
                                     <tr>
                                         <td colspan="2">
                                             <asp:TextBox runat="server" ID="lbl_description" ReadOnly="true" TextMode="MultiLine"
-                                                Text="" Width="550px" Height="300px"></asp:TextBox>
+                                                Text="" Width="550px" Height="300px" ></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>

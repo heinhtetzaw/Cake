@@ -145,5 +145,5 @@
     <hr />
     <uc2:PostAndViewCount ID="PostAndViewCount1" runat="server" />
     <hr />
-
+     <uc6:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar2" runat="server" />
 </asp:Content>

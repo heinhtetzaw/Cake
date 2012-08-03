@@ -4,9 +4,9 @@
 {
     background-color: White;
     margin: auto;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='gray'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(white), to(gray)); /* for webkit browsers */
-    background: -moz-linear-gradient(top,  white,  gray); /* for firefox 3.6+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3A5FCD', endColorstr='LightSlateGrey'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#3A5FCD), to(LightSlateGrey)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #3A5FCD,  LightSlateGrey); /* for firefox 3.6+ */
 }
 
 /*Div*/
@@ -26,7 +26,7 @@
 {
     width: 1000px;
     background-color: #F5F5F5;
-    height: 50px;
+   
     text-align: left;
 }
 .TitleBox
@@ -170,6 +170,11 @@
     color: Black;
     width: 120px;
     
+}
+.Title_td_3
+{
+    text-align: left;
+    color: Black;
 }
 
 /*Textbox Watermark*/

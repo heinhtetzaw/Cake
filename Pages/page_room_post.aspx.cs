@@ -158,6 +158,12 @@ public partial class Pages_page_room_post : BasePage
             tb_description.CssClass = "ErrorTextBox";
             IsValid = false;
         }
+        if (tb_description.Text.Length > 1500)
+        {
+            lbl_description_error.Text = "Not allow more than 1,500 words";
+            tb_description.CssClass = "ErrorTextBox";
+            IsValid = false;
+        }
         if (tb_title.Text.Trim() == "")
         {
             lbl_title_error.Text = "Please fill";

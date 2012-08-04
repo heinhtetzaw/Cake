@@ -232,10 +232,12 @@ public partial class Pages_page_room_post : BasePage
             }
             else
             {
-                lbl_message.Text = "Great! Your adv is posted on our listing. For viewing your post, please click the following link.";
-                lbtn_post_link.Attributes.Add("target", "_blank");
-                lbtn_post_link.Text = GenerateNewDetailPageLinkOnly(room_id);
-                lbtn_post_link.PostBackUrl = GenerateNewDetailPageLinkOnly(room_id);
+                //lbl_message.Text =Resources.Resource.post_successful_message;
+                //lbtn_post_link.Attributes.Add("target", "_blank");
+                //lbtn_post_link.Text = GenerateNewDetailPageLinkOnly(room_id);
+                //lbtn_post_link.PostBackUrl = GenerateNewDetailPageLinkOnly(room_id);
+
+                Response.Redirect(GenerateNewDetailPageLinkOnly(room_id), false);
             }
             #endregion
 

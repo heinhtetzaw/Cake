@@ -123,8 +123,14 @@
   <data name="find_room" xml:space="preserve">
     <value>Find Room</value>
   </data>
+  <data name="get_lastpost_message" xml:space="preserve">
+    <value>To find your last posted room advertisement.</value>
+  </data>
   <data name="post_room_adv" xml:space="preserve">
     <value>Post Room Advertisement</value>
+  </data>
+  <data name="post_successful_message" xml:space="preserve">
+    <value>We have posted your adv successfully and we can preview on the following link.</value>
   </data>
   <data name="room_bookmark" xml:space="preserve">
     <value>Your Bookmarks</value>

@@ -69,7 +69,7 @@
                     <td class="Title_td_2">
                     </td>
                     <td colspan="2">
-                        <asp:LinkButton runat="server" ID="lbtn_get_info" Text="Lazy to retype? Get your last post here."
+                        <asp:LinkButton runat="server" ID="lbtn_get_info" Text="<%$ Resources:Resource,get_lastpost_message %>"
                             OnClick="lbtn_get_info_Click" />
                     </td>
                 </tr>
@@ -81,7 +81,7 @@
                         <asp:TextBox runat="server" ID="tb_price" Width="60px" onkeyup="javascript:PopulateTitle()"
                             MaxLength="5" />
                         <ajaxToolkit:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server"
-                            TargetControlID="tb_price" WatermarkText="350" WatermarkCssClass="watermarked">
+                            TargetControlID="tb_price" WatermarkText="Price" WatermarkCssClass="watermarked">
                         </ajaxToolkit:TextBoxWatermarkExtender>
                         <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" runat="server"
                             FilterType="Numbers" TargetControlID="tb_price" ValidChars="Numbers">

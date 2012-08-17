@@ -4,7 +4,7 @@
 <asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One" ForeColor="Red" SkinID="Error" />
 <asp:Label runat="server"  Font-Size="11" Font-Names="Zawgyi-One" ForeColor="Green" SkinID="Highlighted" Font-Bold="true"/>
 <asp:Label runat="server"  Font-Size="11" Font-Names="Zawgyi-One" ForeColor="Black" SkinID="TitleLabel" Font-Bold="true"/>
-<asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One" SkinID="MenuButton" Font-Bold="true" Font-Overline="false" />
+<asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One" SkinID="MenuButton" Font-Bold="true" Font-Overline="false"/>
 <%--Button--%>
 <asp:Button runat="server" Font-Size="10" Font-Names="Zawgyi-One" />
 <%--TextBox--%>

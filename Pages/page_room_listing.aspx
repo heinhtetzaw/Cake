@@ -139,6 +139,8 @@
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
+<uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
+<hr />
     <uc3:facebookLike ID="facebookLike1" runat="server" />
     <hr />
     <uc6:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />

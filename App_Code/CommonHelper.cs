@@ -65,7 +65,7 @@ public static class CommonHelper
         else if (difference.Days > 0 && difference.Days <= 7)
             result = string.Format("last {0} days ago", difference.Days.ToString());
         else if (difference.Days > 7)
-            result = check_date_time.Value.ToString("dd MMMM hh:mm tt");
+            result = check_date_time.Value.ToString("dd/MM/yyyy");
         return result;
     }
     public static String GetStandardDateFormat(DateTime? check_date_time)

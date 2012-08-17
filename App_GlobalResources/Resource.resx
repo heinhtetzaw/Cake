@@ -126,6 +126,9 @@
   <data name="get_lastpost_message" xml:space="preserve">
     <value>To find your last posted room advertisement.</value>
   </data>
+  <data name="main_menu" xml:space="preserve">
+    <value>Main Page</value>
+  </data>
   <data name="post_room_adv" xml:space="preserve">
     <value>Post Room Advertisement</value>
   </data>

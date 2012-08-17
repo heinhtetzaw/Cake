@@ -134,8 +134,7 @@ public class BasePage : Page
 
         HtmlMeta _metaD = new HtmlMeta();
         _metaD.Name = "Description";
-        _metaD.Content = "Shwe8.net is the one of search engine site for Myanmar in  Singapore as shwe rooms." +
-            "ေရႊၿမန္မာ မ်ားအတြက္ စင္ကာပူ အိမ္ခန္း ငွား ရွာေဖြရန္ ႏွင့္ ေၾကၿငာမ်ား အခမဲ့ တင္ႏုိင္ရန္";
+        _metaD.Content = "Shwe8.net is the one of search engine site for Myanmar in  Singapore as shwe rooms.";
 
         HtmlMeta _metaK = new HtmlMeta();
         _metaK.Name = "Keywords";

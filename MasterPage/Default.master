@@ -25,12 +25,12 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-</script>
+    </script>
 </head>
 <body class="main_body_back_frame">
     <form id="form1" runat="server">
-   
-    <ajaxToolkit:ToolkitScriptManager runat="server" ID="script_manager_main" CombineScriptsHandlerUrl="../CombineScriptsHandler.ashx"  CombineScripts="true"/>
+    <ajaxToolkit:ToolkitScriptManager runat="server" ID="script_manager_main" CombineScriptsHandlerUrl="../CombineScriptsHandler.ashx"
+        CombineScripts="true" />
     <center>
         <asp:Panel runat="server" ID="panel_header" CssClass="HeadBox">
             <table width="100%" cellpadding="0" cellspacing="0">
@@ -45,31 +45,45 @@
                 </tr>
                 <tr valign="bottom" style="height: 48px;">
                     <td align="left">
-                        <table style="padding-right: 3px" cellpadding="0px" width="100%">
+                        <table cellpadding="0px" width="100%" cellspacing="0px" border="0" style="padding-right:1px">
                             <tr>
                                 <td>
-                                    <asp:LinkButton runat="server" ID="btn_room" PostBackUrl="~/list/all">
-                                        <asp:Panel runat="server" ID="panel_button_room" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
+                                    <asp:LinkButton runat="server" ID="LinkButton1" PostBackUrl="~/list/all" SkinID="menu" >
+                                        <asp:Panel runat="server" ID="panel_button_main" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
                                             onmouseout="this.className='MenuButtonSmall';">
-                                            <asp:Label runat="server" ID="lbl_room_menu" Text="<%$ Resources:Resource,room_menu %>"  SkinID="MenuButton" />
+                                            <asp:Label runat="server" ID="Label1" Text="<%$ Resources:Resource,main_menu %>"
+                                                SkinID="MenuButton" />
                                         </asp:Panel>
-                                        <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_room" runat="server"
-                                            TargetControlID="panel_button_room" Corners="Top">
+                                        <ajaxToolkit:RoundedCornersExtender BorderColor="Black" ID="RoundedCornersExtender2" runat="server" TargetControlID="panel_button_main"
+                                            Corners="Top">
                                         </ajaxToolkit:RoundedCornersExtender>
                                     </asp:LinkButton>
                                 </td>
                                 <td>
-                                    <asp:LinkButton runat="server" ID="btn_contact_us" PostBackUrl="~/contactus">
-                                        <asp:Panel runat="server" ID="panel_button_contact_us" CssClass="MenuButtonSmall"
-                                            onmouseover="this.className='MenuButtonSmall_Mouse_Over';" onmouseout="this.className='MenuButtonSmall';">
-                                            <asp:Label runat="server" ID="lbl_contact_us_menu" Text="<%$ Resources:Resource,contact_us %>" SkinID="MenuButton" />
+                                    <asp:LinkButton runat="server" ID="btn_room" PostBackUrl="~/list/all" SkinID="menu" >
+                                        <asp:Panel runat="server" ID="panel_button_room" CssClass="MenuButtonSmall_ALT" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
+                                            onmouseout="this.className='MenuButtonSmall_ALT';">
+                                            <asp:Label runat="server" ID="lbl_room_menu" Text="<%$ Resources:Resource,room_menu %>"
+                                                SkinID="MenuButton" />
                                         </asp:Panel>
-                                        <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_contact_us" runat="server"
-                                            TargetControlID="panel_button_contact_us" Corners="Top">
+                                        <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_room" runat="server"
+                                            TargetControlID="panel_button_room" Corners="Top" BorderColor="Black" >
                                         </ajaxToolkit:RoundedCornersExtender>
                                     </asp:LinkButton>
                                 </td>
-                                <td align="right" style="width:500px">
+                                <td>
+                                    <asp:LinkButton runat="server" ID="btn_contact_us" PostBackUrl="~/contactus" SkinID="menu" >
+                                        <asp:Panel runat="server" ID="panel_button_contact_us" CssClass="MenuButtonSmall"
+                                            onmouseover="this.className='MenuButtonSmall_Mouse_Over';" onmouseout="this.className='MenuButtonSmall';">
+                                            <asp:Label runat="server" ID="lbl_contact_us_menu" Text="<%$ Resources:Resource,contact_us %>"
+                                                SkinID="MenuButton" />
+                                        </asp:Panel>
+                                        <ajaxToolkit:RoundedCornersExtender ID="coner_ex_panel_button_contact_us" runat="server"
+                                            TargetControlID="panel_button_contact_us" Corners="Top" BorderColor="Black" >
+                                        </ajaxToolkit:RoundedCornersExtender>
+                                    </asp:LinkButton>
+                                </td>
+                                <td align="right" style="width: 500px">
                                     <asp:ImageButton ID="btn_myanmar" runat="server" ImageUrl="~/Images/flag_myanmar.png"
                                         CommandArgument="myanmar" OnCommand="btn_myanmar_Command" />
                                     <asp:ImageButton ID="btn_english" runat="server" ImageUrl="~/Images/flag_english.png"

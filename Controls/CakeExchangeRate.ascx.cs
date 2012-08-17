@@ -16,16 +16,22 @@ public partial class Controls_CakeExchangeRate : System.Web.UI.UserControl
     }
     private void ShowExchangeRate()
     {
+        try
+        {
+            CurrencyConverter cc = new CurrencyConverter();
 
-        CurrencyConverter cc = new CurrencyConverter();
+            cc.AdjustToLocalTime = false;
 
-        cc.AdjustToLocalTime = false;
-
-        // Add a proxy here is needed. Example:
-        // cc.Proxy = new System.Net.WebProxy("0.0.0.0", 80);
-        CurrencyData cd = cc.GetCurrencyData("SGD", "MMK");
-        lbl_ExchangeRate.Text = String.Format("1 SGD = {0} Kyats", (cd.Rate).ToString("C0").Replace("$", "").Replace("RM", ""));
-        lbl_checkon.Text = "based on Yahoo! Finance";
+            // Add a proxy here is needed. Example:
+            // cc.Proxy = new System.Net.WebProxy("0.0.0.0", 80);
+            CurrencyData cd = cc.GetCurrencyData("SGD", "MMK");
+            lbl_ExchangeRate.Text = String.Format("1 SGD = {0} Kyats", (cd.Rate - 7).ToString("C0").Replace("$", "").Replace("RM", "").Replace("¥", ""));
+            lbl_checkon.Text = "based on Yahoo! Finance";
+        }
+        catch (Exception ex)
+        {
+            lbl_checkon.Text = "Service unavailable :(";
+        }
 
     }
 }

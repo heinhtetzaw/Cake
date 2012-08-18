@@ -7,17 +7,24 @@
            "contactus", "contactus", "~/Pages/contactus.aspx");
         //System.Web.Routing.RouteTable.Routes.MapPageRoute("default", "", "~/Default.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
-            "room_post", "post", "~/Pages/page_room_post.aspx");
+            "room_post", "post", "~/Pages/Rooms/page_room_post.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
-            "room_list", "list/all", "~/Pages/page_room_listing.aspx");
+            "room_list", "list/all", "~/Pages/Rooms/page_room_listing.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
-           "room_list_detail", "list2/{room_id}", "~/Pages/page_room_listing.aspx");
+           "room_list_detail", "list2/{room_id}", "~/Pages/Rooms/page_room_listing.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
-           "room_detail", "room/{room_id}", "~/Pages/page_room_detail.aspx");
+           "room_detail", "room/{room_id}", "~/Pages/Rooms/page_room_detail.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
-            "room_bookmark", "bookmark", "~/Pages/page_bookmark.aspx");
+            "room_bookmark", "bookmark", "~/Pages/Rooms/page_bookmark.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute(
-            "room_map", "map/{postalcode}", "~/Pages/page_google_map.aspx");
+            "room_map", "map/{postalcode}", "~/Pages/Rooms/page_google_map.aspx");
+
+
+        #region Quote
+        System.Web.Routing.RouteTable.Routes.MapPageRoute(
+         "quote_listing", "quote", "~/Pages/Quotes/page_quote_listing.aspx");
+        #endregion
+
     }
 
     void Application_End(object sender, EventArgs e)

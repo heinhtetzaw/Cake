@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Flat.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Rooms/Flat.master" AutoEventWireup="true"
     CodeFile="page_room_post.aspx.cs" Inherits="Pages_page_room_post" Theme="Default" %>
 
-<%@ Register Src="../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc1" %>
-<%@ Register Src="../Controls/GoogleAdsence_SlideBar.ascx" TagName="GoogleAdsence_SlideBar"
+<%@ Register Src="../../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc1" %>
+<%@ Register Src="../../Controls/GoogleAdsence_SlideBar.ascx" TagName="GoogleAdsence_SlideBar"
     TagPrefix="uc2" %>
-<%@ Register Src="../Controls/Facebook_Post.ascx" TagName="Facebook_Post" TagPrefix="uc3" %>
+<%@ Register Src="../../Controls/Facebook_Post.ascx" TagName="Facebook_Post" TagPrefix="uc3" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <script language="javascript" type="text/jscript">
         function PopulateTitle() {

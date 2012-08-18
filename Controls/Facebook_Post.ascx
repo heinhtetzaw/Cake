@@ -11,3 +11,4 @@
 <asp:HiddenField runat="server" ID="hfName" />
 <asp:HiddenField runat="server" ID="hfURL" />
 <asp:HiddenField runat="server" ID="hfImageURL" />
+<asp:HiddenField runat="server" ID="hfLink" />

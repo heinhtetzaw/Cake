@@ -1,4 +1,20 @@
-﻿
+﻿/*Label*/
+.label_supporter
+{
+    font-style:italic;
+    color:Gray;
+}
+.label_title5
+{
+    font-weight:bold;
+    color:Gray;
+    text-decoration:underline;
+}
+.label_title2
+{
+    font-weight:bold;
+    color:White;
+}
 /*Main Body Frame*/
 .main_body_back_frame
 {

@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Flat.master" Theme="default"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Rooms/Flat.master" Theme="default"
     AutoEventWireup="true" CodeFile="page_bookmark.aspx.cs" Inherits="Pages_page_bookmark" %>
 
-<%@ Register Src="../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate" TagPrefix="uc1" %>
-<%@ Register Src="../Controls/PostAndViewCount.ascx" TagName="PostAndViewCount" TagPrefix="uc2" %>
-<%@ Register Src="../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc3" %>
+<%@ Register Src="../../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate" TagPrefix="uc1" %>
+<%@ Register Src="../../Controls/PostAndViewCount.ascx" TagName="PostAndViewCount" TagPrefix="uc2" %>
+<%@ Register Src="../../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc3" %>
 <%@ MasterType VirtualPath="~/MasterPage/Default.master" %>
-<%@ Register Src="../Controls/Flat_Room_Detail.ascx" TagName="Flat_Room_Detail" TagPrefix="uc4" %>
-<%@ Register Src="../Controls/BookmarkPostsList.ascx" TagName="BookmarkPostsList"
+<%@ Register Src="../../Controls/Flat_Room_Detail.ascx" TagName="Flat_Room_Detail" TagPrefix="uc4" %>
+<%@ Register Src="../../Controls/BookmarkPostsList.ascx" TagName="BookmarkPostsList"
     TagPrefix="uc5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainPanel" runat="Server">
     <asp:UpdatePanel runat="server" ID="panel_main">

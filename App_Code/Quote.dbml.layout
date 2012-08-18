@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Quote">
+  <DataContextMoniker Name="/QuoteDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fc017855-d611-4e72-9de1-f5e0ff36a5a3" absoluteBounds="0.75, 0.75, 2, 2.5489068131645523">
+      <DataClassMoniker Name="/QuoteDataContext/quote_post" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b41bf8d-063b-4e08-a37c-551bd5746df3" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.9889068131645522" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c17f04b6-f84d-4a02-8da6-e574d009ba66" absoluteBounds="3.75, 0.75, 2, 1.2680840890606246">
+      <DataClassMoniker Name="/QuoteDataContext/quote_type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08450b34-6db9-4b61-9a5b-fa45fae61f26" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.70808408906062437" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f47ff2d7-5aa8-493b-a989-ff8f1f93854a" absoluteBounds="6, 4.75, 2, 2.7623772671818734">
+      <DataClassMoniker Name="/QuoteDataContext/filtered_quote_post" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55bdf66b-806e-4359-b27e-6f4b12499320" absoluteBounds="6.015, 5.21, 1.9700000000000002, 2.2023772671818733" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

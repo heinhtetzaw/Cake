@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/RightDock.master" AutoEventWireup="true"
+    CodeFile="Quote.master.cs" Inherits="Pages_Quotes_Quote" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadPanel" runat="Server">
+    <table width="1000px" style="height: 74px; text-align: left; font-size: 13" cellspacing="0">
+        <tr valign="middle">
+        <td style="width:48px">
+        <asp:Image runat="server" ID="icon" ImageUrl="~/Images/quote.png" />
+        </td>
+            <td>
+                <asp:Label runat="server" ID="title" Text="<%$ Resources:Resource,quote_title %>"
+                    CssClass="label_title2" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
+    <asp:ContentPlaceHolder runat="server" ID="MainPanel">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="RightSidePanel" runat="Server">
+    <asp:ContentPlaceHolder runat="server" ID="RightSidePanel">
+    </asp:ContentPlaceHolder>
+</asp:Content>

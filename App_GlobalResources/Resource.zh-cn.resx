@@ -135,11 +135,17 @@
   <data name="post_successful_message" xml:space="preserve">
     <value>သင့္၏ ေၾကၿငာကုိ လက္ခံရရွိပါသည္။ သင့္၏ ေၾကၿငာကုိ ေၾကၿငာ page တြင္ အလြယ္တကူ ဝင္ေရာက္ရွာေဖြႏုိင္ပါသည္။ ေအာက္ပါ Linkမွလည္း သင္ အစမ္းၾကည့္ရွဴႏုိင္ပါသည္။</value>
   </data>
+  <data name="quote_menu" xml:space="preserve">
+    <value>အေတြးအၿမင္</value>
+  </data>
+  <data name="quote_title" xml:space="preserve">
+    <value>အေတြးအၿမင္မ်ား - ယခုုအခ်ိန္တြင္ ၿပသာနာကုုိ လုုံးဝေမ့ထားလုုိက္ပါ။ ေခြးတစ္ေကာင္ကုုိ ေမြးထားၿပီး သင့္အား ေဟာင္ခုုိင္းရန္ အေၾကာင္းမရွိပါ။</value>
+  </data>
   <data name="room_bookmark" xml:space="preserve">
     <value>သင္၏ Bookmarks</value>
   </data>
   <data name="room_menu" xml:space="preserve">
-    <value>အိမ္ခန္းမ်ား</value>
+    <value>SG အိမ္ခန္းမ်ား</value>
   </data>
   <data name="room_post_page_title" xml:space="preserve">
     <value>သင့္၏ အိမ္ခန္း ေၾကၿငာရန္ ေအာက္ပါ Form ကုိ ၿဖည့္၍ လြယ္ကူစြာ ေၾကၿငာႏုိင္ပါသည္။</value>

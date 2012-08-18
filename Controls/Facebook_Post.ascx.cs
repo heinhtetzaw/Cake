@@ -7,39 +7,43 @@ using System.Web.UI.WebControls;
 using ImpactWorks.FBGraph.Connector;
 using ImpactWorks.FBGraph.Core;
 using ImpactWorks.FBGraph.Interfaces;
+using System.Reflection;
 
 public partial class Controls_Facebook_Post : BaseControl
 {
-    public String Caption {
-        get { return hfCaption.Value; }
-        set { hfCaption.Value = value; }
+    public String Caption
+    {
+        get { return Session["fb_caption"].ToString(); }
+        set { Session["fb_caption"] = value; }
     }
 
-    public String Description {
-        get { return hfDescription.Value; }
-        set { hfDescription.Value = value; }
-    } 
+    public String Description
+    {
+        get { return Session["fb_description"].ToString(); }
+        set { Session["fb_description"] = value; }
+    }
     public String ImageURL
     {
-        get{ return hfImageURL.Value;}
-        set{hfImageURL.Value=value;}
+        get { return Session["fb_ImageURL"].ToString(); }
+        set { Session["fb_ImageURL"] = value; }
     }
     public String Message
     {
-        get{return hfMessage.Value;}
-        set{hfMessage.Value=value;}
+        get { return Session["fb_message"].ToString(); }
+        set { Session["fb_message"] = value; }
     }
     public String PostName
     {
-        get{return hfName.Value;}
-        set{hfName.Value=value;}
+        get { return Session["fb_PostName"].ToString(); }
+        set { Session["fb_PostName"] = value; }
     }
     public String PostURL
     {
-        get{return hfURL.Value;}
-        set{ hfURL.Value=value;}
+        get { return Session["fb_posturl"].ToString(); }
+        set { Session["fb_posturl"] = value; }
     }
-  
+
+
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -61,18 +65,27 @@ public partial class Controls_Facebook_Post : BaseControl
             IFeedPost FBpost = new FeedPost();
 
             //Custom Action that we can add
-            FBpost.Action = new FBAction { Name = "Via Shwe8.NET Room Adv.", Link = "http://www.shwe8.net" };
-            FBpost.Caption =Caption;
-            FBpost.Description =Description;
+            FBpost.Action = new FBAction { Name = "Via Shwe8.NET", Link = "http://shwe8.net" };
+            FBpost.Caption = Caption;
+            FBpost.Description = Description;
             FBpost.ImageUrl = ImageURL;
-            FBpost.Message =Message;
-            FBpost.Name =PostName;
+            FBpost.Message = Message;
+            FBpost.Name = PostName;
             FBpost.Url = PostURL;
 
             var postID = facebook.PostToWall(currentUser.id.GetValueOrDefault(), FBpost);
             SetSessionValue("request_session", "false");
             lbl_status.Text = "Shared on facebook successfully. Great!";
             btnShare.Visible = false;
+            //Remove Code and Session from query string
+            PropertyInfo isreadonly =
+  typeof(System.Collections.Specialized.NameValueCollection).GetProperty(
+  "IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+            // make collection editable
+            isreadonly.SetValue(this.Request.QueryString, false, null);
+            Request.QueryString.Remove("code"); Request.QueryString.Remove("request_session");
+            //Show successful alert message for sharing.
+            Response.Write("<script>alert('Shared on facebook successfully. Great!')</script>");
         }
 
         #endregion

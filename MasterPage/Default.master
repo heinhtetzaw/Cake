@@ -71,10 +71,22 @@
                                         </ajaxToolkit:RoundedCornersExtender>
                                     </asp:LinkButton>
                                 </td>
+                                 <td>
+                                    <asp:LinkButton runat="server" ID="LinkButton2" PostBackUrl="~/quote" SkinID="menu" >
+                                        <asp:Panel runat="server" ID="panel_button_quote" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
+                                            onmouseout="this.className='MenuButtonSmall';">
+                                            <asp:Label runat="server" ID="Label2" Text="<%$ Resources:Resource,quote_menu %>"
+                                                SkinID="MenuButton" />
+                                        </asp:Panel>
+                                        <ajaxToolkit:RoundedCornersExtender BorderColor="Black" ID="RoundedCornersExtender3" runat="server" TargetControlID="panel_button_quote"
+                                            Corners="Top">
+                                        </ajaxToolkit:RoundedCornersExtender>
+                                    </asp:LinkButton>
+                                </td>
                                 <td>
                                     <asp:LinkButton runat="server" ID="btn_contact_us" PostBackUrl="~/contactus" SkinID="menu" >
-                                        <asp:Panel runat="server" ID="panel_button_contact_us" CssClass="MenuButtonSmall"
-                                            onmouseover="this.className='MenuButtonSmall_Mouse_Over';" onmouseout="this.className='MenuButtonSmall';">
+                                        <asp:Panel runat="server" ID="panel_button_contact_us" CssClass="MenuButtonSmall_ALT"
+                                            onmouseover="this.className='MenuButtonSmall_Mouse_Over';" onmouseout="this.className='MenuButtonSmall_ALT';">
                                             <asp:Label runat="server" ID="lbl_contact_us_menu" Text="<%$ Resources:Resource,contact_us %>"
                                                 SkinID="MenuButton" />
                                         </asp:Panel>

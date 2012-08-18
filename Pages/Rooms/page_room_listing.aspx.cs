@@ -48,13 +48,7 @@ public partial class Pages_page_room_listing : BasePage
         Bind_List(0);
     }
 
-    protected void gridview_rooms_list_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-        if (e.CommandName == "go_detail")
-        {
-            string room_id = e.CommandArgument.ToString();
-        }
-    }
+   
 
 
     protected void gridview_rooms_list_RowDataBound(object sender, GridViewRowEventArgs e)

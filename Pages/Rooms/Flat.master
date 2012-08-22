@@ -3,43 +3,42 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadPanel" runat="Server">
     <table width="1000" style="text-align: left; min-height:64" cellspacing="0">
-        <tr valign="middle">
+        <tr valign="middle" style="height:70px">
+       
             <td onmouseover="this.className='MenuButtonBoxMouseOver';" onmouseout="this.className='MenuButtonBoxMouseUp';">
                 <asp:LinkButton ID="LinkButton1" runat="server" SkinID="menu" PostBackUrl="~/list/all">
                     <table class="MenuButtonBox">
                         <tr>
-                            <td style="width: 70px">
+                            <td>
                                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/find_rooms.png" />
-                            </td>
-                            <td> 
+                           
                                 <asp:Label runat="server" ID="menu_find_room" Text="<%$ Resources:Resource,find_room %>" />
                             </td>
                         </tr>
                     </table>
                 </asp:LinkButton>
             </td>
-             <td onmouseover="this.className='MenuButtonBoxMouseOver';" onmouseout="this.className='MenuButtonBoxMouseUp';">
+           
+           <%--  <td onmouseover="this.className='MenuButtonBoxMouseOver';" onmouseout="this.className='MenuButtonBoxMouseUp';">
                 <asp:LinkButton ID="LinkButton3" runat="server" SkinID="menu" PostBackUrl="~/bookmark">
                     <table class="MenuButtonBox">
                         <tr>
-                            <td style="max-width: 64px">
-                                <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/bookmark.png" />
-                            </td>
                             <td>
+                                <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/bookmark.png" />
+                          
                                 <asp:Label runat="server" ID="Label2" Text="<%$ Resources:Resource,room_bookmark %>" />
                             </td>
                         </tr>
                     </table>
                 </asp:LinkButton>
-            </td>
+            </td>--%>
             <td onmouseover="this.className='MenuButtonBoxMouseOver';" onmouseout="this.className='MenuButtonBoxMouseUp';">
                 <asp:LinkButton ID="LinkButton2" runat="server" Text="" SkinID="menu" PostBackUrl="~/post">
                     <table class="MenuButtonBox">
                         <tr>
-                            <td style="width: 64px">
-                                <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/post_adv.png" />
-                            </td>
                             <td>
+                                <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/post_adv.png" />
+                          
                                 <asp:Label runat="server" ID="Label1" Text="<%$ Resources:Resource,post_room_adv %>" />
                             </td>
                         </tr>

@@ -10,6 +10,7 @@
     TagPrefix="uc5" %>
 <%@ Register Src="../../Controls/GoogleAdsence_SlideBar.ascx" TagName="GoogleAdsence_SlideBar"
     TagPrefix="uc6" %>
+<%@ Register src="../../Controls/adv/adv_790_90.ascx" tagname="adv_790_90" tagprefix="uc7" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <asp:UpdatePanel runat="server" ID="panel_main">
         <ContentTemplate>
@@ -19,7 +20,7 @@
             <ajaxToolkit:RoundedCornersExtender ID="rce_panel_header" runat="server" TargetControlID="panel_header"
                 Corners="Top">
             </ajaxToolkit:RoundedCornersExtender>
-            <div class="HighLightBox">
+            <uc7:adv_790_90 ID="adv_790_901" runat="server" /><div class="HighLightBox">
                 <table>
                     <tr>
                         <td>

@@ -115,7 +115,7 @@
                                         </td>
                                         <td>
                                            
-                                            <uc5:BookmarkPostControl ID="bookmark_object" runat="server" />
+                                            <uc5:BookmarkPostControl ID="bookmark_object" runat="server" Visible="false" />
                                            <uc1:Facebook_Post ID="FBpost" runat="server" />
                                         </td>
                                     </tr>

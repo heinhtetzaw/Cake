@@ -251,4 +251,8 @@ public partial class Pages_page_room_post : BasePage
             CommonHelper.ReportError(ex,String.Format( "Creating new post by {0}, {1}", tb_email.Text,tb_mobile.Text)); 
         }
     }
+    public String GenerateNewDetailPageLinkOnly(String Room_ID)
+    {
+        return string.Format("{0}://{1}{2}/room/{3}", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, Room_ID);
+    }
 }

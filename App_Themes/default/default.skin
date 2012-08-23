@@ -22,6 +22,6 @@
     <HeaderStyle Font-Size="10" Font-Names="Zawgyi-One" cssClass="Header"/>
 
     <RowStyle Font-Size="10" Font-Names="Zawgyi-One" CssClass="GridRow" />
-    <AlternatingRowStyle CssClass="GridAlterRow" Font-Size="10" Font-Names="Tahoma" />
+    <AlternatingRowStyle CssClass="GridAlterRow" Font-Size="10" Font-Names="Zawgyi-One" />
     <SelectedRowStyle CssClass="GridSelectedRow" />
 </asp:GridView>

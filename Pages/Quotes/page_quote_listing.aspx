@@ -13,7 +13,7 @@
         <ContentTemplate>
             <div class="WorkingBox">
                 <asp:GridView ID="gridview_quote_list" runat="server" CellPadding="5" Width="100%"
-                    OnRowDataBound="gridview_Quote_list_RowDataBound" AllowPaging="True" PageSize="25"
+                    OnRowDataBound="gridview_Quote_list_RowDataBound" AllowPaging="True" PageSize="10"
                     OnPageIndexChanging="gridview_Quote_list_PageIndexChanging" OnRowCommand="gridview_quote_list_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="Quotes">
@@ -40,7 +40,7 @@
                                                 CommandArgument="<%# Container.DataItemIndex %>" CommandName="post_facebook" />
                                         </td>
                                     </tr>
-                                    <tr>
+                               
                                 </table>
                                 <asp:HiddenField ID="hidden_room_id" runat="server" Value='<%# Bind("quote_id") %>' />
                             </ItemTemplate>

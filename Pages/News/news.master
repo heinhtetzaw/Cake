@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/RightDock.master" AutoEventWireup="true" CodeFile="news.master.cs" Inherits="Pages_News_news" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadPanel" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" Runat="Server">
+ <asp:ContentPlaceHolder runat="server" ID="MainPanel">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="RightSidePanel" Runat="Server">
+ <asp:ContentPlaceHolder runat="server" ID="RightSidePanel">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+

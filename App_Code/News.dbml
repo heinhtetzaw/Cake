@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_45244_shwe8" Class="NewsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=tcp:s06.winhost.com;Initial Catalog=DB_45244_shwe8;User ID=DB_45244_shwe8_user" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CAKE_WAVEConnectionString4" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.news_post" Member="news_posts">
+    <Type Name="news_post">
+      <Column Name="news_id" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="subject" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="body" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="news_type_id" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="post_on" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="news_source_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="img_url" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.news_source" Member="news_sources">
+    <Type Name="news_source">
+      <Column Name="news_source_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="source_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="enable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.news_type" Member="news_types">
+    <Type Name="news_type">
+      <Column Name="news_type_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="news_type_description" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="enable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.filtered_news_post" Member="filtered_news_posts">
+    <Type Name="filtered_news_post">
+      <Column Name="news_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="subject" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="news_type_id" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="post_on" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="news_source_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="img_url" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="source_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="news_type_description" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

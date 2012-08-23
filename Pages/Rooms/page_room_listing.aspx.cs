@@ -48,8 +48,15 @@ public partial class Pages_page_room_listing : BasePage
         Bind_List(0);
     }
 
-   
 
+    public String GenerateNewDetailPageLink(String Room_ID)
+    {
+        return string.Format("OpenNewWindow('{0}://{1}{2}room/{3}');", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, Room_ID);
+    }
+    public String GenerateNewDetailPageLinkOnly(String Room_ID)
+    {
+        return string.Format("{0}://{1}{2}/room/{3}", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, Room_ID);
+    }
 
     protected void gridview_rooms_list_RowDataBound(object sender, GridViewRowEventArgs e)
     {

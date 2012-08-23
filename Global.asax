@@ -25,6 +25,11 @@
          "quote_listing", "quote", "~/Pages/Quotes/page_quote_listing.aspx");
         #endregion
 
+        #region News
+        System.Web.Routing.RouteTable.Routes.MapPageRoute("news_post", "news/post", "~/Pages/News/post.aspx");
+        System.Web.Routing.RouteTable.Routes.MapPageRoute("news_list", "news/list/all", "~/Pages/News/list.aspx");
+        #endregion
+
     }
 
     void Application_End(object sender, EventArgs e)

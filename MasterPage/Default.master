@@ -47,7 +47,7 @@
                     <td align="left">
                         <table cellpadding="0px" width="100%" cellspacing="0px" border="0" style="padding-right:1px">
                             <tr>
-                                <td>
+                               <%-- <td>
                                     <asp:LinkButton runat="server" ID="LinkButton1" PostBackUrl="~/list/all" SkinID="menu" >
                                         <asp:Panel runat="server" ID="panel_button_main" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
                                             onmouseout="this.className='MenuButtonSmall';">
@@ -55,6 +55,18 @@
                                                 SkinID="MenuButton" />
                                         </asp:Panel>
                                         <ajaxToolkit:RoundedCornersExtender BorderColor="Black" ID="RoundedCornersExtender2" runat="server" TargetControlID="panel_button_main"
+                                            Corners="Top">
+                                        </ajaxToolkit:RoundedCornersExtender>
+                                    </asp:LinkButton>
+                                </td>--%>
+                                  <td>
+                                    <asp:LinkButton runat="server" ID="LinkButton3" PostBackUrl="~/news/list/all" SkinID="menu" >
+                                        <asp:Panel runat="server" ID="panel_button_news" CssClass="MenuButtonSmall" onmouseover="this.className='MenuButtonSmall_Mouse_Over';"
+                                            onmouseout="this.className='MenuButtonSmall';">
+                                            <asp:Label runat="server" ID="Label3" Text="<%$ Resources:Resource,news_menu %>"
+                                                SkinID="MenuButton" />
+                                        </asp:Panel>
+                                        <ajaxToolkit:RoundedCornersExtender BorderColor="Black" ID="RoundedCornersExtender4" runat="server" TargetControlID="panel_button_news"
                                             Corners="Top">
                                         </ajaxToolkit:RoundedCornersExtender>
                                     </asp:LinkButton>

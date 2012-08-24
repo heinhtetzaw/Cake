@@ -7,6 +7,9 @@
 <%@ Register Src="../../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate"
     TagPrefix="uc2" %>
 <%@ Register Src="../../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc4" %>
+<%@ Register src="../News/control/NewsAdv.ascx" tagname="NewsAdv" tagprefix="uc5" %>
+<%@ Register src="../Rooms/control/PostRoomAdv.ascx" tagname="PostRoomAdv" tagprefix="uc6" %>
+<%@ Register src="../Rooms/control/FindRoomAdv.ascx" tagname="FindRoomAdv" tagprefix="uc7" %>
 <%-- Add content controls here --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <asp:UpdatePanel runat="server" ID="panel_main">
@@ -59,8 +62,11 @@
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
+    <uc7:FindRoomAdv ID="FindRoomAdv1" runat="server" />
+    <uc5:NewsAdv ID="NewsAdv1" runat="server" />
     <uc2:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
     <hr />
+    <uc6:PostRoomAdv ID="PostRoomAdv1" runat="server" />
     <uc4:facebookLike ID="facebookLike1" runat="server" />
     <hr />
     <uc1:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />

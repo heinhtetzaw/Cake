@@ -3,23 +3,23 @@
 
 <%@ Register Src="../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadPanel" runat="Server">
-    <table width="1000" style="height: 74px; text-align: left; font-size: 13" cellspacing="0">
-        <tr>
-            <td>
-                <asp:Label runat="server" ID="lablel1" Text="Contact Us" Font-Bold="true" Font-Underline="true"
-                    Font-Size="15" />
-                <br />
-                <asp:Label runat="server" ID="Label3" Font-Italic="true" Text="Please complete the form below. We'll do everything we can to respond to you as quickly as possible. Our goal is to reply to every email within two business days.<br/> Items marked with an asterisk are required." />
-            </td>
-        </tr>
-    </table>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
     <asp:UpdatePanel runat="server" ID="update_panel_main">
         <ContentTemplate>
+            <table width="100%" style="height: 74px; text-align: left; font-size: 13" cellspacing="0">
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="lablel1" Text="Contact Us" Font-Bold="true" Font-Underline="true"
+                            Font-Size="15" />
+                        <br />
+                        <asp:Label runat="server" ID="Label3" Font-Italic="true" Text="Please complete the form below. We'll do everything we can to respond to you as quickly as possible. Our goal is to reply to every email within two business days." />
+                    </td>
+                </tr>
+            </table>
             <asp:Panel runat="server" ID="panel_form" Visible="true">
-            <asp:Label runat="server" ID="Label4" Text="Enquiry Form " Font-Bold="true" Font-Size="15"></asp:Label>
-            <hr />
+               
+                <hr /> <asp:Label runat="server" ID="Label4" Text="Enquiry Form " Font-Bold="true" Font-Size="15"></asp:Label>
                 <table>
                     <tr>
                         <td>

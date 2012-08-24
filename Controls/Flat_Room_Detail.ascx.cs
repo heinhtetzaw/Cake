@@ -18,6 +18,8 @@ public partial class Controls_Flat_Room_Detail : BaseControl
     {
         DateTime Start_point = DateTime.Now;
 
+      
+
         if (Flat_Helper.Update_View_Count(room_id))
         {
             filtered_flat_room _room = Flat_Helper.Get_Flat_Room(room_id);

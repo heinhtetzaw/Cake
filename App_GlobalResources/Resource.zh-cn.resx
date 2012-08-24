@@ -129,6 +129,9 @@
   <data name="main_menu" xml:space="preserve">
     <value>ပင္မစာမ်က္ႏွာ</value>
   </data>
+  <data name="news_menu" xml:space="preserve">
+    <value>ေန႕စဥ္ သတင္းမ်ား</value>
+  </data>
   <data name="post_room_adv" xml:space="preserve">
     <value>အိမ္ခန္း ေၾကၿငာရန္</value>
   </data>

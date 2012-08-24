@@ -68,4 +68,10 @@ public static class News_Helper
     }
     #endregion
     
+    public static filtered_news_post Get_News_Post (String News_ID)
+    {
+         filtered_news_post news_post= (from c in newsDataContext.filtered_news_posts
+                                        where c.news_id==News_ID select c).FirstOrDefault();
+         return news_post;
+    }
 }

@@ -4,7 +4,7 @@
 <asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One" ForeColor="Red" SkinID="Error" />
 <asp:Label runat="server"  Font-Size="11" Font-Names="Zawgyi-One" ForeColor="Green" SkinID="Highlighted" Font-Bold="true"/>
 <asp:Label runat="server"  Font-Size="11" Font-Names="Zawgyi-One" ForeColor="Black" SkinID="TitleLabel" Font-Bold="true"/>
-<asp:Label runat="server"  Font-Size="10" Font-Names="Zawgyi-One" SkinID="MenuButton" Font-Bold="true" Font-Overline="false"/>
+<asp:Label runat="server"  Font-Size="9" Font-Names="Zawgyi-One" SkinID="MenuButton" Font-Bold="false" Font-Overline="false"/>
 <%--Button--%>
 <asp:Button runat="server" Font-Size="10" Font-Names="Zawgyi-One" />
 <%--TextBox--%>
@@ -16,7 +16,7 @@
 <%--Linkbutton--%>
 <asp:LinkButton runat="server" Font-Size="10" Font-Names="Zawgyi-One" ForeColor="Black" />
 <asp:LinkButton runat="server" Font-Size="10" Font-Names="Zawgyi-One" ForeColor="#00008B" SkinID="TitleLabel_BLUE" Font-Bold="true"/>
-<asp:LinkButton runat="server" Font-Size="12" Font-Names="Zawgyi-One" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"/>
+<asp:LinkButton runat="server" Font-Size="12" Font-Names="Zawgyi-One" SkinID="menu"  ForeColor="White" Font-Overline="false" Font-Bold="true"  />
 <%--Gridview--%>
 <asp:GridView runat="server" BorderColor="Silver" AutoGenerateColumns="False" >
     <HeaderStyle Font-Size="10" Font-Names="Zawgyi-One" cssClass="Header"/>

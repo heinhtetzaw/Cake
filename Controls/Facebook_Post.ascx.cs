@@ -65,7 +65,7 @@ public partial class Controls_Facebook_Post : BaseControl
             IFeedPost FBpost = new FeedPost();
 
             //Custom Action that we can add
-            FBpost.Action = new FBAction { Name = "Via Shwe8.NET", Link = "http://shwe8.net" };
+            FBpost.Action = new FBAction { Name = "Find more Shwe8.NET", Link = "http://shwe8.net" };
             FBpost.Caption = Caption;
             FBpost.Description = Description;
             FBpost.ImageUrl = ImageURL;

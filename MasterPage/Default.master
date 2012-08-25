@@ -141,7 +141,8 @@
                             <table style="width: 100%; height: 100%;">
                                 <tr align="center">
                                     <td valign="middle" align="right" style="width: 30%">
-                                        <img src="../Images/loadingAnimation.gif" alt="Loading" width="32px" height="32px" />
+                                        
+                                        <asp:Image ImageUrl="~/Images/loadingAnimation.gif" runat="server" AlternateText="****"  width="32px" height="32px" />
                                     </td>
                                     <td valign="middle" align="left" style="width: 70%">
                                         <asp:Label runat="server" ID="lbl_updating" Text="Processing, Please wait...." />

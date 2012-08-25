@@ -59,10 +59,10 @@ public static class News_Helper
         if (search_source != "")
             _news_posts = (from c in _news_posts where c.news_source_id == search_source select c);
 
-        if (row_per_page == 0)
+        if (row_per_page != 0)
             return _news_posts.OrderByDescending(c => c.post_on)
                 .Skip(row_per_page * page_index)
-                .Take(row_per_page);
+                .Take(row_per_page+1);
         else
             return _news_posts.OrderByDescending(c => c.post_on);
     }

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Pages_News_control_news_list_box : System.Web.UI.UserControl
+public partial class Pages_News_type : BasePage
 {
     String _header;
     public String Header
@@ -13,18 +13,26 @@ public partial class Pages_News_control_news_list_box : System.Web.UI.UserContro
         get { return _header; }
         set { _header = value; }
     }
+
     String _News_Type;
     public String News_Type
     {
-        get { return _News_Type; }
-        set { _News_Type = value; }
+        get { return hf_news_type.Value; }
+        set { hf_news_type.Value = value; }
 
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.Title = Title_Prefix + "Myanmar NEWS";
         if (IsPostBack) return;
-
+        if (Page.RouteData.Values["type_id"] != null)
+        {
+            News_Type = Page.RouteData.Values["type_id"].ToString();
+            Bind_List(0);
+        }
     }
+
 
     public void BindList()
     {
@@ -58,10 +66,6 @@ public partial class Pages_News_control_news_list_box : System.Web.UI.UserContro
     {
         return string.Format("{0}://{1}{2}/news/{3}", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, news_id);
     }
-    public String GenerateNewTypeinkOnly()
-    {
-        return string.Format("{0}://{1}{2}/news/type/{3}", Request.Url.Scheme, Request.Url.Authority, Request.ApplicationPath, News_Type);
-    }
 
 
 
@@ -69,15 +73,31 @@ public partial class Pages_News_control_news_list_box : System.Web.UI.UserContro
     {
 
     }
-
+    protected void lbtn_Pre_Next_Command(object sender, CommandEventArgs e)
+    {
+        Int32 _newPageIndex = Int32.Parse(hf_current_page.Value);
+        if (e.CommandArgument.ToString().ToLower() == "next")
+        {
+            _newPageIndex = _newPageIndex + 1;
+        }
+        else if (e.CommandArgument.ToString().ToLower() == "previous" && _newPageIndex != 0)
+        {
+            _newPageIndex = _newPageIndex - 1;
+        }
+        hf_current_page.Value = _newPageIndex.ToString();
+        Bind_List(_newPageIndex);
+    }
     #endregion
 
     #region Private Functions
     private void Bind_List(Int32 index_page)
     {
-        List<filtered_news_post> Search_Result = News_Helper.Get_News_Post_List("", News_Type, index_page, gridview_news_list.PageSize).Take(gridview_news_list.PageSize).ToList();
+        List<filtered_news_post> Search_Result = News_Helper.Get_News_Post_List("", News_Type, index_page, gridview_news_list.PageSize).ToList();
+        if (Search_Result.Count > 0) Header = Search_Result[0].news_type_description;
         gridview_news_list.DataSource = Search_Result;
         gridview_news_list.DataBind();
+        lbtn_Previous.Visible = (index_page != 0);
+        lbtn_Next.Visible = (gridview_news_list.PageSize < Search_Result.Count);
     }
     #endregion
 }

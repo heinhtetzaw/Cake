@@ -1,20 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Rooms/Flat.master" Theme="default"
     AutoEventWireup="true" CodeFile="page_room_listing.aspx.cs" Inherits="Pages_page_room_listing" %>
 
-<%@ Register Src="../../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate" TagPrefix="uc1" %>
-<%@ Register Src="../../Controls/PostAndViewCount.ascx" TagName="PostAndViewCount" TagPrefix="uc2" %>
+<%@ Register Src="../../Controls/CakeExchangeRate.ascx" TagName="CakeExchangeRate"
+    TagPrefix="uc1" %>
+<%@ Register Src="../../Controls/PostAndViewCount.ascx" TagName="PostAndViewCount"
+    TagPrefix="uc2" %>
 <%@ Register Src="../../Controls/facebookLike.ascx" TagName="facebookLike" TagPrefix="uc3" %>
 <%@ MasterType VirtualPath="~/MasterPage/Default.master" %>
-<%@ Register Src="../../Controls/Flat_Room_Detail.ascx" TagName="Flat_Room_Detail" TagPrefix="uc4" %>
+<%@ Register Src="../../Controls/Flat_Room_Detail.ascx" TagName="Flat_Room_Detail"
+    TagPrefix="uc4" %>
 <%@ Register Src="../../Controls/BookmarkPostsList.ascx" TagName="BookmarkPostsList"
     TagPrefix="uc5" %>
 <%@ Register Src="../../Controls/GoogleAdsence_SlideBar.ascx" TagName="GoogleAdsence_SlideBar"
     TagPrefix="uc6" %>
-<%@ Register src="../../Controls/adv/adv_790_90.ascx" tagname="adv_790_90" tagprefix="uc7" %>
-<%@ Register src="control/PostRoomAdv.ascx" tagname="PostRoomAdv" tagprefix="uc8" %>
-<%@ Register src="../News/control/NewsAdv.ascx" tagname="NewsAdv" tagprefix="uc9" %>
+<%@ Register Src="../../Controls/adv/adv_790_90.ascx" TagName="adv_790_90" TagPrefix="uc7" %>
+<%@ Register Src="control/PostRoomAdv.ascx" TagName="PostRoomAdv" TagPrefix="uc8" %>
+<%@ Register Src="../News/control/NewsAdv.ascx" TagName="NewsAdv" TagPrefix="uc9" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPanel" runat="Server">
-    <asp:UpdatePanel runat="server" ID="panel_main">
+    <asp:UpdatePanel runat="server" ID="panel_main" UpdateMode="Conditional">
         <ContentTemplate>
             <asp:Panel runat="server" ID="panel_header" Width="100%" CssClass="TitleBox" Visible="false">
                 <asp:Label runat="server" ID="lbl_title" Text="Room List for Rental" SkinID="TitleLabel" />
@@ -22,7 +25,8 @@
             <ajaxToolkit:RoundedCornersExtender ID="rce_panel_header" runat="server" TargetControlID="panel_header"
                 Corners="Top">
             </ajaxToolkit:RoundedCornersExtender>
-            <uc7:adv_790_90 ID="adv_790_901" runat="server" /><div class="HighLightBox">
+            <%-- <uc7:adv_790_90 ID="adv_790_901" runat="server" />--%>
+            <div class="HighLightBox">
                 <table>
                     <tr>
                         <td>
@@ -54,8 +58,8 @@
             </div>
             <div class="WorkingBox">
                 <asp:GridView ID="gridview_rooms_list" runat="server" CellPadding="5" Width="100%"
-                    OnRowDataBound="gridview_rooms_list_RowDataBound"
-                    AllowPaging="True" PageSize="25" OnPageIndexChanging="gridview_rooms_list_PageIndexChanging">
+                    OnRowDataBound="gridview_rooms_list_RowDataBound" AllowPaging="True" PageSize="25"
+                    OnPageIndexChanging="gridview_rooms_list_PageIndexChanging" >
                     <Columns>
                         <asp:TemplateField HeaderText="Room listing for Shwe Rental.">
                             <ItemTemplate>
@@ -99,7 +103,6 @@
                                             <asp:Label ID="Label8" runat="server" Text='<%# Eval("available_count") + " person"%>'></asp:Label>
                                         </td>
                                     </tr>
-                                 
                                     <tr>
                                         <td class="Title_td" style="max-width: 70px; width: 50px">
                                             <asp:Label runat="server" ID="lbl_looking" Text="Looking:" />
@@ -135,25 +138,42 @@
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle Width="50px" HorizontalAlign="Center" />
                         </asp:BoundField>
-                    </Columns>
+                    </Columns><PagerSettings LastPageText="" Visible="False" />
                 </asp:GridView>
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <asp:LinkButton runat="server" ID="lbtn_Previous" Text="Previous" OnCommand="lbtn_Pre_Next_Command"
+                                CommandArgument="previous" />
+                            <asp:HiddenField runat="server" ID="hf_current_page" Value="0" />
+                        </td>
+                        <td align="right">
+                            <asp:LinkButton runat="server" ID="lbtn_Next" Text="Next" OnCommand="lbtn_Pre_Next_Command"
+                                CommandArgument="next" />
+                        </td>
+                    </tr>
+                </table>
             </div>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btn_search" />
+            <asp:PostBackTrigger ControlID="lbtn_Next" />
+            <asp:PostBackTrigger ControlID="lbtn_Previous" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="RightSidePanel" runat="Server">
-    
     <uc8:PostRoomAdv ID="PostRoomAdv1" runat="server" />
-
     <hr />
-<uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
-<hr />
-    <uc9:NewsAdv ID="NewsAdv1" runat="server" /><hr />
+    <uc1:CakeExchangeRate ID="CakeExchangeRate1" runat="server" />
+    <hr />
+    <uc9:NewsAdv ID="NewsAdv1" runat="server" />
+    <hr />
     <uc3:facebookLike ID="facebookLike1" runat="server" />
     <hr />
     <uc6:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />
     <hr />
     <uc2:PostAndViewCount ID="PostAndViewCount1" runat="server" />
     <hr />
-     <uc6:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar2" runat="server" />
+    <uc6:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar2" runat="server" />
 </asp:Content>

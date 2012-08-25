@@ -9,7 +9,7 @@ public partial class Pages_News_list : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Title = Title_Prefix + "Myanamr NEWS";
+        this.Title = Title_Prefix + "Myanmar NEWS";
         if (IsPostBack) return;
 
         list_art.BindList();

@@ -137,7 +137,7 @@ public class BasePage : Page
 
         HtmlMeta _metaK = new HtmlMeta();
         _metaK.Name = "Keywords";
-        _metaK.Content = "Shwe room, Room Rent, Singapore, Shwe8, HDB in Singapore, House for Myanmar, Myanmar Room, Find room mate, Search Room, cheap rental rooms in singapore"
+        _metaK.Content = "Shwe room, Room Rent, Singapore, Myanmar news, Singapore news, Shwe8, HDB in Singapore, House for Myanmar, Myanmar Room, Find room mate, Search Room, cheap rental rooms in singapore"
             + ", renting apartment in singapore"
             + ", free property advertisement"
             + ", finding rooms for rent"

@@ -84,10 +84,10 @@ public static class Flat_Helper
     {
         IQueryable<filtered_flat_room> _flat_rooms = (from c in flatDataContext.filtered_flat_rooms
                 select c);
-        if (row_per_page == 0)
+        if (row_per_page != 0)
             return _flat_rooms.OrderByDescending(c => c.post_on)
                 .Skip(row_per_page * page_index)
-                .Take(row_per_page);
+                .Take(row_per_page+1);
         else
             return _flat_rooms.OrderByDescending(c => c.post_on);
     }
@@ -99,10 +99,10 @@ public static class Flat_Helper
                  ((mrt_id == "all") || (mrt_id != "all" && (c.mrt1_id == mrt_id || c.mrt2_id == mrt_id || c.mrt3_id == mrt_id))) &&
                  ((available_type == "all") || (available_type != "all" && c.available_type == available_type || c.available_type=="b"))
              select c);
-        if (row_per_page == 0)
+        if (row_per_page != 0)
             return _flat_rooms.OrderByDescending(c => c.post_on)
                 .Skip(row_per_page * page_index)
-                .Take(row_per_page);
+                .Take(row_per_page+1);
         else
             return _flat_rooms.OrderByDescending(c => c.post_on);
     }

@@ -29,6 +29,7 @@
         System.Web.Routing.RouteTable.Routes.MapPageRoute("news_post", "news/post", "~/Pages/News/post.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute("news_detail", "news/{news_id}", "~/Pages/News/Detail.aspx");
         System.Web.Routing.RouteTable.Routes.MapPageRoute("news_list", "news/list/all", "~/Pages/News/list.aspx");
+        System.Web.Routing.RouteTable.Routes.MapPageRoute("news_listtype", "news/type/{type_id}", "~/Pages/News/type.aspx");
         #endregion
 
     }

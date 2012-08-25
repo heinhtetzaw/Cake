@@ -17,6 +17,7 @@
                 <uc4:news_list_box ID="list_economic" runat="server" News_Type="2" Header="စီးပြားေရး သတင္းမ်ား" />
                 <uc4:news_list_box ID="list_techno" runat="server" News_Type="4" Header="နည္းပညာ သတင္းမ်ား" />
                 <uc4:news_list_box ID="list_crime" runat="server" News_Type="5" Header="မွဴခင္း သတင္းမ်ား" />
+                 <uc4:news_list_box ID="lsit_international" runat="server" News_Type="7" Header="ႏုိင္ငံတကာ သတင္းမ်ား" />
                 <uc4:news_list_box ID="list_art" runat="server" News_Type="3" Header="အႏုပညာ သတင္းမ်ား" />
                 <uc4:news_list_box ID="list_sport" runat="server" News_Type="6" Header="အားကစား သတင္းမ်ား" />
             </div>
@@ -32,8 +33,5 @@
      <uc5:PostRoomAdv ID="PostRoomAdv1" runat="server" />
      <hr />
     <uc2:facebookLike ID="facebookLike1" runat="server" />
-    <hr />
-    <uc1:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar2" runat="server" />
-    <hr />
-    <uc1:GoogleAdsence_SlideBar ID="GoogleAdsence_SlideBar1" runat="server" />
+   
 </asp:Content>

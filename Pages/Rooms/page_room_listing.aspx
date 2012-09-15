@@ -25,7 +25,7 @@
             <ajaxToolkit:RoundedCornersExtender ID="rce_panel_header" runat="server" TargetControlID="panel_header"
                 Corners="Top">
             </ajaxToolkit:RoundedCornersExtender>
-            <%-- <uc7:adv_790_90 ID="adv_790_901" runat="server" />--%>
+             <uc7:adv_790_90 ID="adv_790_901" runat="server" />
             <div class="HighLightBox">
                 <table>
                     <tr>
